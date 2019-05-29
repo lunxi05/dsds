@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.blackswan.web.dao.MemberDao;
@@ -14,24 +13,23 @@ import com.blackswan.web.entity.Member;
 public class OracleMemberDao implements MemberDao {
 
 	@Override
-	public List<Member> getList() throws Exception {
-		return getList(1, "name", "");
+	public List<MemberView> getList() throws Exception {
+		return getList(1, "title", "");
 	}
 
 	@Override
-	public List<Member> getList(int page) throws Exception {
-		return getList(page, "name", "");
+	public List<MemberView> getList(int page) throws Exception {
+		return getList(page, "title", "");
 	}
 
 	@Override
-	public List<Member> getList(int page, String field, String query) throws Exception {
-
+	public List<MemberView> getList(int page, String field, String query) throws Exception {
 		int start = 1 + (page - 1) * 10;
 		int end = page * 10;
 		
-		List<Member> list = new ArrayList<>();
+		List<MemberView> list = new ArrayList<>();
 		
-		String sql = "SELECT * FROM MEMBER WHERE " + field + " LIKE ?";
+		String sql = "SELECT * FROM MEMBER WHERE " + field + " LIKE ? AND RNUM ? BETWEEN ?";
 
 		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -39,19 +37,18 @@ public class OracleMemberDao implements MemberDao {
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setString(1, "%" + query + "%");
-		//st.setInt(2, start);
-		//st.setInt(3, end);
+		st.setInt(2, start);
+		st.setInt(3, end);
 		
 		ResultSet rs = st.executeQuery();
 		
 		while (rs.next()) {
-			Member member = new Member(
+			MemberView member = new MemberView(
+					rs.getInt("rnum"),
+					rs.getInt("num"),
+					rs.getInt("black"),
 					rs.getString("email"),
 					rs.getString("name"),
-					"",
-					rs.getString("phone"),
-					"",
-					rs.getInt("black"),
 					rs.getDate("regdate"),
 					rs.getString("condition")
 					);
@@ -67,20 +64,22 @@ public class OracleMemberDao implements MemberDao {
 	}
 
 	@Override
-	public Member get(String email) throws Exception {
+	public Member get(int num) throws Exception {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int insert(Member member) throws Exception {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int update(Member member) throws Exception {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	
-	
+
 }
