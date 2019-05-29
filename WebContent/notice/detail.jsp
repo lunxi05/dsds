@@ -18,7 +18,7 @@
 	<h1>공지사항</h1>
 	<table>
 		<tr>
-			<td>제목:</td>
+			<td>제목:xx</td>
 			<td><%=n.getTitle()%></td>
 		</tr>
 		<tr>
