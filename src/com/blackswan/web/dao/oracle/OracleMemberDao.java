@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.blackswan.web.dao.MemberDao;
@@ -30,7 +31,7 @@ public class OracleMemberDao implements MemberDao {
 		
 		List<Member> list = new ArrayList<>();
 		
-		String sql = "SELECT * FROM MEMBER WHERE " + field + " LIKE ? AND NUM BETWEEN ? AND ?";
+		String sql = "SELECT * FROM MEMBER WHERE " + field + " LIKE ?";
 
 		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -38,14 +39,22 @@ public class OracleMemberDao implements MemberDao {
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setString(1, "%" + query + "%");
-		st.setInt(2, start);
-		st.setInt(3, end);
+		//st.setInt(2, start);
+		//st.setInt(3, end);
 		
 		ResultSet rs = st.executeQuery();
 		
 		while (rs.next()) {
-			Member member = new Member(rs.getString("mail"), rs.getString("name"), "", rs.getString("phone"), "", rs.getInt("black"), 
-					rs.getDate("regdate"), rs.getString("condition"));
+			Member member = new Member(
+					rs.getString("email"),
+					rs.getString("name"),
+					"",
+					rs.getString("phone"),
+					"",
+					rs.getInt("black"),
+					rs.getDate("regdate"),
+					rs.getString("condition")
+					);
 
 			list.add(member);
 		}
@@ -58,7 +67,7 @@ public class OracleMemberDao implements MemberDao {
 	}
 
 	@Override
-	public Member get(String mail) throws Exception {
+	public Member get(String email) throws Exception {
 		return null;
 	}
 

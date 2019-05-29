@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Member {
 	
-	private String mail;
+	private String email;
 	private String name;
 	private String pwd;
 	private String phone;
@@ -13,8 +13,8 @@ public class Member {
 	private Date regDate;
 	private String condition;
 	
-	public Member(String mail, String name, String pwd, String phone, String address, int black, Date regDate, String condition) {
-		this.mail = mail;
+	public Member(String email, String name, String pwd, String phone, String address, int black, Date regDate, String condition) {
+		this.email = email;
 		this.name = name;
 		this.pwd = pwd;
 		this.phone = phone;
@@ -25,11 +25,11 @@ public class Member {
 	}
 
 	public String getMail() {
-		return mail;
+		return email;
 	}
 
 	public void setMail(String mail) {
-		this.mail = mail;
+		this.email = mail;
 	}
 
 	public String getName() {
