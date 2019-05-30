@@ -14,19 +14,6 @@ import com.blackswan.web.dao.oracle.OracleMemberDao;
 @WebServlet("/admin/member")
 public class ListController extends HttpServlet{
 	
-	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		MemberDao memberDao = new OracleMemberDao();
-		
-		try {
-			req.setAttribute("member", memberDao.getList());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		req.getRequestDispatcher(".././WEB-INF/view/admin/member/list.jsp").forward(req, resp);
-		
-	}
 	
 }
