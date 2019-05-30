@@ -1,8 +1,9 @@
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-<html lang="en" style="font-size:10px;">
+<html lang="en" >
 
 <head>
     <title>Document</title>
@@ -20,14 +21,14 @@
 
  	<main>
             <section id="review">
-                <h1>∏Æ∫‰ ∏Ò∑œ</h1>
+                <h1>Î¶¨Î∑∞ Î™©Î°ù</h1>
                 <table>
                     <thead>
                         <tr>
-                            <td class="title">¡¶∏Ò</td>
-                            <td class="writer">¿€º∫¿⁄</td>
-                            <td class="date">¿€º∫¿œ</td>
-                            <td class="hit">¡∂»∏ºˆ</td>
+                            <td class="title">Í∏ÄÎ≤àÌò∏</td>
+                            <td class="writer">Ï†úÎ™©</td>
+                            <td class="date">ÏûëÏÑ±Ïûê</td>
+                            <td class="hit">ÏûëÏÑ±Ïùº</td>
                         </tr>
                     </thead>
 
@@ -36,7 +37,7 @@
                         <tr>
                             <td class="num">${n.id}</td>
                             <td class="title"><a href="detail?id=${n.id}">${n.title}</a></td>
-                            <td class="wrtier">${n.writerId}</td>
+                            <td class="wrtierId">${n.writerId}</td>
                             <td class="date">${n.regDate}</td>
                             <td class=""></td>
                         </tr>
@@ -44,12 +45,12 @@
                     </tbody>
                 </table>
                 <div>
-                	<a href="reg"> ±€æ≤±‚</a>
+                	<a href="reg"> Í∏ÄÏì∞Í∏∞</a>
                 </div>
             </section>
 
             <section id="page-index">
-                <h1 class="d-none">∆‰¿Ã¡ˆ ¡§∫∏</h1>
+                <h1 class="d-none">ÌéòÏù¥ÏßÄ Ï†ïÎ≥¥</h1>
                 <div>
                     <span class="color-highlight font-bold">1</span>
                      / 1 pages
@@ -57,15 +58,15 @@
             </section>
 
             <section id="pager">
-                <h1 class="d-none">∆‰¿Ã¡ˆ</h1>
+                <h1 class="d-none">ÌéòÏù¥ÏßÄ</h1>
                 <div>
-                    <div class="icon-prev-page">¿Ã¿¸</div>
+                    <div class="icon-prev-page">Ïù¥Ï†Ñ</div>
                     <ul>
                         <li class="current">1</li>
                         <li>2</li>
                         <li>3</li>
                     </ul>
-                    <div class="icon-next-page">¥Ÿ¿Ω</div>
+                    <div class="icon-next-page">Îã§Ïùå</div>
                 </div>
             </section>
     </main>
