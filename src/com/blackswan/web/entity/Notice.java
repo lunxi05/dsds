@@ -1,14 +1,14 @@
 package com.blackswan.web.entity;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Map;
+
 
 public class Notice {
 	private int id;
+	private String type;
 	private String title;
+	private String writer_Id;
 	private String content;
-	private String writerId;
 	private Date regDate;
 	private int hit;
 	
@@ -17,61 +17,86 @@ public class Notice {
 	}
 
 
-	public Notice(int id, String title, String content, String writerId, Date regDate, int hit) {
+	public Notice(int id, String type, String title, String content, String writer_Id, Date regDate, int hit) {
 		super();
 		this.id = id;
+		this.type = type;
 		this.title = title;
 		this.content=content;
-		this.writerId = writerId;
+		this.writer_Id = writer_Id;
 		this.regDate = regDate;
 		this.hit = hit;
 	}
+
 
 	public int getId() {
 		return id;
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
+	public String getType() {
+		return type;
+	}
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 
 	public String getTitle() {
 		return title;
 	}
 
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	public String getWriterId() {
-		return writerId;
+
+	public String getWriter_Id() {
+		return writer_Id;
 	}
 
-	public void setWriterId(String writerId) {
-		this.writerId = writerId;
+
+	public void setWriter_Id(String writer_Id) {
+		this.writer_Id = writer_Id;
 	}
 
-	public Date getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(Date redDate) {
-		this.regDate = redDate;
-	}
-
-	public int getHit() {
-		return hit;
-	}
-
-	public void setHit(int hit) {
-		this.hit = hit;
-	}
 
 	public String getContent() {
 		return content;
 	}
 
+
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+
+	public Date getRegDate() {
+		return regDate;
+	}
+
+
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
+
+
+	public int getHit() {
+		return hit;
+	}
+
+
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+
 }
+	
