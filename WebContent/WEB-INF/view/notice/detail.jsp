@@ -52,8 +52,10 @@
 						</tbody>
 					</table>
 					<div>
-						<a href="edit?id=${notice.id}">수정</a> <a
-							href="del?id=${notice.id}">삭제</a>
+						<a href="edit?id=${notice.id}">수정</a>
+						<a href="del?id=${notice.id}">삭제</a>
+						<a href="list?id=${notice.id}">목록</a>
+							
 					</div>
 				</section>
 			</section>
