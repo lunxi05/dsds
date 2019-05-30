@@ -198,16 +198,17 @@ Notice notice = null;
 	public int update(Notice notice) throws ClassNotFoundException, SQLException {
 		int result = 0;
 		
-		String sql = "update notice set title=?, content=? where id=?";
+		String sql = "update notice set type=?, title=?, content=? where id=?";
 		
 		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url,"\"PRJ\"","1234");
 		
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, notice.getTitle());
-		st.setString(2, notice.getContent());
-		st.setInt(3, notice.getId());
+		st.setString(1, notice.getType());
+		st.setString(2, notice.getTitle());
+		st.setString(3, notice.getContent());
+		st.setInt(4, notice.getId());
 		
 		result = st.executeUpdate();
 		

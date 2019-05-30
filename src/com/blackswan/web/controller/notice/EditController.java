@@ -47,6 +47,7 @@ public class EditController extends HttpServlet {
 		
 		NoticeDao noticeDao = new OracleNoticeDao();
 		
+		String type = request.getParameter("type");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		Integer id = Integer.parseInt(request.getParameter("id"));
@@ -55,8 +56,9 @@ public class EditController extends HttpServlet {
 		
 		try {
 			Notice n = noticeDao.get(id);
-			n.setContent(content);
+			n.setType(type);
 			n.setTitle(title);
+			n.setContent(content);
 			
 			result = noticeDao.update(n);
 			request.setAttribute("notice", noticeDao.get(id));
