@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.blackswan.web.dao.MemberDao;
 import com.blackswan.web.dao.oracle.OracleMemberDao;
 
-@WebServlet("/admin/member")
+@WebServlet("/admin/member/list")
 public class ListController extends HttpServlet {
 
 	@Override
@@ -25,7 +25,7 @@ public class ListController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		req.getRequestDispatcher("../WEB-INF/view/admin/member/list.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/admin/member/list.jsp").forward(req, resp);
 		
 	}
 
