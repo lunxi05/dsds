@@ -11,16 +11,11 @@
 </head>
 <body>
 가나다라마바사
-
+<br>
 <c:forEach var="m" items="${member}">
 
-${m.email}<br>
-${m.name}
+${m.num} | ${m.id} | ${m.black} | ${m.email} | ${m.name} | ${m.regdate} | ${m.condition}<br>
 </c:forEach>
-
-<br>
-${member.email}
-<br>
 
 
 </body>
