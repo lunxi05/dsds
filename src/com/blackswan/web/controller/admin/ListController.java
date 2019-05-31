@@ -1,4 +1,4 @@
-package com.blackswan.web.admin.member;
+package com.blackswan.web.controller.admin;
 
 import java.io.IOException;
 
