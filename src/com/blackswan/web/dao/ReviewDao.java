@@ -12,7 +12,7 @@ public interface ReviewDao {
 	List<Review> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;	//리뷰리스트(검색)
 	
 	Review get(int id) throws ClassNotFoundException, SQLException;	//리뷰 상세보기
-	Review getPrev(int id);//이전페이지
+	Review getPrev(int id) throws ClassNotFoundException, SQLException;//이전페이지
 	Review getNext(int id);//다음페이지
 	
 	int insert(Review review) throws SQLException, ClassNotFoundException;	//글쓰기

@@ -1,4 +1,4 @@
-package com.blackswan.web.admin.review;
+package com.blackswan.web.controller.notice;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,28 +9,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.blackswan.web.dao.ReviewDao;
-import com.blackswan.web.dao.oracle.OracleReviewDao;
-import com.blackswan.web.entity.Review;
+import com.blackswan.web.dao.NoticeDao;
+import com.blackswan.web.dao.oracle.OracleNoticeDao;
+import com.blackswan.web.entity.Notice;
 
-@WebServlet("/funding/reg")
-public class RegController extends HttpServlet {
+@WebServlet("/notice/reg")
+public class RegContrller extends HttpServlet{
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.getRequestDispatcher("../WEB-INF/view/notice/reg.jsp").forward(request, response);
+		
+		
+	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		String type = request.getParameter("type");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-	
-
-		ReviewDao reviewDao = new OracleReviewDao();
-		Review r = new Review();
-		int result =0;
 		
-		r.setTitle(title);
-		r.setContent(content);
+		Notice notice = new Notice();
+		notice.setType(type);
+		notice.setTitle(title);
+		notice.setContent(content);
+		
+		NoticeDao noticeDao = new OracleNoticeDao();
+	
+		int result = 0;
+		
 		try {
-			result = reviewDao.insert(r);
+			result = noticeDao.insert(notice);
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,12 +55,7 @@ public class RegController extends HttpServlet {
 			response.sendRedirect("error");
 		else
 			response.sendRedirect("list");
-	
-	}
-	
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/WEB-INF/view/review/reg.jsp").forward(request, response);
 	}
+
 }

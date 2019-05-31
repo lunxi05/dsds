@@ -11,6 +11,7 @@ import java.util.List;
 
 import com.blackswan.web.dao.ReviewDao;
 import com.blackswan.web.entity.Review;
+import com.newlecture.web.entity.Notice;
 
 
 public class OracleReviewDao implements ReviewDao {
@@ -100,9 +101,32 @@ public class OracleReviewDao implements ReviewDao {
 	}
 
 	@Override
-	public Review getPrev(int id) {
+	public Review getPrev(int id) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		Review review =null;
+		String sql = " select * from review_view ";
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver"); //드라이버 로드
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");//
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		
+		if(rs.next()) {
+			review = new Review(
+					rs.getInt("id")
+					,rs.getString("title")
+					,rs.getString("writer_id")
+					,rs.getString("content")
+					,rs.getDate("regDate")
+					);
+		}
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+		return review;
 	}
 
 	@Override
@@ -117,10 +141,10 @@ public class OracleReviewDao implements ReviewDao {
 		int result = 0;
 		
 		String sql =" insert into \"review\"(id, title, writer_id, content) values(review_seq.nextval,?,'jun',?) ";
-		String url = "jdbc:oracle:thin:@192.168.0.15:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver"); //드라이버 로드
-		Connection con = DriverManager.getConnection(url, "\"newlec\"", "l4class");//
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");//
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1,  review.getTitle());
