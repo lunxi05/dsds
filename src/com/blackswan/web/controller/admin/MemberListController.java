@@ -12,7 +12,7 @@ import com.blackswan.web.dao.MemberDao;
 import com.blackswan.web.dao.oracle.OracleMemberDao;
 
 @WebServlet("/admin/member/list")
-public class ListController extends HttpServlet {
+public class MemberListController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
