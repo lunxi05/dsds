@@ -24,7 +24,7 @@ public class MemberListController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		  
 		req.getRequestDispatcher("/WEB-INF/view/admin/member/list.jsp").forward(req, resp);
 		
 	}
