@@ -1,7 +1,33 @@
+/* 
+ * 1. @import url
+ * 2. header css
+ * 3. nav css
+ * 4. main css
+ * 5. footer css
+ * 
+ */
+
+/* ------------------------------ 1. @import url ------------------------------ */
+@import url(./reset.css);
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------ 2. 아직 안함 ------------------------------ */
+
+
 #header {background: green; }
 
+#nav
 
-#middle {background: yellow; }
+
+#main {background: yellow; }
 
 
 #footer {background: gray; }
