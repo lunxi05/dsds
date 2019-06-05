@@ -1,9 +1,10 @@
 /* 
  * 1. @import url
- * 2. header css
- * 3. nav css
- * 4. main css
- * 5. footer css
+ * 2. all css
+ * 3. header css
+ * 4. nav css
+ * 5. main css
+ * 6. footer css
  * 
  */
 
@@ -14,20 +15,248 @@
 
 
 
+/* ------------------------------ 2. all css ------------------------------ */
+.center {
+	width: 1200px;
+	height: inherit;
+	margin: 0 auto;
+	--background: rgba(0,0,0,0.1);
+}
+
+.hidden {
+	display: none;
+}
 
 
 
 
 
-/* ------------------------------ 2. 아직 안함 ------------------------------ */
+/* ------------------------------ 3. header css ------------------------------ */
 
 
-#header {background: green; }
+#header {
+	background: #fff; 
+	height: 90px;
+	border-bottom: 1px solid #E3E3E3; 
+}
 
-#nav
+	#header .center {
+		display: flex;
+		justify-content: space-between;
+		align-items: center; 
+		
+	}
+
+		#header .center>h1 {
+			display: inline-block;
+		}
+			
+		
+	
+		#header #gnb {
+			display: inline-block;
+		}
+		
+			#header #gnb .main-menu {
+				display: flex; 
+				justify-content: center; 
+			}
+		
+		
+		#header #user-menu {
+			display: inline-block;
+			display: flex;
+		}
+
+			#header #user-menu .user-direct {
+				display: flex; 
+				align-items: center; 
+			}
+			
+				#header #user-menu .user-direct li {
+					width: 90px; 
+					height: 40px;
+					margin-right: 5px; 
+					line-height: 40px; 
+					text-align: center; 
+					border: 1px solid #E3E3E3;
+				}
+			
+				#header #user-menu .user-direct .search {
+					height: 90px;
+					line-height: 90px;
+					background: #0081DF;
+					margin: 0 0 0 23px;
+				}
+
+/* 
+
+		<section id="header">
+			<h1>BLACKSWAN</h1>
+			<section id="gnb">
+				<h1>메인메뉴</h1>
+				<ul class="main-menu">
+					<li><a href="">펀딩</a></li>
+					<li><a href="">등록신청</a></li>
+					<li><a href="">Q&A</a></li>
+				</ul>
+			</section>
+			<section id="user-menu">
+				<h1>사용자메뉴</h1>
+				<ul class="user-direct">
+					<li><a href="">로그인</a></li> 
+					<li><a href="">회원가입</a></li>
+					<li class="search"><a href="">검색</a></li>
+				</ul>
+				<div class="search">
+					<a href="">검색</a>
+				</div>
+			</section>
+		</section>
+
+ */
 
 
-#main {background: yellow; }
+
+/* ------------------------------ 4. nav css ------------------------------ */
+
+#nav {
+	background: #fff; 
+	height: 157px;
+	border-bottom: 1px solid #E3E3E3; 
+}
+
+	#nav .center {		
+	}
+	
+		#nav .center .category {
+			display: inline-block;
+			display: flex;
+			height: inherit;
+			justify-content: space-around;
+			align-items: center;
+		}
+		
+			#nav .center .category li {
+				width: 60px;
+			}
+			
+				#nav .center .category li a div {
+					height: 60px;
+					background: #F5F5F5;
+					border-radius: 50%;
+					margin-bottom: 7px; 
+				}
+				
+				#nav .center .category li a span {
+					font-size: 13px;
+					text-align: center; 
+					display: inline-block;
+					width: 100%;
+				}
 
 
-#footer {background: gray; }
+
+
+/* 
+	<nav id="nav">
+		<div class="center">
+			<h1 class="hidden">카테고리</h1>
+			<ul class="category">
+				<li>
+					<a href="">
+						<div></div>
+						<span>전체</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+ */
+
+
+/* ------------------------------ 5. main css ------------------------------ */
+
+
+#main {background: red; }
+
+
+
+/* ------------------------------ 6. footer css ------------------------------ */
+
+
+#footer {
+	background: #303435; 
+	height: 246px;
+}
+
+	#footer .center {
+		text-align: center;
+	}
+	
+		#footer .center .customer-menu {
+			display: inline-block;
+			font-size: 15px; 
+			padding: 37px 0; 
+		}
+		
+			#footer .center .customer-menu ul {
+				display: flex; 
+				justify-content: center; 
+			}
+			
+				#footer .center .customer-menu ul li {
+					color: #fff;
+					padding: 20px 25px;
+					border: 1px solid #424242;
+				}
+			
+				#footer .center .customer-menu ul li:nth-child(2) {
+					color: #DDB00D;
+				}
+		
+		#footer .center .copyright {
+			display: inline-block;
+			color: #67686C;
+			font-size: 13px;
+		}
+		
+			#footer .center .copyright dl, #footer div .copyright div {
+				margin-bottom: 15px;
+			}
+		
+			#footer .center .copyright dl {
+				display: flex;
+				justify-content: center;
+			}
+
+/* 
+				<h1>푸터</h1>
+				<section id="customer-menu">
+					<h1>고객메뉴</h1>
+					<ul>
+						<li><a href="">이용약관</a></li>
+						<li><a href="">개인정보처리방침</a></li>
+						<li><a href="">고객센터</a></li>
+					</ul>
+				</section>
+				<section id="copyright">
+					<h1>카피라이트</h1>
+					<dl>
+						<dt>어쩌고펀딩 대표</dt>
+						<dd>웅앵웅</dd>
+						<dt>사업자등록번호</dt>
+						<dd>123-1232-123-123</dd>
+						<dt>통신판매업신고</dt>
+						<dd>2019-서울종로-12093809218</dd>
+					</dl>
+					<dl>
+						<dt>주소</dt>
+						<dd>서울시 종로구 어쩌구로 저쩌고빌딩</dd>
+						<dt>대표번호</dt>
+						<dd>02-234-234435</dd>
+					</dl>
+					<div>펀딩 프로젝트의 진행과 리워드 제공의 작업은 해당 프로젝트의 개설자에게 있습니다. 어쩌고 펀딩은 통신판매중개자이며 직접 판매를 진행하지 않습니다.</div>
+					<div>Copyrightⓒ 어쩌고펀딩. All Rights Reserved.</div>
+				</section>
+ */
