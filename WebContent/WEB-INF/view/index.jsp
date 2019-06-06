@@ -12,19 +12,21 @@
 
 
 <body>
-
-<jsp:include page="./inc/header.jsp"/>	
-
-<jsp:include page="./inc/nav.jsp"/>	
+	<h1 class="hidden">BLACKSWAN</h1>
+	<jsp:include page="./inc/header.jsp"/>	
 
 
-	<main id="main">
-		<div class="center">
-			<h1>메인입니다</h1>
-		</div>
+	<main>
+		<jsp:include page="./inc/nav.jsp"/>	
+	
+		<section id="main">
+			<div class="center">
+				<h1>메인입니다</h1>
+			</div>
+		</section>
 	</main>
 
-<jsp:include page="./inc/footer.jsp"/>	
+	<jsp:include page="./inc/footer.jsp"/>	
 
 </body>
 </html>
