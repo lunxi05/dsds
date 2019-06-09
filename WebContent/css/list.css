@@ -1,0 +1,272 @@
+/* 
+ * 1. @import url
+ * 2. main css
+ */
+
+/* ------------------------------ 1. @import url ------------------------------ */
+/* @import url("./style.css"); */
+
+/* ------------------------------ 2. main css ------------------------------ */
+
+#main {}
+
+	#main .count-option {
+		width: 100%;
+		height: 80px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center; 
+	}
+	
+		#main .count-option .list-count {
+			display: inline-block;
+			font-size: 14px;
+			line-height: 40px; 
+		}
+			
+			#main .count-option .list-count span:last-child {
+				color: #1f9eff;
+				margin-left: 5px; 
+			}
+			
+		
+		#main .count-option .list-option {
+			display: inline-block; 
+		}
+		
+			#main .count-option .list-option input {
+				display: none;
+			}
+			
+				#main .count-option .list-option label {
+					margin-left: 5px;
+					position: relative;
+					color: #666;
+				}
+			
+					#main .count-option .list-option input+label:before {
+						content: "";
+						display: inline-block;
+						width: 15px;
+						height: 15px;
+						border: 1px solid #e3e3e3;
+						margin-right: 10px;
+						position: absolute;
+						top: 3px;
+						left: -20px;
+					}
+					
+					#main .count-option .list-option input:checked+label:before {
+						content: "";
+					}
+
+					#main .count-option .list-option input:checked+label:after {
+						content: "";
+						width: 7px;
+						height: 7px;
+						border: solid #000;
+						border-width: 0 1px 1px 0;
+						transform: rotate(45deg);
+						position: absolute; 
+						top: 6px;
+						left: -15px;
+					}
+			#main .count-option .list-option select {
+				width: 150px;
+				height: 40px; 
+				margin-left: 15px;
+				border: 1px solid #e3e3e3;
+				color: #666;
+				font-size: 14px;
+				padding: 0 5px;
+			}
+		
+		
+	#main .funding-list {}
+
+		#main .funding-list ul {
+			display: inline-block;
+			width: 100%; 
+		}
+		
+			#main .funding-list ul li {
+				width: 285px;
+				height: 430px;
+				display: inline-block;
+				margin: 0 0 20px 20px;
+				border: 1px solid #d2d2d2;
+				float: left;
+			}
+			
+			#main .funding-list ul li:nth-child(4n+1) {
+				margin-left: 0;
+			}
+			
+				#main .funding-list ul li:last-child:after {
+					clear: both;
+				}
+			
+				#main .funding-list ul li.first-page-img {
+					background: url("../images/fundingImg.png");
+					background-size: cover; 
+					vertical-align: top;
+				}
+			
+				#main .funding-list ul li a {
+					display: block;
+					width: 100%;
+					height: 100%; 
+				}
+				
+					#main .funding-list ul li a img {
+						width: 100%;
+						height: 209px;
+						background: #eee; 
+						border: none; 
+					}
+					
+					#main .funding-list ul li a .item-info {
+						padding: 25px 25px 0;
+					}
+					
+						#main .funding-list ul li a .item-info .title {
+							font-size: 20px;
+							line-height: 30px; 
+							font-weight: bold;
+							letter-spacing: -2px;
+						}
+						
+						#main .funding-list ul li a .item-info .category {
+							margin-top: 31px; 
+							font-size: 16px;
+							line-height: 36px;
+							font-weight: bold; 
+						}
+						
+							#main .funding-list ul li a .item-info .category span:first-child {
+								color: #197ecc;
+							}
+							
+							#main .funding-list ul li a .item-info .category span:last-child {
+								color: #666;
+								display: inline-block;
+								margin-left: 12px;
+								max-width: 155px;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								white-space: nowrap; 
+							}
+							
+								#main .funding-list ul li a .item-info .category span:last-child:before {
+									content: "";
+									display: inline-block;
+									width: 1px;
+									height: 14px;
+									background: #e8e8e8;
+									margin-right: 13px;
+								}
+								
+						#main .funding-list ul li a .item-info .graph {
+							margin-top: 12px; 
+							width: 100%;
+							height: 6px; 
+							background: #e8e8e8;
+							overflow: hidden; 
+						}
+						
+							#main .funding-list ul li a .item-info .graph .percent {
+								height: inherit;
+								background: #1f9eff;
+								max-width: 100%; 
+							}
+							
+						#main .funding-list ul li a .item-info .gvalue {
+							width: 100%;
+							display: flex;
+							justify-content: space-between;
+							margin-top: 11px; 
+							font-size: 18px;
+							line-height: 36px;
+							font-weight: bold; 
+							color: #666;
+						}
+						
+							#main .funding-list ul li a .item-info .gvalue span:first-child {
+								color: #1a85d6;
+							}
+							
+	#main .paging {
+		margin: 30px 0 50px;
+		display: flex;
+		justify-content: center; 
+	}
+	
+		#main .paging div, #main .paging ul li {
+			width: 27px;
+			height: 27px;
+			font-size: 12px;
+			border: 1px solid #d2d2d2;
+			text-align: center;
+			color: #666;
+			line-height: 27px;
+		}
+		
+		#main .paging div+div, #main .paging div+ul, #main .paging ul+div, #main .paging li+li {
+			margin-left: 5px; 
+		}
+		
+		#main .paging ul {
+			display: flex; 
+		}
+		
+			#main .paging ul li:hover {
+				background: #222526;
+				color: #fff;
+			}
+			
+		#main .paging .first-page, #main .paging .prev-page, #main .paging .next-page, #main .paging .end-page {
+			position: relative; 
+		}
+		
+			#main .paging .first-page:before, #main .paging .first-page:after, #main .paging .prev-page:before, #main .paging .next-page:before, #main .paging .end-page:before, #main .paging .end-page:after {
+				content: "";
+				width: 6px;
+				height: 6px;
+				border: 1px solid;
+				position: absolute;
+				top: 50%; 
+				transform: translateY(-50%) rotate(45deg);
+			}
+			
+			#main .paging .first-page:before {
+				left:  7px;
+				border-color: transparent transparent #666 #666;
+			}
+			
+			#main .paging .first-page:after {
+				left: 13px;
+				border-color: transparent transparent #666 #666;
+			}
+			
+			#main .paging .prev-page:before {
+				left: 9px;
+				border-color: transparent transparent #666 #666;
+			}
+			
+			#main .paging .next-page:before {
+				right: 9px;
+				border-color: #666 #666 transparent transparent;
+			}
+							
+			#main .paging .end-page:before {
+				right: 7px;
+				border-color: #666 #666 transparent transparent;
+			}
+			
+			#main .paging .end-page:after {
+				right: 13px;
+				border-color: #666 #666 transparent transparent;
+			}
+			
+		
+							

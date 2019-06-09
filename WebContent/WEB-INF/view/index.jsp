@@ -8,9 +8,10 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 
-
+ 
 <body>
 	<h1 class="hidden">BLACKSWAN</h1>
 	<jsp:include page="./inc/header.jsp"/>	
@@ -19,9 +20,87 @@
 	<main>
 		<jsp:include page="./inc/nav.jsp"/>	
 	
-		<section id="main">
+		
+		<section id="banner">
+			<h1 class="hidden">배너</h1>
 			<div class="center">
-				<h1>메인입니다</h1>
+				<a href=""><img src="./images/banner.png"></a>
+				<div class="prev-banner"></div>
+				<div class="next-banner"></div>
+				<div class="banner-page">1&nbsp;/&nbsp;3</div>
+			</div>
+		</section>
+	
+		<section id="main">
+			<h1 class="hidden">메인컨텐츠</h1>
+			<div class="center">
+				<section class="tap-select">
+					<h1 class="hidden">메인펀딩 탭</h1>
+					<ul>
+						<li>인기펀딩</li>
+						<li>신규펀딩</li>
+						<li>종료임박</li>
+					</ul>
+				</section>
+				<section class="page-select">
+					<h1 class="hidden">메인펀딩 페이징</h1>
+					<div class="prev-select"></div>
+					<div class="next-select"></div>
+				</section>
+				<section class="funding-select">
+					<h1 class="hidden">메인펀딩</h1>
+					<div class="info-select">
+						<div class="info-title">펀딩</div>
+						<div class="info-content">가치 있는 소비가<br>세상을 바꾸는 이들을<br>응원합니다</div>
+						<table class="info-count">
+							<tr>
+								<td>참여</td>
+								<td>000명</td>
+							</tr>
+							<tr>
+								<td>참여금액</td>
+								<td>0,000,000원</td>
+							</tr>
+						</table>
+						<div class="info-more"><a href="/funding/list">인기펀딩 보러가기</a></div>
+						
+					</div>
+					<ul>
+						<li>
+							<a href="">
+								<img>
+								<div class="item-info">
+									<div class="title">댕냥이들의 장난감 !!!<br>집밖으로 나갈 수가 없어요</div>
+									<div class="category"><span>카테고리</span><span>기업명</span></div>
+									<div class="graph"><div class="percent" style="width: 40%"></div></div>
+									<div class="gvalue"><span>40%</span><span>0,000,000원</span></div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img>
+								<div class="item-info">
+									<div class="title">댕냥이들의 장난감 !!! 집밖으로 나갈 수가 없어요</div>
+									<div class="category"><span>카테고리</span><span>기업명</span></div>
+									<div class="graph"><div class="percent" style="width: 78%"></div></div>
+									<div class="gvalue"><span>78%</span><span>0,000,000원</span></div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img>
+								<div class="item-info">
+									<div class="title">댕냥이들의 장난감 !!! 집밖으로 나갈 수가 없어요</div>
+									<div class="category"><span>카테고리</span><span>기업명</span></div>
+									<div class="graph"><div class="percent" style="width: 120%"></div></div>
+									<div class="gvalue"><span>120%</span><span>0,000,000원</span></div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</section>
 			</div>
 		</section>
 	</main>

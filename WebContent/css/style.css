@@ -1,34 +1,26 @@
 /* 
  * 1. @import url
- * 2. all css
+ * 2. 공통 css
  * 3. header css
  * 4. nav css
  * 5. main css
  * 6. footer css
- * 
  */
 
 /* ------------------------------ 1. @import url ------------------------------ */
 @import url(./reset.css);
 
 
-
-
-
-/* ------------------------------ 2. all css ------------------------------ */
+/* ------------------------------ 2. 공통 css ------------------------------ */
 .center {
 	width: 1200px;
 	height: inherit;
 	margin: 0 auto;
-	--background: rgba(0,0,0,0.1);
 }
 
 .hidden {
 	display: none;
 }
-
-
-
 
 
 /* ------------------------------ 3. header css ------------------------------ */
@@ -37,35 +29,44 @@
 #header {
 	background: #fff; 
 	height: 90px;
-	border-bottom: 1px solid #E3E3E3; 
+	border-bottom: 1px solid #d2d2d2; 
+	font-family : "Malgun Gothic", "Gothic", san-serif;
 }
 
 	#header .center {
 		display: flex;
 		justify-content: space-between;
 		align-items: center; 
-		
+		position: relative;
 	}
 
 		#header .center>h1 {
 			display: inline-block;
+			width: 152px;
+			height: 29px;
+			background: url("../images/logo.png") no-repeat center;
+			color: transparent;
+			text-indent: -999%;
 		}
-			
-		
 	
 		#header #gnb {
 			display: inline-block;
+			font-size: 22px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
 		}
 		
 			#header #gnb .main-menu {
-				display: flex; 
-				justify-content: center; 
+				width: 250px;
+				display: flex;
+				justify-content: space-between; 
+				font-weight: bold;
 			}
-		
 		
 		#header #user-menu {
 			display: inline-block;
-			display: flex;
 		}
 
 			#header #user-menu .user-direct {
@@ -73,49 +74,114 @@
 				align-items: center; 
 			}
 			
-				#header #user-menu .user-direct li {
-					width: 90px; 
+				#header #user-menu .user-direct .log, #header #user-menu .user-direct .signup {
+					width: 99px; 
 					height: 40px;
+					font-size: 16px;
 					margin-right: 5px; 
 					line-height: 40px; 
 					text-align: center; 
 					border: 1px solid #E3E3E3;
 				}
+				
+				#header #user-menu .user-direct .user {
+					display: flex;
+					align-items: center; 
+				}
+				
+					#header #user-menu .user-direct .user img {
+						width: 42px;
+						height: 42px;
+						border: 1px solid #d3d3d3;
+						border-radius: 50%;
+					}
+					
+					#header #user-menu .user-direct .user span {
+						font-size: 18px; 
+						margin-left: 15px; 
+					}
+					
+					#header #user-menu .user-direct .user .user-button {
+						width: 10px;
+						height: 10px;
+						border: 1px solid;
+						border-color: transparent transparent #000 #000;
+						transform: rotate(-45deg) translateY(-5px);
+					}
 			
 				#header #user-menu .user-direct .search {
+					width: 90px;
 					height: 90px;
 					line-height: 90px;
 					background: #0081DF;
 					margin: 0 0 0 23px;
 				}
-
-/* 
-
-		<section id="header">
-			<h1>BLACKSWAN</h1>
-			<section id="gnb">
-				<h1>메인메뉴</h1>
-				<ul class="main-menu">
-					<li><a href="">펀딩</a></li>
-					<li><a href="">등록신청</a></li>
-					<li><a href="">Q&A</a></li>
-				</ul>
-			</section>
-			<section id="user-menu">
-				<h1>사용자메뉴</h1>
-				<ul class="user-direct">
-					<li><a href="">로그인</a></li> 
-					<li><a href="">회원가입</a></li>
-					<li class="search"><a href="">검색</a></li>
-				</ul>
-				<div class="search">
-					<a href="">검색</a>
-				</div>
-			</section>
-		</section>
-
- */
-
+				
+					#header #user-menu .user-direct .search a {
+						display: block;
+						position: relative;
+						width: 100%;
+						height: 100%;
+					}
+					
+						#header #user-menu .user-direct .search a span {
+							width: 30px;
+							height: 30px;
+							border-radius: 50%;
+							border: 3px solid #fff;
+							display: inline-block; 
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -55%); 
+							color: transparent;
+						}
+						
+							#header #user-menu .user-direct .search a span:after {
+								content: "";
+								position: absolute; 
+								bottom: -5px;
+								right: -5px;
+								width: 0px;
+								height: 10px;
+								border: solid #fff; 
+								border-width: 1px 0 1px 3px;
+								transform: rotate(-45deg);
+							}
+							
+		#header #mp-link {
+			width: 179px;
+			height: 241px;
+			position: absolute;
+			top: 80px; 
+			right: -10px;
+			z-index: 800;
+			box-shadow: 5px 5px 7px rgba(0,0,0,0.24);
+			border-radius: 20px;
+			overflow: hidden;
+		}
+		
+			#header #mp-link ul {
+			}
+			
+				#header #mp-link ul li {
+					font-size: 16px;
+					line-height: 60px;
+					text-align: center;
+					border-bottom: 1px solid #d8d8d8; 
+					transition: all 0.5s ease;
+					background: #eee;
+				}
+				
+				#header #mp-link ul li:last-child {
+					border: 0;
+				}
+				
+				#header #mp-link ul li:hover {
+					background: #434343;
+					color: #fff;
+					font-weight: bold;
+				}
 
 
 /* ------------------------------ 4. nav css ------------------------------ */
@@ -143,42 +209,32 @@
 			
 				#nav .center .category li a div {
 					height: 60px;
-					background: #F5F5F5;
+					background: #f5f5f5;
 					border-radius: 50%;
-					margin-bottom: 7px; 
+					margin-bottom: 15px; 
+					transition: background 0.5s ease;
 				}
 				
+				#nav .center .category li:hover a div {
+					background: #0081e0;
+				}
+			
 				#nav .center .category li a span {
-					font-size: 13px;
+					font-size: 14px;
 					text-align: center; 
 					display: inline-block;
 					width: 100%;
 				}
+				
 
-
-
-
-/* 
-	<nav id="nav">
-		<div class="center">
-			<h1 class="hidden">카테고리</h1>
-			<ul class="category">
-				<li>
-					<a href="">
-						<div></div>
-						<span>전체</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
- */
 
 
 /* ------------------------------ 5. main css ------------------------------ */
 
 
-#main {background: red; }
+#main {
+	background: #fff;
+}
 
 
 
@@ -195,9 +251,10 @@
 	}
 	
 		#footer .center .customer-menu {
+			width: 480px; 
 			display: inline-block;
 			font-size: 15px; 
-			padding: 37px 0; 
+			margin-top: 38px;
 		}
 		
 			#footer .center .customer-menu ul {
@@ -207,56 +264,34 @@
 			
 				#footer .center .customer-menu ul li {
 					color: #fff;
+					width: 140px; 
+					height: 56px;
 					padding: 20px 25px;
-					border: 1px solid #424242;
+					border: 1px solid #404445;
+					font-size: 16px; 
 				}
 			
 				#footer .center .customer-menu ul li:nth-child(2) {
-					color: #DDB00D;
+					width: 200px;
+					color: #dfb306;
 				}
 		
-		#footer .center .copyright {
+		#footer .center .company-copy {
 			display: inline-block;
 			color: #67686C;
-			font-size: 13px;
+			font-size: 14px;
+			color: #656767; 
+			margin-top: 55px;
 		}
 		
-			#footer .center .copyright dl, #footer div .copyright div {
-				margin-bottom: 15px;
-			}
-		
-			#footer .center .copyright dl {
+			#footer .center .company-copy dl {
 				display: flex;
 				justify-content: center;
+				margin-bottom: 16px;
 			}
-
-/* 
-				<h1>푸터</h1>
-				<section id="customer-menu">
-					<h1>고객메뉴</h1>
-					<ul>
-						<li><a href="">이용약관</a></li>
-						<li><a href="">개인정보처리방침</a></li>
-						<li><a href="">고객센터</a></li>
-					</ul>
-				</section>
-				<section id="copyright">
-					<h1>카피라이트</h1>
-					<dl>
-						<dt>어쩌고펀딩 대표</dt>
-						<dd>웅앵웅</dd>
-						<dt>사업자등록번호</dt>
-						<dd>123-1232-123-123</dd>
-						<dt>통신판매업신고</dt>
-						<dd>2019-서울종로-12093809218</dd>
-					</dl>
-					<dl>
-						<dt>주소</dt>
-						<dd>서울시 종로구 어쩌구로 저쩌고빌딩</dd>
-						<dt>대표번호</dt>
-						<dd>02-234-234435</dd>
-					</dl>
-					<div>펀딩 프로젝트의 진행과 리워드 제공의 작업은 해당 프로젝트의 개설자에게 있습니다. 어쩌고 펀딩은 통신판매중개자이며 직접 판매를 진행하지 않습니다.</div>
-					<div>Copyrightⓒ 어쩌고펀딩. All Rights Reserved.</div>
-				</section>
- */
+			
+			#footer .center .company-copy .copyright {
+				font-size: 16px; 
+				color: #959596;
+				margin-top: 33px;
+			}

@@ -5,6 +5,7 @@
 		<div class="center">
 			<h1 class="hidden">카테고리</h1>
 			<ul class="category">
+				<!-- db연동해서 카테고리 넣기 -->
 				<li>
 					<a href="">
 						<div></div>
