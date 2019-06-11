@@ -23,7 +23,7 @@
 					
 					<!-- 로그인 했을때 -->
 					<div class="user">
-						<img>
+						<img src="/images/banner.png">
 						<span>USER님</span>
 						<span class="user-button"></span>
 					</div>	

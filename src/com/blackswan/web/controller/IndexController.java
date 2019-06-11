@@ -1,4 +1,4 @@
-package com.blackswan.web.controller.index;
+package com.blackswan.web.controller;
 
 import java.io.IOException;
 

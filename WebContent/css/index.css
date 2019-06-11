@@ -226,15 +226,22 @@
 			width: 895px; 
 			height: 430px;
 			margin-left: 20px; 
-			display: flex; 
-			justify-content: space-between;
 		}
 		
 			#main .funding-select ul li {
 				width: 285px;
 				height: 100%; 
 				border: 1px solid #d2d2d2;
+				float: left;
 			}
+			
+			#main .funding-select ul li+li {
+				margin-left: 20px;
+			}
+			
+				#main .funding-select ul li:last-child:after {
+					clear: both;
+				}
 			
 				#main .funding-select ul li a {
 					display: block;

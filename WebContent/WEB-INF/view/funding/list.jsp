@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -42,10 +44,11 @@
 						<!-- 1페이지일때만 노출 -->
 						<li class="first-page-img">
 						</li>
-					
+						
+						<c:forEach begin="1" end="7">
 						<li>
 							<a href="">
-								<img>
+								<img src="../images/banner.png">
 								<div class="item-info">
 									<div class="title">댕냥이들의 장난감 !!!<br>집밖으로 나갈 수가 없어요</div>
 									<div class="category"><span>카테고리</span><span>기업명</span></div>
@@ -54,79 +57,7 @@
 								</div>
 							</a>
 						</li>
-						
-						
-						<li>
-							<a href="">
-								<img>
-								<div class="item-info">
-									<div class="title">댕냥이들의 장난감 !!!<br>집밖으로 나갈 수가 없어요</div>
-									<div class="category"><span>카테고리</span><span>기업명</span></div>
-									<div class="graph"><div class="percent" style="width: 40%"></div></div>
-									<div class="gvalue"><span>40%</span><span>0,000,000원</span></div>
-								</div>
-							</a>
-						</li>
-						
-						<li>
-							<a href="">
-								<img>
-								<div class="item-info">
-									<div class="title">댕냥이들의 장난감 !!!<br>집밖으로 나갈 수가 없어요</div>
-									<div class="category"><span>카테고리</span><span>기업명</span></div>
-									<div class="graph"><div class="percent" style="width: 40%"></div></div>
-									<div class="gvalue"><span>40%</span><span>0,000,000원</span></div>
-								</div>
-							</a>
-						</li>
-						
-						<li>
-							<a href="">
-								<img>
-								<div class="item-info">
-									<div class="title">댕냥이들의 장난감 !!!<br>집밖으로 나갈 수가 없어요</div>
-									<div class="category"><span>카테고리</span><span>기업명</span></div>
-									<div class="graph"><div class="percent" style="width: 40%"></div></div>
-									<div class="gvalue"><span>40%</span><span>0,000,000원</span></div>
-								</div>
-							</a>
-						</li>
-						
-						<li>
-							<a href="">
-								<img>
-								<div class="item-info">
-									<div class="title">댕냥이들의 장난감 !!!<br>집밖으로 나갈 수가 없어요</div>
-									<div class="category"><span>카테고리</span><span>기업명</span></div>
-									<div class="graph"><div class="percent" style="width: 40%"></div></div>
-									<div class="gvalue"><span>40%</span><span>0,000,000원</span></div>
-								</div>
-							</a>
-						</li>
-						
-						<li>
-							<a href="">
-								<img>
-								<div class="item-info">
-									<div class="title">댕냥이들의 장난감 !!!<br>집밖으로 나갈 수가 없어요</div>
-									<div class="category"><span>카테고리</span><span>기업명</span></div>
-									<div class="graph"><div class="percent" style="width: 40%"></div></div>
-									<div class="gvalue"><span>40%</span><span>0,000,000원</span></div>
-								</div>
-							</a>
-						</li>
-						
-						<li>
-							<a href="">
-								<img>
-								<div class="item-info">
-									<div class="title">댕냥이들의 장난감 !!!<br>집밖으로 나갈 수가 없어요</div>
-									<div class="category"><span>카테고리</span><span>기업명</span></div>
-									<div class="graph"><div class="percent" style="width: 40%"></div></div>
-									<div class="gvalue"><span>40%</span><span>0,000,000원</span></div>
-								</div>
-							</a>
-						</li>
+						</c:forEach>
 						
 					</ul>
 				</section>
