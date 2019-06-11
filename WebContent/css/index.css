@@ -9,8 +9,8 @@
 
 /* ------------------------------ 2. banner css ------------------------------ */
 #banner {
-	height: 380px;
-	background: #ffba00;
+	height: 310px;
+	background: none;
 }
 
 	#banner .center {
@@ -19,7 +19,7 @@
 	
 		#banner .center a img {
 			width: 1200px;
-			height: 380px; 
+			height: 310px; 
 		}
 	
 		#banner .center div {
@@ -45,7 +45,7 @@
 			}
 	
 		#banner .center .prev-banner {
-			left: 0;
+			left: 30px;
 		}
 		
 			#banner .center .prev-banner:before {
@@ -54,7 +54,7 @@
 			}
 		
 		#banner .center .next-banner {
-			right: 0; 
+			right: 30px; 
 		}
 		
 			#banner .center .next-banner:before {
@@ -90,52 +90,68 @@
 			
 /* ------------------------------ 3. main css ------------------------------ */
 
-#main {padding-bottom: 50px;}
+#main {
+	padding-bottom: 70px;
+}
+
+	#main .center {
+		position: relative;	
+	}
 	
 	#main .tap-select {
 		display: inline-block;
 		width: 100%; 
+		height: 75px;
 	}
 	
 		#main .tap-select ul {
+			height: inherit; 
 			display: flex;
-			width: 544px;
-			margin: 47px auto 0;
-			justify-content: space-between;
+			justify-content: center;
+			align-items: center; 
 		}
 		
 			#main .tap-select ul li {
-				width: 162px;
-				height: 44px;
-				border-radius: 22px;
-				background: #c9c9c9;
-				font-size: 20px;
-				color: #fff; 
+				width: 150px;
+				font-size: 16px;
+				color: #d2d2d2;
+				font-weight: bold;
 				text-align: center; 
 				line-height: 44px;
 				transition: background 0.5s ease;
+				position: relative;
 			}
 			
 				#main .tap-select ul li:hover {
-					background: #1f9eff;
+					color: #1f9eff;
+				}
+				
+				#main .tap-select ul li+li:before {
+					content: "";
+					width: 1px;
+					height: 25px;
+					background: #959595;
+					position: absolute; 
+					left: 0;
+					top: 50%;
+					transform: translateY(-50%) skewX(-15deg);
 				}
 	
 	#main .page-select {
-		display: inline-block; 
-		display: flex;
-		justify-content: flex-end;
-		width: 100%;
-		margin-top: 24px;
+		position: absolute; 
+		right: 0;
+		top: 25px;
 	}
 	
 		#main .page-select div {
-			width: 33px;
-			height: 33px;
+			width: 25px;
+			height: 25px;
+			display: inline-block;
 			border: 1px solid #d2d2d2;
 			background: #fff;
-			margin-left: 7px;
 			text-align: center; 
-			line-height: 30px; 
+			line-height: 22px; 
+			float: left;
 		}
 		
 			#main .page-select div:before {
@@ -155,76 +171,78 @@
 				background: linear-gradient(45deg, transparent 50%, #999 50%);
 				margin-left: -5px;
 			}
+			
+			#main .page-select .next-select:after {
+				clear: both;
+			}
 	
 	#main .funding-select {
-		display: inline-block; 
 		display: flex; 
-		margin-top: 12px;
 		width: 100%; 
 	}
 	
 		#main .funding-select .info-select {
 			width: 285px;
-			height: 430px;
+			height: 365px;
 			background: #1f9eff; 
-			padding: 31px 20px 0;
-			display: inline-block; 
+			position: relative;
 		}
 	
 			#main .funding-select .info-select .info-title {
-				width: 87px;
-				height: 37px;
+				width: 65px;
+				height: 30px;
 				background: rgba(0,0,0,0.2);
 				text-align: center;
-				font-size: 16px;
-				color: #fff; 
-				line-height: 37px;
+				font-size: 14px;
+				color: #fff;
+				line-height: 30px;
+				margin: 0 auto;
 			}
 			
 			#main .funding-select .info-select .info-content {
-				font-size: 24px;
-				line-height: 32px;
+				font-size: 18px;
+				line-height: 30px;
 				color: #fff; 
-				margin: 25px 0 0 10px;
-				font-weight: bold; 
+				text-align: center;
+				font-weight: bold;
+				margin-top: 45px; 
+				padding: 0 20px;
 			}
 			
-			#main .funding-select .info-count {
-				width: 100%; 
-				margin-top: 81px; 
-				padding-top: 22px; 
-				border-top: 1px solid rgba(0,0,0,0.15);
+			#main .funding-select .info-select .info-count {
+				width: 245px; 
+				margin: 45px 20px 0;
+				padding: 15px 20px;
+				border-top: 1px solid rgba(0,0,0,0.15); 
 			}
 	
-				#main .funding-select .info-count tr {
+				#main .funding-select .info-select .info-count tr {
 					width: 100%;
+					font-size: 16px; 
 					height: 36px;
 					color: #fff; 
-					font-size: 18px; 
 				}
-				
-					#main .funding-select .info-count tr td:first-child {
-						padding-left: 20px; 
-					}
 					
-					#main .funding-select .info-count tr td:nth-child(2) {
+					#main .funding-select .info-select .info-count tr td:nth-child(2) {
 						font-weight: bold; 
 					}
 					
-			#main .funding-select .info-more {
+			#main .funding-select .info-select .info-more {
+				width: 100%;
 				height: 50px; 
-				margin: 9px -20px 0; 
 				background: rgba(0,0,0,0.2); 
 				color: #fff;
 				font-size: 16px;
 				font-weight: bold;
 				text-align: center;
-				line-height: 50px; 
+				line-height: 50px;
+				position: absolute;
+				bottom: 0; 
 			}	
 	
 		#main .funding-select ul {
 			width: 895px; 
-			height: 430px;
+			height: 365px;
 			margin-left: 20px; 
 		}
 		
@@ -251,54 +269,56 @@
 				
 					#main .funding-select ul li a img {
 						width: 100%;
-						height: 209px;
+						height: 180px;
 						background: #eee; 
 						border: none; 
 					}
 					
 					#main .funding-select ul li a .item-info {
-						padding: 25px 25px 0;
+						padding: 25px 25px 15px;
 					}
 					
 						#main .funding-select ul li a .item-info .title {
-							font-size: 20px;
+							font-size: 18px;
 							line-height: 30px; 
 							font-weight: bold;
-							letter-spacing: -2px;
+							color: #333;
 						}
 						
 						#main .funding-select ul li a .item-info .category {
-							margin-top: 31px; 
-							font-size: 16px;
+							font-size: 14px;
 							line-height: 36px;
 							font-weight: bold; 
+							display: flex; 
 						}
+						
+							#main .funding-select ul li a .item-info .category span {
+ 								line-height: inherit;
+ 								color: #666;
+ 								display: inline-block;
+							}
 						
 							#main .funding-select ul li a .item-info .category span:first-child {
 								color: #197ecc;
 							}
 							
-							#main .funding-select ul li a .item-info .category span:last-child {
-								color: #666;
-								display: inline-block;
-								margin-left: 12px;
-								max-width: 155px;
-								overflow: hidden;
-								text-overflow: ellipsis;
-								white-space: nowrap; 
+							#main .funding-select ul li a .item-info .category span+span {
+								margin-left: 24px;
+								position: relative;
 							}
 							
-								#main .funding-select ul li a .item-info .category span:last-child:before {
+								#main .funding-select ul li a .item-info .category span+span:before {
 									content: "";
-									display: inline-block;
+									position: absolute;
 									width: 1px;
 									height: 14px;
-									background: #e8e8e8;
-									margin-right: 13px;
+									background: #959595;
+									top: 50%;
+									left: -12px;
+									transform: translateY(-50%);
 								}
 								
 						#main .funding-select ul li a .item-info .graph {
-							margin-top: 12px; 
 							width: 100%;
 							height: 6px; 
 							background: #e8e8e8;
@@ -315,12 +335,14 @@
 							width: 100%;
 							display: flex;
 							justify-content: space-between;
-							margin-top: 11px; 
-							font-size: 18px;
-							line-height: 36px;
-							font-weight: bold; 
-							color: #666;
 						}
+						
+							#main .funding-select ul li a .item-info .gvalue span {
+								font-size: 16px;
+								line-height: 36px;
+								font-weight: bold; 
+								color: #666;
+							}
 						
 							#main .funding-select ul li a .item-info .gvalue span:first-child {
 								color: #1a85d6;

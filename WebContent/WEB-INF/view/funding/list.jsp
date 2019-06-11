@@ -16,8 +16,7 @@
  
 <body>
 	<h1 class="hidden">BLACKSWAN</h1>
-	<jsp:include page="../inc/header.jsp"/>	
-
+ 	<jsp:include page="../inc/header.jsp"/>	
 
 	<main>
 		<jsp:include page="../inc/nav.jsp"/>

@@ -16,8 +16,7 @@
  
 <body>
 	<h1 class="hidden">BLACKSWAN</h1>
-	<jsp:include page="./inc/header.jsp"/>	
-
+	<jsp:include page="./inc/header.jsp"/>
 
 	<main>
 		<jsp:include page="./inc/nav.jsp"/>	
@@ -68,6 +67,7 @@
 						
 					</div>
 					<ul>
+						<c:forEach begin="1" end="3">
 						<li>
 							<a href="">
 								<img>
@@ -79,28 +79,7 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="">
-								<img>
-								<div class="item-info">
-									<div class="title">댕냥이들의 장난감 !!! 집밖으로 나갈 수가 없어요</div>
-									<div class="category"><span>카테고리</span><span>기업명</span></div>
-									<div class="graph"><div class="percent" style="width: 78%"></div></div>
-									<div class="gvalue"><span>78%</span><span>0,000,000원</span></div>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<img>
-								<div class="item-info">
-									<div class="title">댕냥이들의 장난감 !!! 집밖으로 나갈 수가 없어요</div>
-									<div class="category"><span>카테고리</span><span>기업명</span></div>
-									<div class="graph"><div class="percent" style="width: 120%"></div></div>
-									<div class="gvalue"><span>120%</span><span>0,000,000원</span></div>
-								</div>
-							</a>
-						</li>
+						</c:forEach>
 					</ul>
 				</section>
 			</div>
