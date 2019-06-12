@@ -1,0 +1,301 @@
+/* 
+ * 1. @import url
+ * 2. 공통 css
+ * 3. header css
+ * 4. nav css
+ * 5. main css
+ * 6. footer css
+ */
+
+/* ------------------------------ 1. @import url ------------------------------ */
+@import url(./reset.css);
+
+
+/* ------------------------------ 2. 공통 css ------------------------------ */
+.center {
+	width: 1200px;
+	height: inherit;
+	margin: 0 auto;
+}
+
+.hidden {
+	display: none;
+}
+
+
+/* ------------------------------ 3. header css ------------------------------ */
+
+
+#header {
+	background: #fff; 
+	height: 70px;
+	border-bottom: 1px solid #d2d2d2; 
+	font-family : "Malgun Gothic", "Gothic", san-serif;
+}
+
+	#header .center {
+		display: flex;
+		justify-content: space-between;
+		align-items: center; 
+		position: relative;
+	}
+
+		#header .center>h1 {
+			display: inline-block;
+			width: 152px;
+			height: 29px;
+			background: url("../images/logo.png") no-repeat center;
+			color: transparent;
+			text-indent: -999%;
+		}
+	
+		#header #gnb {
+			display: inline-block;
+			font-size: 18px;
+			font-weight: bold;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		
+			#header #gnb .main-menu {
+				width: 250px;
+				display: flex;
+				justify-content: space-between; 
+			}
+		
+		#header #user-menu {
+			display: inline-block;
+		}
+
+			#header #user-menu .user-direct {
+				display: flex; 
+				align-items: center; 
+			}
+			
+				#header #user-menu .user-direct .log, #header #user-menu .user-direct .signup {
+					width: 99px; 
+					height: 40px;
+					font-size: 16px;
+					margin-right: 5px; 
+					line-height: 40px; 
+					text-align: center; 
+					border: 1px solid #E3E3E3;
+				}
+				
+				#header #user-menu .user-direct .user {
+					display: flex;
+					align-items: center; 
+				}
+				
+					#header #user-menu .user-direct .user img {
+						width: 42px;
+						height: 42px;
+						border: 1px solid #d3d3d3;
+						border-radius: 50%;
+					}
+					
+					#header #user-menu .user-direct .user span {
+						font-size: 16px; 
+						margin-left: 15px; 
+					}
+					
+					#header #user-menu .user-direct .user .user-button {
+						width: 10px;
+						height: 10px;
+						border: 1px solid;
+						border-color: transparent transparent #000 #000;
+						transform: rotate(-45deg) translateY(-5px);
+					}
+			
+				#header #user-menu .user-direct .search {
+					width: 70px;
+					height: 70px;
+					line-height: 70px;
+					background: #0081DF;
+					margin: 0 0 0 23px;
+				}
+				
+					#header #user-menu .user-direct .search a {
+						display: block;
+						position: relative;
+						width: 100%;
+						height: 100%;
+					}
+					
+						#header #user-menu .user-direct .search a span {
+							width: 25px;
+							height: 25px;
+							border-radius: 50%;
+							border: 3px solid #fff;
+							display: inline-block; 
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -55%); 
+							color: transparent;
+						}
+						
+							#header #user-menu .user-direct .search a span:after {
+								content: "";
+								position: absolute; 
+								bottom: -5px;
+								right: -5px;
+								width: 0px;
+								height: 10px;
+								border: solid #fff; 
+								border-width: 1px 0 1px 3px;
+								transform: rotate(-55deg);
+							}
+							
+		#header #mp-link {
+			width: 179px;
+			height: 241px;
+			position: absolute;
+			top: 80px; 
+			right: -10px;
+			z-index: 800;
+			box-shadow: 5px 5px 7px rgba(0,0,0,0.24);
+			border-radius: 20px;
+			overflow: hidden;
+		}
+		
+			#header #mp-link ul {
+			}
+			
+				#header #mp-link ul li {
+					font-size: 16px;
+					line-height: 60px;
+					text-align: center;
+					border-bottom: 1px solid #d8d8d8; 
+					transition: all 0.5s ease;
+					background: #eee;
+				}
+				
+				#header #mp-link ul li:last-child {
+					border: 0;
+				}
+				
+				#header #mp-link ul li:hover {
+					background: #434343;
+					color: #fff;
+					font-weight: bold;
+				}
+
+
+/* ------------------------------ 4. nav css ------------------------------ */
+
+#nav {
+	background: #fff; 
+	height: 157px;
+	border-bottom: 1px solid #E3E3E3; 
+}
+
+	#nav .center {		
+	}
+	
+		#nav .center .category {
+			display: inline-block;
+			display: flex;
+			height: inherit;
+			justify-content: space-around;
+			align-items: center;
+		}
+		
+			#nav .center .category li {
+				width: 60px;
+			}
+			
+				#nav .center .category li a div {
+					width: 50px;
+					height: 50px;
+					background: #f5f5f5;
+					border-radius: 50%;
+					margin: 0 auto 15px; 
+					transition: background 0.5s ease;
+				}
+				
+				#nav .center .category li:hover a div {
+					background: #0081e0;
+				}
+			
+				#nav .center .category li a span {
+					font-size: 13px;
+					color: #666;
+					text-align: center; 
+					display: inline-block;
+					width: 100%;
+				}
+				
+
+
+
+/* ------------------------------ 5. main css ------------------------------ */
+
+
+#main {
+	background: #fff;
+}
+
+
+
+/* ------------------------------ 6. footer css ------------------------------ */
+
+
+#footer {
+	background: #303435; 
+	height: 280px;
+}
+
+	#footer .center {
+		text-align: center;
+		padding: 70px 0; 
+	}
+	
+		#footer .center .customer-menu {
+			width: 480px; 
+			display: inline-block;
+		}
+		
+			#footer .center .customer-menu ul {
+				display: flex; 
+				justify-content: center; 
+			}
+			
+				#footer .center .customer-menu ul li {
+					color: #fff;
+					padding: 0 25px;
+					font-size: 14px;
+					line-height: 28px; 
+				}
+			
+				#footer .center .customer-menu ul li:nth-child(2) {
+					width: 200px;
+					color: #dfb306;
+				}
+		
+		#footer .center .company-copy {
+			display: inline-block;
+			color: #fff;
+			margin-top: 25px;
+		}
+		
+			#footer .center .company-copy dl, #footer .center .company-copy div {
+				display: flex;
+				justify-content: center;
+				font-size: 14px;
+				line-height: 22px;
+				opacity: 0.2;
+			}
+			
+				#footer .center .company-copy dl dd, #footer .center .company-copy dl dt {
+					font-size: inherit;
+					line-height: inherit;
+				}
+			
+			#footer .center .company-copy .copyright {
+				font-size: 16px;
+				line-height: 28px;
+				opacity: 0.4;
+			}

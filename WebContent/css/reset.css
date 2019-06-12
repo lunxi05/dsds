@@ -1,0 +1,16 @@
+*, body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, span, a, a:link, a:visited, a:active, a:hover {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: inherit;
+	line-height: 1;
+	background: none;
+	text-decoration: none;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+ul, ol, li, dl, dt, dd {
+	list-style-type: none; 
+}
