@@ -22,7 +22,7 @@
 			height: 310px; 
 		}
 	
-		#banner .center div {
+		#banner .center .prev-banner, #banner .center .next-banner {
 			width: 47px;
 			height: 47px;
 			position: absolute;
@@ -32,6 +32,11 @@
 			top: 50%;
 			transform: translateY(-50%);
 			box-shadow: 3px 3px 5px rgba(0,0,0,0.2); 
+			transition: background 0.5s ease; 
+		}
+		
+		#banner .center .prev-banner:hover, #banner .center .next-banner:hover {
+			background: rgba(255,255,255,0.6);
 		}
 		
 			#banner .center div:before {
@@ -115,7 +120,6 @@
 				width: 150px;
 				font-size: 16px;
 				color: #d2d2d2;
-				font-weight: bold;
 				text-align: center; 
 				line-height: 44px;
 				transition: background 0.5s ease;
@@ -124,6 +128,7 @@
 			
 				#main .tap-select ul li:hover {
 					color: #1f9eff;
+					font-weight: bold;
 				}
 				
 				#main .tap-select ul li+li:before {
@@ -150,15 +155,19 @@
 			border: 1px solid #d2d2d2;
 			background: #fff;
 			text-align: center; 
-			line-height: 22px; 
+			line-height: 18px; 
 			float: left;
+		}
+		
+		#main .page-select div:hover {
+			background: #ebebeb;
 		}
 		
 			#main .page-select div:before {
 				content: "";
 				display: inline-block; 
-				width: 10px;
-				height: 10px;
+				width: 8px;
+				height: 8px;
 				transform: rotate(45deg);
 			}
 		
@@ -184,13 +193,13 @@
 		#main .funding-select .info-select {
 			width: 285px;
 			height: 365px;
-			background: #1f9eff; 
+			background: #00b331; 
 			position: relative;
 		}
 	
 			#main .funding-select .info-select .info-title {
-				width: 65px;
-				height: 30px;
+				width: 80px;
+				height: 34px;
 				background: rgba(0,0,0,0.2);
 				text-align: center;
 				font-size: 14px;
@@ -200,11 +209,10 @@
 			}
 			
 			#main .funding-select .info-select .info-content {
-				font-size: 18px;
+				font-size: 24px;
 				line-height: 30px;
 				color: #fff; 
 				text-align: center;
-				font-weight: bold;
 				margin-top: 45px; 
 				padding: 0 20px;
 			}
@@ -244,22 +252,23 @@
 			width: 895px; 
 			height: 365px;
 			margin-left: 20px; 
+			display: flex;
+			justify-content: space-between;
 		}
 		
 			#main .funding-select ul li {
 				width: 285px;
 				height: 100%; 
 				border: 1px solid #d2d2d2;
-				float: left;
+			}
+			
+			#main .funding-select ul li:hover {
+				border: 1px solid #0081e0;
 			}
 			
 			#main .funding-select ul li+li {
 				margin-left: 20px;
 			}
-			
-				#main .funding-select ul li:last-child:after {
-					clear: both;
-				}
 			
 				#main .funding-select ul li a {
 					display: block;
@@ -267,12 +276,23 @@
 					height: 100%; 
 				}
 				
-					#main .funding-select ul li a img {
+					#main .funding-select ul li a .item-img {
 						width: 100%;
 						height: 180px;
 						background: #eee; 
-						border: none; 
+						border: none;
+						overflow: hidden;  
 					}
+					
+						#main .funding-select ul li a .item-img img {
+							width: 100%;
+							height: 100%; 
+							transition: transform 0.5s ease;
+						}
+					
+						#main .funding-select ul li:hover a .item-img img {
+							transform: scale(1.1);
+						}
 					
 					#main .funding-select ul li a .item-info {
 						padding: 25px 25px 15px;
@@ -288,8 +308,8 @@
 						#main .funding-select ul li a .item-info .category {
 							font-size: 14px;
 							line-height: 36px;
-							font-weight: bold; 
-							display: flex; 
+							display: flex;
+							margin-top: 10px;  
 						}
 						
 							#main .funding-select ul li a .item-info .category span {
@@ -299,7 +319,7 @@
 							}
 						
 							#main .funding-select ul li a .item-info .category span:first-child {
-								color: #197ecc;
+								color: #333;
 							}
 							
 							#main .funding-select ul li a .item-info .category span+span {
@@ -331,6 +351,10 @@
 								max-width: 100%; 
 							}
 							
+							#main .funding-select ul li.complete .item-info .graph .percent {
+								background: #00b331;
+							}
+							
 						#main .funding-select ul li a .item-info .gvalue {
 							width: 100%;
 							display: flex;
@@ -340,10 +364,10 @@
 							#main .funding-select ul li a .item-info .gvalue span {
 								font-size: 16px;
 								line-height: 36px;
-								font-weight: bold; 
 								color: #666;
 							}
 						
 							#main .funding-select ul li a .item-info .gvalue span:first-child {
 								color: #1a85d6;
+								font-weight: bold;
 							}		

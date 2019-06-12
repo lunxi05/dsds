@@ -43,15 +43,16 @@
 						<!-- 1페이지일때만 노출 -->
 						<li class="first-page-img">
 						</li>
-						
 						<c:forEach begin="1" end="7">
 						<li>
 							<a href="">
-								<img src="../images/banner.png">
+								<div class="item-img">
+									<img src="./images/.jpg">
+								</div>
 								<div class="item-info">
 									<div class="title">댕냥이들의 장난감 !!!<br>집밖으로 나갈 수가 없어요</div>
 									<div class="category"><span>카테고리</span><span>기업명</span></div>
-									<div class="graph"><div class="percent" style="width: 40%"></div></div>
+									<div class="graph"><div class="percent" style="width: 80%"></div></div>
 									<div class="gvalue"><span>40%</span><span>0,000,000원</span></div>
 								</div>
 							</a>
