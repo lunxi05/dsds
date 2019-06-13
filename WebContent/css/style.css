@@ -214,37 +214,77 @@
 				#nav .center .category li a div {
 					width: 64px;
 					height: 64px;
-					background-color: #ebebeb;
-					background-repeat: no-repeat;
-					background-position: center;
+					background: #ebebeb;
 					border: 1px solid #e3e3e3;
 					border-radius: 50%;
 					margin: 0 auto 10px; 
-					transition: background-color 0.5s ease;
+					transition: all 0.5s ease;
+					position: relative; 
+					overflow: hidden;
 				}
 				
-				#nav .center .category li:nth-child(4) a div {
-					background-image: url("../images/poop.png");
+				#nav .center .category li a div:before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					background-repeat: no-repeat;
+					background-position: center;
+					width: 100%;
+					height: 100%; 
+					opacity: 0.3;
+					z-index: 10;
+				}
+
+				#nav .center .category li:first-child a div:before {
+					background-image: url("../images/all.png");
 				}
 				
-				#nav .center .category li:nth-child(5) a div {
-					background-image: url("../images/healty.png");
+				#nav .center .category li:nth-child(2) a div:before {
+					background-image: url("../images/food.png");
 				}
 				
-				#nav .center .category li:nth-child(6) a div {
+				#nav .center .category li:nth-child(3) a div:before {
+					background-image: url("../images/snack.png");
+				}
+				
+				#nav .center .category li:nth-child(4) a div:before {
+					background-image: url("../images/poo.png");
+				}
+				
+				#nav .center .category li:nth-child(5) a div:before {
+					background-image: url("../images/health.png");
+				}
+				
+				#nav .center .category li:nth-child(6) a div:before {
 					background-image: url("../images/beauty.png");
 				}
 				
-				#nav .center .category li:nth-child(8) a div {
-					background-image: url("../images/living.png");
+				#nav .center .category li:nth-child(7) a div:before {
+					background-image: url("../images/play.png");
 				}
 				
-				#nav .center .category li:nth-child(10) a div {
-					background-image: url("../images/outdoor.png");
+				#nav .center .category li:nth-child(8) a div:before {
+					background-image: url("../images/house.png");
+				}
+				
+				#nav .center .category li:nth-child(9) a div:before {
+					background-image: url("../images/style.png");
+				}
+				
+				#nav .center .category li:nth-child(10) a div:before {
+					background-image: url("../images/cage.png");
 				}
 				
 				#nav .center .category li:hover a div {
-					background-color: #0081e0;
+					background: #0081e0;
+					border-color: #0081e0;
+				}
+				
+				#nav .center .category li:hover a div:before {
+					content: "";
+					opacity: 1;
+					filter: invert(100%);
 				}
 			
 				#nav .center .category li a span {

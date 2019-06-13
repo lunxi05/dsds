@@ -25,7 +25,7 @@
 		<section id="banner">
 			<h1 class="hidden">배너</h1>
 			<div class="center">
-				<a href=""><img src="./images/banner.jpg"></a>
+				<a href=""><img src="images/banner.jpg"></a>
 				<div class="prev-banner"></div>
 				<div class="next-banner"></div>
 				<div class="banner-page">1&nbsp;/&nbsp;3</div>
