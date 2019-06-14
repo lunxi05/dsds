@@ -4,99 +4,129 @@ import java.util.Date;
 
 
 public class Notice {
+	
 	private int id;
-	private String type;
+	private int adminId;
+	private int division;
 	private String title;
-	private String writer_Id;
 	private String content;
-	private Date regDate;
+	private String attach;
+	private Date regdate;
+	private Date sdate;
+	private Date edate;
 	private int hit;
+	private int state;
 	
 	public Notice() {
 		// TODO Auto-generated constructor stub
 	}
-
-
-	public Notice(int id, String type, String title, String content, String writer_Id, Date regDate, int hit) {
-		super();
+	
+	public Notice(int id, int adminId, int division, String title, String content, String attach, Date regdate,
+			Date sdate, Date edate, int hit, int state) {
+		
 		this.id = id;
-		this.type = type;
+		this.adminId = adminId;
+		this.division = division;
 		this.title = title;
-		this.content=content;
-		this.writer_Id = writer_Id;
-		this.regDate = regDate;
+		this.content = content;
+		this.attach = attach;
+		this.regdate = regdate;
+		this.sdate = sdate;
+		this.edate = edate;
 		this.hit = hit;
+		this.state = state;
 	}
-
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
-	public String getType() {
-		return type;
+	public int getAdminId() {
+		return adminId;
 	}
 
-
-	public void setType(String type) {
-		this.type = type;
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
 	}
 
+	public int getDivision() {
+		return division;
+	}
+
+	public void setDivision(int division) {
+		this.division = division;
+	}
 
 	public String getTitle() {
 		return title;
 	}
 
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-
-	public String getWriter_Id() {
-		return writer_Id;
-	}
-
-
-	public void setWriter_Id(String writer_Id) {
-		this.writer_Id = writer_Id;
-	}
-
 
 	public String getContent() {
 		return content;
 	}
 
-
 	public void setContent(String content) {
 		this.content = content;
 	}
 
-
-	public Date getRegDate() {
-		return regDate;
+	public String getAttach() {
+		return attach;
 	}
 
-
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+	public void setAttach(String attach) {
+		this.attach = attach;
 	}
 
+	public Date getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+
+	public Date getSdate() {
+		return sdate;
+	}
+
+	public void setSdate(Date sdate) {
+		this.sdate = sdate;
+	}
+
+	public Date getEdate() {
+		return edate;
+	}
+
+	public void setEdate(Date edate) {
+		this.edate = edate;
+	}
 
 	public int getHit() {
 		return hit;
 	}
 
-
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+	
+	
+	
 
 }
 	

@@ -31,13 +31,61 @@
 			</div>
 		</section>
 	
-		<section id="main">
-			<h1 class="hidden">메인컨텐츠</h1>
+			<h1 >공지사항</h1>
 			<div class="center">
+			<table >
+                    <thead>
+                        <tr>
+                            <td class="id">번호</td>
+                            <td class="division">구분</td>
+                            <td class="title">제목</td>
+                            <td class="date">작성일</td>
+                            <td class="hit">조회수</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    
+                      <c:forEach var="n" items="${list}" varStatus="s">
+                       <tr>
+                           <td class="id">${n.id}</td>
+                           <td class="division">${n.division}</td>
+                           <td class="title">
+                           	<a href="detail?id=${n.id}">${n.title}</a>
+                           </td>
+                           <td class="date">${n.regDate}</td>
+                           <td class="hit">${n.hit}</td>
+                        </tr>
+                       </c:forEach>
+                    </tbody>
+                </table>
+                
+				<section id="page-index">
+                <h1 class="d-none">페이지 정보</h1>
+                <div>
+                    <span class="color-highlight font-bold">1</span>
+                     / 1 pages
+                </div>
+            </section>
+
+			<c:set var="page" value="${(empty param.p) ? 1:param.p}" />
+			<c:set var="start" value="${page-(page-1)%5}" />
+			<c:set var="last" value="${page-(page-1)%5}" />
 			
-			
+
+            <section id="pager">
+                <h1 class="d-none">페이지</h1>
+                <div>
+                    <div><a href="list?p=${(start==1) ? 1 : start-1}">이전</a></div><%-- ${(page<6)?page:page-5} --%>
+                    <ul>
+                        <c:forEach var="n" begin="${start}" end="${start+4}" varStatus="s">
+                        <li><a href ="list?p=${n}">${n}</a></li>
+                        </c:forEach>
+                    </ul>
+                    <div class="icon-next-page">다음</div>
+                </div>
+            </section>
 			</div>
-		</section>
 	</main>
 
 	<jsp:include page="../inc/footer.jsp"/>	
