@@ -1,4 +1,4 @@
-package com.blackswan.web.controller.notice;
+package com.blackswan.web.admin.review;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,19 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.blackswan.web.dao.NoticeDao;
-import com.blackswan.web.dao.oracle.OracleNoticeDao;
+import com.blackswan.web.dao.ReviewDao;
+import com.blackswan.web.dao.oracle.OracleReviewDao;
 
-@WebServlet("/notice/list")
+@WebServlet("/review/list/")
 public class ListController extends HttpServlet {
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		NoticeDao noticeDao = new OracleNoticeDao();
+		// TODO Auto-generated method stub
+		ReviewDao reviewDao = new OracleReviewDao();
 		
 		try {
-			request.setAttribute("list", noticeDao.getList());
+			request.setAttribute("list", reviewDao.getList());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -29,9 +29,8 @@ public class ListController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		request.getRequestDispatcher("/WEB-INF/view/notice/list.jsp").forward(request, response);
+
+		request.getRequestDispatcher("/WEB-INF/view/review/list.jsp").forward(request, response);
 	}
-	
+
 }

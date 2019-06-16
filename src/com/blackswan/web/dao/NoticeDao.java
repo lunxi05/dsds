@@ -7,9 +7,9 @@ import com.blackswan.web.dao.oracle.NoticeView;
 import com.blackswan.web.entity.Notice;
 
 public interface NoticeDao {
-	List<NoticeView> getList() throws ClassNotFoundException, SQLException;
-	List<NoticeView> getList(int page) throws ClassNotFoundException, SQLException;
-	List<NoticeView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
+	List<Notice> getList() throws ClassNotFoundException, SQLException;
+	List<Notice> getList(int page) throws ClassNotFoundException, SQLException;
+	List<Notice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
 	
 	Notice get(int id) throws ClassNotFoundException, SQLException;
 	Notice getPrev(int id) throws ClassNotFoundException, SQLException;
