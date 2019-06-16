@@ -13,7 +13,7 @@ import com.blackswan.web.dao.ReviewDao;
 import com.blackswan.web.dao.oracle.OracleReviewDao;
 import com.blackswan.web.entity.Review;
 
-@WebServlet("/funding/reg")
+@WebServlet("/review/reg")
 public class RegController extends HttpServlet {
 	
 	@Override
