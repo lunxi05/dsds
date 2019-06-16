@@ -11,8 +11,9 @@ public class MemberView extends Member {
 		
 	}
 	
-	public MemberView(int num, int id, int black, String email, String name, Date regdate, String condition) {
-		super(id, black, email, name, regdate, condition);
+	public MemberView(int num, int id, String email, String name, String pw, int phone, String profile,
+			String blackReason, int eventCheck, int adminId, String address, int addressNumber, Date regdate, String state) {
+		super(id, email, name, pw, phone, profile, blackReason, eventCheck, adminId, address, addressNumber, regdate, state);
 		
 		this.num = num;
 	}
