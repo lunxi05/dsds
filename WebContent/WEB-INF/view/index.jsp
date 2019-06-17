@@ -63,7 +63,7 @@
 								<td>0,000,000원</td>
 							</tr>
 						</table>
-						<div class="info-more"><a href="/funding/list">인기펀딩 보러가기</a></div>
+						<div class="info-more"><a href="/blackswan2/funding/list">인기펀딩 보러가기</a></div>
 						
 					</div>
 					<ul>

@@ -9,9 +9,9 @@
 			<section id="gnb">
 				<h1 class="hidden">메인메뉴</h1>
 				<ul class="main-menu">
-					<li><a href="/funding/list">펀딩</a></li>
-					<li><a href="">등록신청</a></li>
-					<li><a href="">Q&A</a></li>
+					<li><a href="/blackswan2/funding/list">펀딩</a></li>
+					<li><a href="/blackswan2/leg">등록신청</a></li>
+					<li><a href="/blackswan2/notice/list">고객센터</a></li>
 				</ul>
 			</section>
 			<section id="user-menu">
