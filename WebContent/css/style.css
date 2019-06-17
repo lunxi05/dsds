@@ -2,7 +2,8 @@
  * 1. @import url
  * 2. °øÅë css
  * 3. header css
- * 4. nav css
+ * 4-1. nav css
+ * 4-2. breadcrumb css
  * 5. main css
  * 6. footer css
  */
@@ -29,7 +30,7 @@
 #header {
 	background: #fff; 
 	height: 70px;
-	border-bottom: 1px solid #d2d2d2; 
+	border-bottom: 1px solid #e0e0e0; 
 	font-family : "Malgun Gothic", "Gothic", san-serif;
 }
 
@@ -75,13 +76,17 @@
 			}
 			
 				#header #user-menu .user-direct .log, #header #user-menu .user-direct .signup {
-					width: 99px; 
-					height: 40px;
+					width: 90px; 
+					height: 34px;
 					font-size: 16px;
-					margin-right: 5px; 
-					line-height: 40px; 
+					margin-left: 5px; 
+					line-height: 30px; 
 					text-align: center; 
 					border: 1px solid #E3E3E3;
+				}
+				
+				#header #user-menu .user-direct .log:hover, #header #user-menu .user-direct .signup:hover {
+					background: #ebebeb;
 				}
 				
 				#header #user-menu .user-direct .user {
@@ -114,7 +119,7 @@
 					height: 70px;
 					line-height: 70px;
 					background: #0081DF;
-					margin: 0 0 0 23px;
+					margin: 0 0 0 30px;
 				}
 				
 					#header #user-menu .user-direct .search a {
@@ -125,8 +130,8 @@
 					}
 					
 						#header #user-menu .user-direct .search a span {
-							width: 25px;
-							height: 25px;
+							width: 20px;
+							height: 20px;
 							border-radius: 50%;
 							border: 3px solid #fff;
 							display: inline-block; 
@@ -143,38 +148,34 @@
 								bottom: -5px;
 								right: -5px;
 								width: 0px;
-								height: 10px;
+								height: 8px;
 								border: solid #fff; 
 								border-width: 1px 0 1px 3px;
-								transform: rotate(-55deg);
+								transform: rotate(-50deg);
 							}
 							
 		#header #mp-link {
 			width: 179px;
-			height: 241px;
 			position: absolute;
-			top: 80px; 
-			right: -10px;
+			top: 69px; 
+			right: 70px;
 			z-index: 800;
-			box-shadow: 5px 5px 7px rgba(0,0,0,0.24);
-			border-radius: 20px;
-			overflow: hidden;
+			background: #fff; 
 		}
 		
 			#header #mp-link ul {
+				border: 1px solid #d8d8d8; 
 			}
 			
 				#header #mp-link ul li {
 					font-size: 16px;
-					line-height: 60px;
+					line-height: 40px;
 					text-align: center;
-					border-bottom: 1px solid #d8d8d8; 
 					transition: all 0.5s ease;
-					background: #eee;
 				}
 				
-				#header #mp-link ul li:last-child {
-					border: 0;
+				#header #mp-link ul li+li {
+					border-top: 1px solid #d8d8d8; 
 				}
 				
 				#header #mp-link ul li:hover {
@@ -184,12 +185,16 @@
 				}
 
 
-/* ------------------------------ 4. nav css ------------------------------ */
+/* ------------------------------ 4-1. nav css ------------------------------ */
 
 #nav {
 	background: #fff; 
 	height: 157px;
-	border-bottom: 1px solid #E3E3E3; 
+}
+
+
+#nav.ca {
+	background: #fbfbfb;
 }
 
 	#nav .center {		
@@ -204,20 +209,83 @@
 		}
 		
 			#nav .center .category li {
-				width: 60px;
+				width: 70px;
 			}
 			
 				#nav .center .category li a div {
-					width: 50px;
-					height: 50px;
-					background: #f5f5f5;
+					width: 64px;
+					height: 64px;
+					background: #ebebeb;
+					border: 1px solid #e3e3e3;
 					border-radius: 50%;
-					margin: 0 auto 15px; 
-					transition: background 0.5s ease;
+					margin: 0 auto 10px; 
+					transition: all 0.5s ease;
+					position: relative; 
+					overflow: hidden;
+				}
+				
+				#nav .center .category li a div:before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					background-repeat: no-repeat;
+					background-position: center;
+					width: 100%;
+					height: 100%; 
+					opacity: 0.3;
+					z-index: 10;
+				}
+
+				#nav .center .category li:first-child a div:before {
+					background-image: url("../images/all.png");
+				}
+				
+				#nav .center .category li:nth-child(2) a div:before {
+					background-image: url("../images/food.png");
+				}
+				
+				#nav .center .category li:nth-child(3) a div:before {
+					background-image: url("../images/snack.png");
+				}
+				
+				#nav .center .category li:nth-child(4) a div:before {
+					background-image: url("../images/poo.png");
+				}
+				
+				#nav .center .category li:nth-child(5) a div:before {
+					background-image: url("../images/health.png");
+				}
+				
+				#nav .center .category li:nth-child(6) a div:before {
+					background-image: url("../images/beauty.png");
+				}
+				
+				#nav .center .category li:nth-child(7) a div:before {
+					background-image: url("../images/play.png");
+				}
+				
+				#nav .center .category li:nth-child(8) a div:before {
+					background-image: url("../images/house.png");
+				}
+				
+				#nav .center .category li:nth-child(9) a div:before {
+					background-image: url("../images/style.png");
+				}
+				
+				#nav .center .category li:nth-child(10) a div:before {
+					background-image: url("../images/cage.png");
 				}
 				
 				#nav .center .category li:hover a div {
 					background: #0081e0;
+					border-color: #0081e0;
+				}
+				
+				#nav .center .category li:hover a div:before {
+					content: "";
+					opacity: 1;
+					filter: invert(100%);
 				}
 			
 				#nav .center .category li a span {
@@ -226,9 +294,56 @@
 					text-align: center; 
 					display: inline-block;
 					width: 100%;
-				}
-				
+				}		
 
+
+
+/* ------------------------------ 4-2. breadcrumb css ------------------------------ */
+#breadcrumb {
+	background: #f4f4f4;
+	height: 40px;
+	border-bottom: 1px solid #d2d2d2;
+}
+
+	#breadcrumb ul {
+		height: inherit;
+		display: flex;
+	}
+	
+		#breadcrumb ul li {
+			font-size: 14px;
+			position: relative;
+			padding: 0 20px;
+			line-height: 40px;
+		}
+		
+		#breadcrumb ul li:first-child {
+			width: 40px;
+			padding: 0;
+			position: relative;
+			border: solid #d2d2d2;
+			border-width: 0 1px;
+			background: url("../images/home.png") no-repeat center;
+		}
+		
+			#breadcrumb ul li:first-child a {
+				display: block;
+				width: 100%;
+				height: 100%; 
+				color: transparent;
+				text-indent: -999%;
+			}
+		
+		#breadcrumb ul li:last-child {
+			padding-left: 0;
+		}
+			
+			#breadcrumb ul li:last-child:before {
+				content: ">";
+				margin-right: 20px;
+			}
+			
+			
 
 
 /* ------------------------------ 5. main css ------------------------------ */
@@ -245,12 +360,12 @@
 
 #footer {
 	background: #303435; 
-	height: 280px;
+	height: 250px;
 }
 
 	#footer .center {
 		text-align: center;
-		padding: 70px 0; 
+		padding: 40px 0; 
 	}
 	
 		#footer .center .customer-menu {
@@ -265,20 +380,19 @@
 			
 				#footer .center .customer-menu ul li {
 					color: #fff;
-					padding: 0 25px;
+					padding: 0 10px; 
 					font-size: 14px;
 					line-height: 28px; 
 				}
 			
 				#footer .center .customer-menu ul li:nth-child(2) {
-					width: 200px;
 					color: #dfb306;
 				}
 		
 		#footer .center .company-copy {
 			display: inline-block;
 			color: #fff;
-			margin-top: 25px;
+			margin-top: 30px;
 		}
 		
 			#footer .center .company-copy dl, #footer .center .company-copy div {
@@ -295,7 +409,8 @@
 				}
 			
 			#footer .center .company-copy .copyright {
-				font-size: 16px;
+				font-size: 14px;
 				line-height: 28px;
 				opacity: 0.4;
+				margin-top: 10px;
 			}

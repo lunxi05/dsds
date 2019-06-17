@@ -6,15 +6,15 @@ import com.blackswan.web.entity.Member;
 public class MemberView extends Member {
 
 	private int num;
-	
+
 	public MemberView() {
-		
+
 	}
-	
-	public MemberView(int num, int id, String email, String name, String pw, int phone, String profile,
-			String blackReason, int eventCheck, int adminId, String address, int addressNumber, Date regdate, String state) {
-		super(id, email, name, pw, phone, profile, blackReason, eventCheck, adminId, address, addressNumber, regdate, state);
-		
+
+	public MemberView(int num, int id, String email, String name, String pw, int phone, String profile, int eventCheck,
+			int adminId, String address, int addressNum, Date regdate) {
+		super(id, email, name, pw, phone, profile, eventCheck, adminId, address, addressNum, regdate);
+
 		this.num = num;
 	}
 

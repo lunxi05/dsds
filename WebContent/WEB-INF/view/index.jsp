@@ -25,7 +25,7 @@
 		<section id="banner">
 			<h1 class="hidden">배너</h1>
 			<div class="center">
-				<a href=""><img src="./images/banner.png"></a>
+				<a href=""><img src="images/banner.jpg"></a>
 				<div class="prev-banner"></div>
 				<div class="next-banner"></div>
 				<div class="banner-page">1&nbsp;/&nbsp;3</div>
@@ -63,18 +63,20 @@
 								<td>0,000,000원</td>
 							</tr>
 						</table>
-						<div class="info-more"><a href="/funding/list">인기펀딩 보러가기</a></div>
+						<div class="info-more"><a href="/blackswan2/funding/list">인기펀딩 보러가기</a></div>
 						
 					</div>
 					<ul>
 						<c:forEach begin="1" end="3">
 						<li>
 							<a href="">
-								<img>
+								<div class="item-img">
+									<img src="./images/.jpg">
+								</div>
 								<div class="item-info">
 									<div class="title">댕냥이들의 장난감 !!!<br>집밖으로 나갈 수가 없어요</div>
 									<div class="category"><span>카테고리</span><span>기업명</span></div>
-									<div class="graph"><div class="percent" style="width: 40%"></div></div>
+									<div class="graph"><div class="percent" style="width: 80%"></div></div>
 									<div class="gvalue"><span>40%</span><span>0,000,000원</span></div>
 								</div>
 							</a>

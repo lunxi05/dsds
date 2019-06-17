@@ -10,20 +10,18 @@ public class Member {
 	private String pw;
 	private int phone;
 	private String profile;
-	private String blackReason;
 	private int eventCheck;
 	private int adminId;
 	private String address;
-	private int addressNumber;
+	private int addressNum;
 	private Date regdate;
-	private String state;
 	
 	public Member() {
-		
-	}
 	
-	public Member(int id, String email, String name, String pw, int phone, String profile,
-			String blackReason, int eventCheck, int adminId, String address, int addressNumber, Date regdate, String state) {
+	}
+
+	public Member(int id, String email, String name, String pw, int phone, String profile, int eventCheck, int adminId,
+			String address, int addressNum, Date regdate) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -31,13 +29,11 @@ public class Member {
 		this.pw = pw;
 		this.phone = phone;
 		this.profile = profile;
-		this.blackReason = blackReason;
 		this.eventCheck = eventCheck;
 		this.adminId = adminId;
 		this.address = address;
-		this.addressNumber = addressNumber;
+		this.addressNum = addressNum;
 		this.regdate = regdate;
-		this.state = state;
 	}
 
 	public int getId() {
@@ -88,14 +84,6 @@ public class Member {
 		this.profile = profile;
 	}
 
-	public String getBlackReason() {
-		return blackReason;
-	}
-
-	public void setBlackReason(String blackReason) {
-		this.blackReason = blackReason;
-	}
-
 	public int getEventCheck() {
 		return eventCheck;
 	}
@@ -120,12 +108,12 @@ public class Member {
 		this.address = address;
 	}
 
-	public int getAddressNumber() {
-		return addressNumber;
+	public int getAddressNum() {
+		return addressNum;
 	}
 
-	public void setAddressNumber(int addressNumber) {
-		this.addressNumber = addressNumber;
+	public void setAddressNum(int addressNum) {
+		this.addressNum = addressNum;
 	}
 
 	public Date getRegdate() {
@@ -134,14 +122,6 @@ public class Member {
 
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
 	}
 
 }
