@@ -16,17 +16,15 @@ import com.blackswan.web.dao.oracle.OracleNoticeDao;
 public class ListController extends HttpServlet {
 	
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		NoticeDao noticeDao = new OracleNoticeDao();
 		
 		try {
-			request.setAttribute("list", noticeDao.getList());
+			request.setAttribute("nlist", noticeDao.getList());
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

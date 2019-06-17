@@ -11,6 +11,7 @@
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/notice.css">
+<script src="../js/notice/list.js"></script>
 </head>
 
 
@@ -20,32 +21,8 @@
 
 
 	<main>
-<<<<<<< HEAD
-		<section id="breadcrumb">
-			<h1 class="hidden">경로</h1>
-			<div class="center">
-				<ul>
-					<li><a href="/index">홈</a></li>
-					<li><a href="">Q&A</a></li>
-					<li><a href="">공지사항</a></li>
-				</ul>
-			</div>
-		</section>
-	
-			<h1 >공지사항</h1>
-			<div class="center">
-			<table >
-                    <thead>
-                        <tr>
-                            <td class="id">번호</td>
-                            <td class="division">구분</td>
-                            <td class="title">제목</td>
-                            <td class="regdate">작성일</td>
-                            <td class="hit">조회수</td>
-                        </tr>
-                    </thead>
-=======
-	<section id="breadcrumb">
+
+	<!-- <section id="breadcrumb">
 		<h1 class="hidden">경로</h1>
 		<div class="center">
 			<ul>
@@ -53,33 +30,7 @@
 				<li><script>
 					var url = window.location.pathname;
 					var bread = url.split("/")[2];
->>>>>>> refs/remotes/origin/master
 
-<<<<<<< HEAD
-                    <tbody>
-                    
-                      <c:forEach var="n" items="${list}" varStatus="s">
-                       <tr>
-                           <td class="id">${n.id}</td>
-                           <td class="division">${n.division}</td>
-                           <td class="title">
-                           	<a href="detail?id=${n.id}">${n.title}</a>
-                           </td>
-                           <td class="regdate">${n.regDate}</td>
-                           <td class="hit">${n.hit}</td>
-                        </tr>
-                       </c:forEach>
-                    </tbody>
-                </table>
-                
-				<section id="page-index">
-                <h1 class="d-none">페이지 정보</h1>
-                <div>
-                    <span class="color-highlight font-bold">1</span>
-                     / 1 pages
-                </div>
-            </section>
-=======
 					switch (bread) {
 					case "funding":
 						document.write("펀딩");
@@ -95,7 +46,7 @@
 				<li>공지사항</li>
 			</ul>
 		</div>
-	</section>
+	</section> -->
 
 	<section id="main">
 		<h1>공지사항</h1>
@@ -114,25 +65,15 @@
 						</tr>
 					</thead>
 
-					<tbody>
+					<tbody class="tbody">
 
-						<tr>
-							<td class="id">111111</td>
-							<td class="division">이벤트</td>
-							<td class="title"><a href="detail?id=${n.id}">제목제목</a>
-							</td>
-							<td class="date">17.01.21</td>
-							<td class="hit">321321</td>
-						</tr>
-
-						<c:forEach var="n" items="${list}" varStatus="s">
+						<c:forEach var="n" items="${nlist}" varStatus="s">
 							<tr>
 								<td class="id">${n.id}</td>
-								<td class="division">${n.division}</td>
-								<td class="title"><a href="detail?id=${n.id}">${n.title}</a>
-								</td>
-								<td class="date">${n.regDate}</td>
-								<td class="hit">${n.hit}</td>
+								<td class="division"></td>
+								<td class="title"><a href="detail?id=${n.id}">${n.title}</a></td>
+								<td class="date"></td>
+								<td class="hit"></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -145,26 +86,27 @@
 					<span class="color-highlight font-bold">1</span> / 1 pages
 				</div>
 			</section>
->>>>>>> refs/remotes/origin/master
 
-			<c:set var="page" value="${(empty param.p) ? 1:param.p}" />
-			<c:set var="start" value="${page-(page-1)%5}" />
-			<c:set var="last" value="${page-(page-1)%5}" />
+			<c:set var="page" value="${(empty param.p) ? 1 : param.p}"></c:set>
+			<c:set var="start" value="${page-(page-1)%5}"></c:set>
+			<c:set var="last" value="" />
 
-
-			<section id="paging">
-				<h1 class="d-none">페이지</h1>
+			<section id="pager">
+				<h1 class="d-none">페이저</h1>
 				<div>
-					<div>
-						<a href="list?p=${(start==1) ? 1 : start-1}">이전</a>
+
+					<div class="icon-pre">
+					<a href="list?p=${(start == 1) ? 1 : start-1}">이전</a>
 					</div>
-					<%-- ${(page<6)?page:page-5} --%>
 					<ul>
 						<c:forEach var="n" begin="${start}" end="${start+4}" varStatus="s">
-							<li><a href="list?p=${n}">${n}</a></li>
+							<li><a href="list?p=?${n}">${n}</a></li>
 						</c:forEach>
+
 					</ul>
-					<div class="icon-next-page">다음</div>
+					<div class="icon-next">
+						<a href="${start+5}">다음</a>
+					</div>
 				</div>
 			</section>
 		</div>
@@ -172,6 +114,5 @@
 	</main>
 
 	<jsp:include page="../inc/footer.jsp" />
-
 </body>
 </html>

@@ -16,25 +16,25 @@ import com.blackswan.web.entity.Notice;
 public class OracleNoticeDao implements NoticeDao {
 
 	@Override
-	public List<Notice> getList() throws ClassNotFoundException, SQLException {
+	public List<NoticeView> getList() throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		return getList(1, "title", "");
 	}
 
 	@Override
-	public List<Notice> getList(int page) throws ClassNotFoundException, SQLException {
+	public List<NoticeView> getList(int page) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		return getList(page, "title", "");
 	}
 
 	@Override
-	public List<Notice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException {
-		List<Notice> list = new ArrayList<>();
+	public List<NoticeView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException {
+		List<NoticeView> list = new ArrayList<>();
 
 		int start = 1 + (page - 1) * 10;
 		int end = start + 9;
 
-		String sql = "SELECT * FROM NOTICE " + "WHERE " + field + " LIKE ? AND NUM BETWEEN ? AND ? ";
+		String sql = "SELECT * FROM NOTICE_VIEW WHERE " + field + " LIKE ? AND NUM BETWEEN ? AND ? ";
 
 		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -47,7 +47,7 @@ public class OracleNoticeDao implements NoticeDao {
 		ResultSet rs = st.executeQuery();
 
 		while (rs.next()) {
-			Notice notice = new Notice(
+			NoticeView notice = new NoticeView(
 					rs.getInt("id"),
 					rs.getInt("admin_id"), 
 					rs.getInt("division"), 
