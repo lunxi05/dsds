@@ -18,15 +18,28 @@ import com.blackswan.web.entity.Member;
 public class OracleMemberDao implements MemberDao {
 
 	@Override
+	public int getCount() {
+		return getCount("name", "");
+	}
+
+	@Override
+	public int getCount(String field, String query) {
+		
+		int count = 0;
+		
+		return count;
+	}
+
+	@Override
 	public List<MemberView> getList() throws ClassNotFoundException, SQLException {
 
-		return getList(1, "id", "");
+		return getList(1, "name", "");
 	}
 
 	@Override
 	public List<MemberView> getList(int page) throws ClassNotFoundException, SQLException {
 
-		return getList(page, "id", "");
+		return getList(page, "name", "");
 	}
 
 	@Override
@@ -37,10 +50,9 @@ public class OracleMemberDao implements MemberDao {
 		int start = 1+(page-1)*10;
 		int end = start+9;
 		
-		String sql = "SELECT * FROM MEMBER_VIEW WHERE " + field + " LIKE ? AND NUM BETWEEN ? AND ?";
+		String sql = "SELECT * FROM MEMBER_VIEW WHERE " + field + " LIKE ? AND NUM BETWEEN ? AND ? ORDER BY ID DESC";
 		
 		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
-//		String url = "jdbc:oracle:thin:@168.192.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url,"\"PRJ\"","1234");
 		PreparedStatement st = con.prepareStatement(sql);
@@ -54,11 +66,16 @@ public class OracleMemberDao implements MemberDao {
 			MemberView member = new MemberView(
 					rs.getInt("num"),
 					rs.getInt("id"),
-					rs.getInt("black"),
 					rs.getString("email"),
 					rs.getString("name"),
-					rs.getDate("regdate"),
-					rs.getString("condition")
+					rs.getString("pw"),
+					rs.getInt("phone"),
+					rs.getString("profile"),
+					rs.getInt("event_check"),
+					rs.getInt("admin_id"),
+					rs.getString("address"),
+					rs.getInt("address_num"),
+					rs.getDate("regdate")
 					);
 			list.add(member);
 		}
