@@ -120,14 +120,17 @@ Notice notice = null;
 		
 		if(rs.next()) {
 		notice = new Notice(
-				rs.getInt("id"),
-				rs.getString("type"),
-				rs.getString("title"),
-				rs.getString("content"),
-				rs.getString("writer_Id"),
-				rs.getDate("regDate"),
-				0
-				);
+				rs.getInt("id"), 
+				rs.getInt("admin_id"), 
+				rs.getInt("division"), 
+				rs.getString("title"), 
+				rs.getString("content"), 
+				rs.getString("attach"), 
+				rs.getDate("regdate"),
+				rs.getDate("sdate"), 
+				rs.getDate("edate"), 
+				rs.getInt("hit"), 
+				rs.getInt("state"));
 				
 		
 		}

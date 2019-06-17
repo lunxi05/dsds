@@ -65,14 +65,14 @@
 
 					<tbody>
 
-						<%-- <tr>
+						<tr>
 							<td class="id">111111</td>
 							<td class="division">이벤트</td>
 							<td class="title"><a href="detail?id=${n.id}">제목제목</a>
 							</td>
 							<td class="date">17.01.21</td>
 							<td class="hit">321321</td>
-						</tr> --%>
+						</tr>
 
 						<c:forEach var="n" items="${list}" varStatus="s">
 							<tr>
@@ -100,7 +100,7 @@
 			<c:set var="last" value="${page-(page-1)%5}" />
 
 
-			<section id="pager">
+			<section id="paging">
 				<h1 class="d-none">페이지</h1>
 				<div>
 					<div>
