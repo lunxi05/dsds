@@ -1,13 +1,16 @@
 window.addEventListener("load", function () {
-    var notice = document.querySelector("#notice");
-    var testPager = document.querySelector("#test-pager");
-    var txt1 = testPager.querySelector("input[type=text]");
-    var btn1 = testPager.querySelector("input[type=button]");
-    var tbody = notice.querySelector(".tbody");
+    var main = document.querySelector("#main");
+    var pager = document.querySelector("#pager");
+    var prvPager = pager.querySelector(".icon-pre");
+    var nextPager = pager.querySelector(".icon-next");
+    var tbody = main.querySelector(".tbody");
 
-    btn1.onclick = function(){
-    
-        var page = 1;
+    prvPager.onclick = function(){
+    	
+        
+    	
+   
+    /*	var page = 1;
         if(txt1.value = null && txt1.value != "")
         page = txt1.value;
         
@@ -20,10 +23,8 @@ window.addEventListener("load", function () {
         //var tr = tbody.children()[0];
         var tr = tbody.firstElementChild;
         //var tr = tbody.querySelector("tr:first-child");
-        tbody.innerHTML= "";
+        //tbody.innerHTML= "";
         
-        {
-
         var cloneTr = tr.cloneNode(true);
 
         var idE1 = cloneTr.querySelector(".num");
@@ -33,8 +34,7 @@ window.addEventListener("load", function () {
         titleE1.innerText = "복제된 엘리먼트"
 
         tbody.append(cloneTr);
-
-        }
+	*/
 
     };
     
