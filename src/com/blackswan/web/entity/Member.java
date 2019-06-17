@@ -7,46 +7,32 @@ public class Member {
 	private int id;
 	private String email;
 	private String name;
-	private String pwd;
-	private String phone;
-	private String address;
+	private String pw;
+	private int phone;
 	private String profile;
-	private int black;
-	private String black_r;
+	private int eventCheck;
+	private int adminId;
+	private String address;
+	private int addressNum;
 	private Date regdate;
-	private int agree;
-	private String condition;
 	
 	public Member() {
-
 	}
 	
-	public Member(int id, int black, String email, String name, Date regdate, String condition) {
-		this.id = id;
-		this.black = black;
-		this.email = email;
-		this.name = name;
-		this.regdate = regdate;
-		this.condition = condition;
-	}
-	
-	public Member(int id, String email, String name, String pwd, String phone, String address, 
-			String profile, int black, String black_r, Date regdate, int agree, String condition) {
+	public Member(int id, String email, String name, String pw, int phone, String profile, int eventCheck, int adminId,
+			String address, int addressNum, Date regdate) {
 		this.id = id;
 		this.email = email;
 		this.name = name;
-		this.pwd = pwd;
+		this.pw = pw;
 		this.phone = phone;
-		this.address = address;
 		this.profile = profile;
-		this.black = black;
-		this.black_r = black_r;
+		this.eventCheck = eventCheck;
+		this.adminId = adminId;
+		this.address = address;
+		this.addressNum = addressNum;
 		this.regdate = regdate;
-		this.agree = agree;
-		this.condition = condition;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -72,28 +58,20 @@ public class Member {
 		this.name = name;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public String getPw() {
+		return pw;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 
-	public String getPhone() {
+	public int getPhone() {
 		return phone;
 	}
 
-	public void setPhone(String phone) {
+	public void setPhone(int phone) {
 		this.phone = phone;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public String getProfile() {
@@ -104,20 +82,36 @@ public class Member {
 		this.profile = profile;
 	}
 
-	public int getBlack() {
-		return black;
+	public int getEventCheck() {
+		return eventCheck;
 	}
 
-	public void setBlack(int black) {
-		this.black = black;
+	public void setEventCheck(int eventCheck) {
+		this.eventCheck = eventCheck;
 	}
 
-	public String getBlack_r() {
-		return black_r;
+	public int getAdminId() {
+		return adminId;
 	}
 
-	public void setBlack_r(String black_r) {
-		this.black_r = black_r;
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public int getAddressNum() {
+		return addressNum;
+	}
+
+	public void setAddressNum(int addressNum) {
+		this.addressNum = addressNum;
 	}
 
 	public Date getRegdate() {
@@ -126,22 +120,6 @@ public class Member {
 
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
-	}
-
-	public int getAgree() {
-		return agree;
-	}
-
-	public void setAgree(int agree) {
-		this.agree = agree;
-	}
-
-	public String getCondition() {
-		return condition;
-	}
-
-	public void setCondition(String condition) {
-		this.condition = condition;
 	}
 
 }

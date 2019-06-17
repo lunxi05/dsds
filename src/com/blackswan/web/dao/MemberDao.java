@@ -11,6 +11,9 @@ import com.blackswan.web.entity.Member;
 
 public interface MemberDao {
 	
+	int getCount();
+	int getCount(String field, String query);
+	
 	List<MemberView> getList() throws ClassNotFoundException, SQLException;
 	List<MemberView> getList(int page) throws ClassNotFoundException, SQLException;
 	List<MemberView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
