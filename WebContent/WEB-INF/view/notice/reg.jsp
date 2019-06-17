@@ -32,9 +32,9 @@
 				<section>
 					<h3>공지사항 내용</h3>
 					<form action="reg" method="post">
-						<select name="type">
-							<option value="공지사항">공지사항</option>
-							<option value="이벤트" >이벤트</option>
+						<select name="division">
+							<option value="0">공지사항</option>
+							<option value="1" >이벤트</option>
 						</select>
 						<table>
 							<tbody>

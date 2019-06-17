@@ -39,7 +39,7 @@
                             <td class="id">번호</td>
                             <td class="division">구분</td>
                             <td class="title">제목</td>
-                            <td class="date">작성일</td>
+                            <td class="regdate">작성일</td>
                             <td class="hit">조회수</td>
                         </tr>
                     </thead>
@@ -53,7 +53,7 @@
                            <td class="title">
                            	<a href="detail?id=${n.id}">${n.title}</a>
                            </td>
-                           <td class="date">${n.regDate}</td>
+                           <td class="regdate">${n.regDate}</td>
                            <td class="hit">${n.hit}</td>
                         </tr>
                        </c:forEach>

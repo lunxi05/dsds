@@ -35,7 +35,7 @@
 						<tbody>
 							<tr>
 								<th>타입</th>
-								<td>${notice.type}</td>
+								<td>${notice.division}</td>
 							</tr>
 							<tr>
 								<th>제목</th>

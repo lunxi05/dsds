@@ -31,7 +31,7 @@ public class OracleNoticeDao implements NoticeDao {
 	public List<Notice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException {
 		List<Notice> list = new ArrayList<>();
 
-		int start = 1 + (page - 1) * 10;// (page-1)*5+1
+		int start = 1 + (page - 1) * 10;
 		int end = start + 9;
 
 		String sql = "SELECT * FROM NOTICE " + "WHERE " + field + " LIKE ? AND NUM BETWEEN ? AND ? ";
@@ -107,7 +107,7 @@ public class OracleNoticeDao implements NoticeDao {
 
 	@Override
 	public Notice getPrev(int id) throws ClassNotFoundException, SQLException {
-Notice notice = null;
+		Notice notice = null;
 		
 		String sql = "SELECT * FROM (SELECT * FROM NOTICE_VIEW ORDER BY REGDATE) WHERE REGDATE > "+
 				"(SELECT REGDATE FROM NOTICE WHERE ID = '"+id+"')" + "AND ROWNUM = 1";
@@ -120,14 +120,17 @@ Notice notice = null;
 		
 		if(rs.next()) {
 		notice = new Notice(
-				rs.getInt("id"),
-				rs.getString("type"),
-				rs.getString("title"),
-				rs.getString("content"),
-				rs.getString("writer_Id"),
-				rs.getDate("regDate"),
-				0
-				);
+				rs.getInt("id"), 
+				rs.getInt("admin_id"), 
+				rs.getInt("division"), 
+				rs.getString("title"), 
+				rs.getString("content"), 
+				rs.getString("attach"), 
+				rs.getDate("regdate"),
+				rs.getDate("sdate"), 
+				rs.getDate("edate"), 
+				rs.getInt("hit"), 
+				rs.getInt("state"));
 				
 		
 		}
@@ -154,8 +157,19 @@ Notice notice = null;
 		ResultSet rs = st.executeQuery(sql);
 
 		if (rs.next()) {
-			notice = new Notice(rs.getInt("id"), rs.getString("type"), rs.getString("title"), rs.getString("content"),
-					rs.getString("writer_Id"), rs.getDate("regDate"), 0);
+			notice = new Notice(
+					rs.getInt("id"), 
+					rs.getInt("admin_id"), 
+					rs.getInt("division"), 
+					rs.getString("title"), 
+					rs.getString("content"), 
+					rs.getString("attach"), 
+					rs.getDate("regdate"),
+					rs.getDate("sdate"), 
+					rs.getDate("edate"), 
+					rs.getInt("hit"), 
+					rs.getInt("state"));
+
 
 		}
 
@@ -170,17 +184,18 @@ Notice notice = null;
 	public int insert(Notice notice) throws ClassNotFoundException, SQLException {
 		int result = 0;
 
-		String sql = "insert into notice(id, type, title, content, writer_id) "
-				+ "values(notice_seq.nextval,?,?,?,'admin')";
+		String sql = "insert into notice(id, division, title, content, admin_id) "
+				+ "values(notice_seq.nextval,?,?,?,?)";
 
 		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, notice.getType());
+		st.setInt(1, notice.getDivision());
 		st.setString(2, notice.getTitle());
 		st.setString(3, notice.getContent());
+		st.setInt(4, notice.getAdminId());
 
 		result = st.executeUpdate();
 
@@ -194,14 +209,14 @@ Notice notice = null;
 	public int update(Notice notice) throws ClassNotFoundException, SQLException {
 		int result = 0;
 
-		String sql = "update notice set type=?, title=?, content=? where id=?";
+		String sql = "update notice set division=?, title=?, content=? where id=?";
 
 		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, notice.getType());
+		st.setInt(1, notice.getDivision());
 		st.setString(2, notice.getTitle());
 		st.setString(3, notice.getContent());
 		st.setInt(4, notice.getId());

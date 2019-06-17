@@ -19,7 +19,7 @@ public class RegContrller extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("../WEB-INF/view/notice/reg.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/notice/reg.jsp").forward(request, response);
 		
 		
 	}
@@ -27,12 +27,12 @@ public class RegContrller extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String type = request.getParameter("type");
+		int division = Integer.parseInt(request.getParameter("division"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
 		Notice notice = new Notice();
-		notice.setType(type);
+		notice.setDivision(division);
 		notice.setTitle(title);
 		notice.setContent(content);
 		

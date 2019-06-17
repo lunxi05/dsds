@@ -36,7 +36,7 @@ public class EditController extends HttpServlet {
 		}
 		
 		
-		request.getRequestDispatcher("../WEB-INF/view/notice/edit.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/notice/edit.jsp").forward(request, response);
 		
 		
 	}
@@ -47,7 +47,7 @@ public class EditController extends HttpServlet {
 		
 		NoticeDao noticeDao = new OracleNoticeDao();
 		
-		String type = request.getParameter("type");
+		int division = Integer.parseInt(request.getParameter("division"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		Integer id = Integer.parseInt(request.getParameter("id"));
@@ -56,7 +56,7 @@ public class EditController extends HttpServlet {
 		
 		try {
 			Notice n = noticeDao.get(id);
-			n.setType(type);
+			n.setDivision(division);
 			n.setTitle(title);
 			n.setContent(content);
 			
