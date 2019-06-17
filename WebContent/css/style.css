@@ -4,7 +4,8 @@
  * 3. header css
  * 4-1. nav css
  * 4-2. breadcrumb css
- * 5. main css
+ * 4-3. list table css
+ * 5-1. main paging css
  * 6. footer css
  */
 
@@ -344,14 +345,124 @@
 			}
 			
 			
+/* ------------------------------ 4-3. list table css ------------------------------ */
+
+.list-table {
+	width: 100%;
+	border-collapse : collapse;
+	text-align: center;
+}
+
+	.list-table thead {
+		background: #ebebeb;
+		font-weight: bold;
+	}
+	
+	.list-table tbody {
+		color: #666; 
+	}
+
+		.list-table tr {
+			height: 40px;
+		}
+		
+			.list-table tr td {
+				border: 1px solid #d2d2d2;
+			}
+			
+			.list-table tbody tr .title {
+				text-align: left;
+				padding-left: 35px; 
+			}
 
 
-/* ------------------------------ 5. main css ------------------------------ */
+/* ------------------------------ 5-1. paging css ------------------------------ */
 
 
 #main {
 	background: #fff;
 }
+
+	#main .paging {
+		margin: 30px 0 50px;
+		display: flex;
+		justify-content: center; 
+	}
+	
+		#main .paging div a {
+			display: block;
+			width: 100%;
+			height: 100%; 
+			text-indent: -999%;
+			color: transparent;
+		}
+	
+		#main .paging div, #main .paging ul li {
+			width: 27px;
+			height: 27px;
+			font-size: 12px;
+			border: 1px solid #d2d2d2;
+			text-align: center;
+			color: #666;
+			line-height: 27px;
+		}
+		
+		#main .paging div+div, #main .paging div+ul, #main .paging ul+div, #main .paging li+li {
+			margin-left: 5px; 
+		}
+		
+		#main .paging ul {
+			display: flex; 
+		}
+		
+			#main .paging ul li:hover {
+				background: #222526;
+				color: #fff;
+			}
+			
+		#main .paging .first-page, #main .paging .prev-page, #main .paging .next-page, #main .paging .end-page {
+			position: relative; 
+		}
+		
+			#main .paging .first-page:before, #main .paging .first-page:after, #main .paging .prev-page:before, #main .paging .next-page:before, #main .paging .end-page:before, #main .paging .end-page:after {
+				content: "";
+				width: 6px;
+				height: 6px;
+				border: 1px solid;
+				position: absolute;
+				top: 50%; 
+				transform: translateY(-50%) rotate(45deg);
+			}
+			
+			#main .paging .first-page:before {
+				left:  7px;
+				border-color: transparent transparent #666 #666;
+			}
+			
+			#main .paging .first-page:after {
+				left: 13px;
+				border-color: transparent transparent #666 #666;
+			}
+			
+			#main .paging .prev-page:before {
+				left: 9px;
+				border-color: transparent transparent #666 #666;
+			}
+			
+			#main .paging .next-page:before {
+				right: 9px;
+				border-color: #666 #666 transparent transparent;
+			}
+							
+			#main .paging .end-page:before {
+				right: 7px;
+				border-color: #666 #666 transparent transparent;
+			}
+			
+			#main .paging .end-page:after {
+				right: 13px;
+				border-color: #666 #666 transparent transparent;
+			}
 
 
 

@@ -28,10 +28,8 @@ public class EditController extends HttpServlet {
 		try {
 			request.setAttribute("notice", noticeDao.get(id));
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -64,10 +62,8 @@ public class EditController extends HttpServlet {
 			request.setAttribute("notice", noticeDao.get(id));
 			
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

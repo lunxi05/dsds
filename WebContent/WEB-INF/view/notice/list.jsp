@@ -21,12 +21,7 @@
 
 
 	<main>
-<<<<<<< HEAD
 	<section id="breadcrumb">
-=======
-
-	<!-- <section id="breadcrumb">
->>>>>>> refs/remotes/origin/master
 		<h1 class="hidden">경로</h1>
 		<div class="center">
 			<ul>
@@ -34,10 +29,6 @@
 				<li><script>
 					var url = window.location.pathname;
 					var bread = url.split("/")[2];
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master
 					switch (bread) {
 					case "funding":
 						document.write("펀딩");
@@ -53,7 +44,7 @@
 				<li>공지사항</li>
 			</ul>
 		</div>
-	</section> -->
+	</section> 
 
 	<section id="main">
 		<h1>공지사항</h1>
@@ -61,7 +52,7 @@
 			<section class="notice-table">
 				<h1 class="hidden">공지사항 테이블</h1>
 				<label for="n-table">전체<span>410</span></label>
-				<table id="n-table">
+				<table id="list-table">
 					<thead>
 						<tr>
 							<td class="id">번호</td>
@@ -115,7 +106,7 @@
 					</div>
 					<ul>
 						<c:forEach var="n" begin="${start}" end="${start+4}" varStatus="s">
-							<li><a href="list?p=?${n}">${n}</a></li>
+							<li><a href="list?p=${n}">${n}</a></li>
 						</c:forEach>
 
 					</ul>

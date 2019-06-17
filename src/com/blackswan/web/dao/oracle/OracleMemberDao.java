@@ -77,11 +77,13 @@ public class OracleMemberDao implements MemberDao {
 		ResultSet rs = st.executeQuery();
 		while (rs.next()) {
 			MemberView member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"),
-					rs.getString("name"), rs.getString("pw"), rs.getInt("phone"), rs.getString("profile"),
-					rs.getInt("event_check"), rs.getInt("admin_id"), rs.getString("address"), rs.getInt("address_num"),
+					rs.getString("name"), "", rs.getInt("phone"), rs.getString("profile"),
+					rs.getInt("event_check"), 1, rs.getString("address"), rs.getInt("address_num"),
 					rs.getDate("regdate"));
 			list.add(member);
 		}
+		
+		
 
 		rs.close();
 		st.close();
@@ -104,8 +106,8 @@ public class OracleMemberDao implements MemberDao {
 
 		while (rs.next()) {
 			member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"), rs.getString("name"), "",
-					rs.getInt("phone"), rs.getString("profile"), rs.getInt("eventCheck"), 1, rs.getString("address"),
-					rs.getInt("addressNumber"), rs.getDate("regdate"));
+					rs.getInt("phone"), rs.getString("profile"), rs.getInt("event_check"), 1, rs.getString("address"),
+					rs.getInt("address_number"), rs.getDate("regdate"));
 		}
 
 		rs.close();

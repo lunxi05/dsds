@@ -23,10 +23,18 @@ public class MemberListController extends HttpServlet {
 		String p_ = req.getParameter("p");
 		if (p_ != null && !p_.equals(""))
 			page = Integer.parseInt(p_);
+		
+		String field = "name";
+		if (field != null && !field.equals(""))
+			field = req.getParameter("field");
+		
+		String query = "";
+		if (query != null && !query.equals(""))
+			query = req.getParameter("q");
 
 		try {
-			req.setAttribute("member", memberDao.getList(page, "name", ""));
-			req.setAttribute("count", memberDao.getCount("email", "@"));
+			req.setAttribute("member", memberDao.getList(page, "name", query));
+			req.setAttribute("count", memberDao.getCount(field, query));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

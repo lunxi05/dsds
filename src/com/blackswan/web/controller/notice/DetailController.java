@@ -27,15 +27,13 @@ public class DetailController extends HttpServlet{
 			request.setAttribute("prev", noticeDao.getPrev(id));
 			request.setAttribute("next", noticeDao.getNext(id));
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
-		request.getRequestDispatcher("../WEB-INF/view/notice/detail.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp").forward(request, response);
 	}
 
 }
