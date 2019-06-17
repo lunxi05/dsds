@@ -35,7 +35,7 @@
 				<section>
 					<h3>공지사항 내용</h3>
 					<form action="edit" method="post">
-						<select name="type">
+						<select name="division">
 							<option value="공지사항">공지사항</option>
 							<option value="이벤트">이벤트</option>
 						</select>

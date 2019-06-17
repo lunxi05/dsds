@@ -20,6 +20,31 @@
 
 
 	<main>
+<<<<<<< HEAD
+		<section id="breadcrumb">
+			<h1 class="hidden">경로</h1>
+			<div class="center">
+				<ul>
+					<li><a href="/index">홈</a></li>
+					<li><a href="">Q&A</a></li>
+					<li><a href="">공지사항</a></li>
+				</ul>
+			</div>
+		</section>
+	
+			<h1 >공지사항</h1>
+			<div class="center">
+			<table >
+                    <thead>
+                        <tr>
+                            <td class="id">번호</td>
+                            <td class="division">구분</td>
+                            <td class="title">제목</td>
+                            <td class="regdate">작성일</td>
+                            <td class="hit">조회수</td>
+                        </tr>
+                    </thead>
+=======
 	<section id="breadcrumb">
 		<h1 class="hidden">경로</h1>
 		<div class="center">
@@ -28,7 +53,33 @@
 				<li><script>
 					var url = window.location.pathname;
 					var bread = url.split("/")[2];
+>>>>>>> refs/remotes/origin/master
 
+<<<<<<< HEAD
+                    <tbody>
+                    
+                      <c:forEach var="n" items="${list}" varStatus="s">
+                       <tr>
+                           <td class="id">${n.id}</td>
+                           <td class="division">${n.division}</td>
+                           <td class="title">
+                           	<a href="detail?id=${n.id}">${n.title}</a>
+                           </td>
+                           <td class="regdate">${n.regDate}</td>
+                           <td class="hit">${n.hit}</td>
+                        </tr>
+                       </c:forEach>
+                    </tbody>
+                </table>
+                
+				<section id="page-index">
+                <h1 class="d-none">페이지 정보</h1>
+                <div>
+                    <span class="color-highlight font-bold">1</span>
+                     / 1 pages
+                </div>
+            </section>
+=======
 					switch (bread) {
 					case "funding":
 						document.write("펀딩");
@@ -94,6 +145,7 @@
 					<span class="color-highlight font-bold">1</span> / 1 pages
 				</div>
 			</section>
+>>>>>>> refs/remotes/origin/master
 
 			<c:set var="page" value="${(empty param.p) ? 1:param.p}" />
 			<c:set var="start" value="${page-(page-1)%5}" />
