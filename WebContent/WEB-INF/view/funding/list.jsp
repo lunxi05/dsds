@@ -11,6 +11,7 @@
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/funding.css">
+<script src="../js/funding/list.js"></script>
 </head>
 
  
@@ -43,17 +44,18 @@
 						<!-- 1페이지일때만 노출 -->
 						<li class="first-page-img">
 						</li>
-						<c:forEach begin="1" end="7">
+						<c:forEach var="n" items="${list}" >
 						<li>
 							<a href="">
 								<div class="item-img">
-									<img src="./images/.jpg">
+									<img src="../images/.jpg">
 								</div>
 								<div class="item-info">
-									<div class="title">댕냥이들의 장난감 !!!<br>집밖으로 나갈 수가 없어요</div>
-									<div class="category"><span>카테고리</span><span>기업명</span></div>
-									<div class="graph"><div class="percent" style="width: 80%"></div></div>
-									<div class="gvalue"><span>40%</span><span>0,000,000원</span></div>
+									<div class="title">${n.title}</div>
+									<c:if  test="${n.categoryId}">
+									<div class="category"><span>${n.categoryId}</span><span>기업명</span></div>
+									<div class="graph"><div class="percent" style="width: 30%"></div></div>
+									<div class="gvalue"><span>30%</span><span>0,000,000원</span></div>
 								</div>
 							</a>
 						</li>
@@ -84,7 +86,7 @@
 		</section>
 	</main>
 
-	<jsp:include page="../inc/footer.jsp"/>	
+	<%-- <jsp:include page="../inc/footer.jsp"/> --%>
 
 </body>
 </html>
