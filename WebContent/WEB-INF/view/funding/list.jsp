@@ -46,13 +46,12 @@
 						</li>
 						<c:forEach var="n" items="${list}" >
 						<li>
-							<a href="">
+							<a href="/detail?id=${n.id}">
 								<div class="item-img">
 									<img src="../images/.jpg">
 								</div>
 								<div class="item-info">
 									<div class="title">${n.title}</div>
-									<c:if  test="${n.categoryId}">
 									<div class="category"><span>${n.categoryId}</span><span>기업명</span></div>
 									<div class="graph"><div class="percent" style="width: 30%"></div></div>
 									<div class="gvalue"><span>30%</span><span>0,000,000원</span></div>
