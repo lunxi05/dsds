@@ -46,13 +46,13 @@
 						</li>
 						<c:forEach var="n" items="${flist}" >
 						<li>
-							<a href="">
+							<a href="/blackswan2/funding/detail?id=${n.id}">
 								<div class="item-img">
 									<img src="../images/.jpg">
 								</div>
 								<div class="item-info">
 									<div class="title">${n.title}</div>
-									<div class="category"><span>${n.categoryName}</span><span>기업명</span></div>
+									<div class="category"><span>${n.categoryName}</span><span>${n.companyName}</span></div>
 									<div class="graph"><div class="percent" style="width: 30%"></div></div>
 									<div class="gvalue"><span>30%</span><span>0,000,000원</span></div>
 								</div>
@@ -85,7 +85,7 @@
 		</section>
 	</main>
 
-	<%-- <jsp:include page="../inc/footer.jsp"/> --%>
+	<jsp:include page="../inc/footer.jsp"/>
 
 </body>
 </html>

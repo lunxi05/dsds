@@ -11,6 +11,7 @@
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../../css/style.css">
 <link rel="stylesheet" type="text/css" href="../../css/index.css">
+<script src="/js/admin/member/list.js"></script>
 </head>
 
 
@@ -85,10 +86,10 @@
 					<tbody>
 						<c:forEach var="m" items="${member}">
 							<tr>
-								<td>${m.num}</td>
-								<td>${m.email}</td>
-								<td>${m.name}</td>
-								<td>${m.regdate}</td>
+								<td class="id">${m.id}</td>
+								<td class="email">${m.email}</td>
+								<td class="name">${m.name}</td>
+								<td class="regdate">${m.regdate}</td>
 								<td><a href="detail?id=${m.id}">보기</a></td>
 							</tr>
 						</c:forEach>
@@ -102,21 +103,21 @@
 			<section class="paging">
 				<h1 class="hidden">페이저</h1>
 				<div class="first-page">
-					<a href="list?p=1}">처음</a>
+					<!-- <a href="list?p=1">처음</a> -->
 				</div>
 				<div class="prev-page">
-					<a href="list?p=${(start == 1) ? 1 : start-1}">이전</a>
+					<%-- <a href="list?p=${(start == 1) ? 1 : start-1}">이전</a> --%>
 				</div>
 				<ul>
 					<c:forEach var="n" begin="${start}" end="${start+4}" varStatus="s">
-						<li><a href="list?p=${n}">${n}</a></li>
+						<li value="${n}">${n}</li>
 					</c:forEach>
 				</ul>
 				<div class="next-page">
-					<a href="${start+5}">다음</a>
+					<%-- <a href="${start+5}">다음</a> --%>
 				</div>
 				<div class="end-page">
-					<a href="">끝</a>
+					<!-- <a href="">끝</a> -->
 				</div>
 			</section>
 		</div>

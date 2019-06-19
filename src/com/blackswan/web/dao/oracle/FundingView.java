@@ -7,6 +7,7 @@ import com.blackswan.web.entity.Member;
 
 public class FundingView extends Funding {
 
+	private	String companyName;
 	private String categoryName;
 
 	public FundingView() {
@@ -14,11 +15,20 @@ public class FundingView extends Funding {
 	}
 
 	public FundingView(int id, int adminId, int memberId, int categoryId, Date regdate, String title, int tAmount,
-			String introVideo, String introImg, Date sdate, Date edate, int hit, int state, String categoryName) {
+			String introVideo, String introImg, Date sdate, Date edate, int hit, int state, String companyName, String categoryName) {
 		super(id, adminId, memberId, categoryId, regdate, title, tAmount,
 				 introVideo, introImg, sdate, edate, hit, state);
 		
+		this.companyName = companyName;
 		this.categoryName = categoryName;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
 	public String getCategoryName() {
@@ -29,6 +39,7 @@ public class FundingView extends Funding {
 		this.categoryName = categoryName;
 	}
 
+	
 	
 }
 

@@ -13,9 +13,7 @@ public interface FundingDao {
 	List<FundingView> getList(int page) throws ClassNotFoundException, SQLException;
 	List<FundingView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
 	
-	Notice get(int id) throws ClassNotFoundException, SQLException;
-	Notice getPrev(int id) throws ClassNotFoundException, SQLException;
-	Notice getNext(int id) throws ClassNotFoundException, SQLException;
+	Funding get(int id) throws ClassNotFoundException, SQLException;
 	
 	
 	int insert(Funding funding) throws ClassNotFoundException, SQLException;

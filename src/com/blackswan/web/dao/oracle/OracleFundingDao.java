@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -38,7 +39,8 @@ public class OracleFundingDao implements FundingDao{
 		int start =(page-1)*10+1;
 		int end =page+9;
 		
-		String sql ="SELECT * FROM FUNDING_VIEW WHERE "+field+" LIKE ? ";
+		String sql ="SELECT * FROM FUNDING_VIEW WHERE "+field+" LIKE ? AND NUM BETWEEN ? AND ?";
+
 		
 		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		
@@ -47,8 +49,8 @@ public class OracleFundingDao implements FundingDao{
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setString(1, "%"+query+"%");
-//		st.setInt(2, start);
-//		st.setInt(3, end);
+		st.setInt(2, start);
+		st.setInt(3, end);
 		
 		ResultSet rs = st.executeQuery();
 		
@@ -67,6 +69,7 @@ public class OracleFundingDao implements FundingDao{
 					 rs.getDate("e_date"),
 					 rs.getInt("hit"),
 					 rs.getInt("state"),
+					 rs.getString("company_name"),
 					 rs.getString("name")
 					);
 					list.add(funding);
@@ -80,21 +83,42 @@ public class OracleFundingDao implements FundingDao{
 	}
 
 	@Override
-	public Notice get(int id) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Notice getPrev(int id) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Notice getNext(int id) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public Funding get(int id) throws ClassNotFoundException, SQLException {
+		
+		Funding funding = null;
+		
+		String sql = "SELECT * FROM FUNDING WHERE ID="+id;
+		
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		
+		if(rs.next()) {
+			funding = new Funding(
+					rs.getInt("id"),
+					rs.getInt("admin_id"),
+					rs.getInt("member_id"),
+					rs.getInt("category_id"),
+					rs.getDate("regdate"),
+					rs.getString("title"),
+					rs.getInt("t_amount"),
+					rs.getString("intro_video"),
+					rs.getString("intro_img"),
+					rs.getDate("s_date"),
+					rs.getDate("e_date"),
+					rs.getInt("hit"),
+					rs.getInt("state")
+					);
+		}
+		
+		
+		rs.close();
+		st.close();
+		con.close();		
+		
+		return funding;
 	}
 
 	@Override

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.blackswan.web.dao.ReviewDao;
 import com.blackswan.web.dao.oracle.OracleReviewDao;
 
-@WebServlet("/funding/detail")
+@WebServlet("/review/detail")
 public class DetailController extends HttpServlet {
 	
 	@Override

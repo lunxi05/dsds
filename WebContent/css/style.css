@@ -301,9 +301,8 @@
 
 /* ------------------------------ 4-2. breadcrumb css ------------------------------ */
 #breadcrumb {
-	background: #f4f4f4;
+	--background: #f4f4f4;
 	height: 40px;
-	border-bottom: 1px solid #d2d2d2;
 }
 
 	#breadcrumb ul {
@@ -312,7 +311,7 @@
 	}
 	
 		#breadcrumb ul li {
-			font-size: 14px;
+			font-size: 13px;
 			position: relative;
 			padding: 0 20px;
 			line-height: 40px;
@@ -337,11 +336,34 @@
 		
 		#breadcrumb ul li:last-child {
 			padding-left: 0;
+			position: relative;
+			padding-left: 10px;
 		}
 			
 			#breadcrumb ul li:last-child:before {
-				content: ">";
-				margin-right: 20px;
+				content: "";
+				width: 6px;
+				height: 6px;
+				background: #333;
+				transform: translateY(-50%) rotate(45deg);
+				position: absolute;
+				margin-top: 1px;
+				top: 50%;
+				left: -10px;
+				
+				--margin-right: 20px;
+			}
+			
+			#breadcrumb ul li:last-child:after {
+				content: "";
+				width: 6px;
+				height: 6px;
+				background: #f4f4f4;
+				transform: translateY(-50%) rotate(45deg);
+				position: absolute;
+				margin-top: 1px;
+				top: 50%;
+				left: -11px;
 			}
 			
 			

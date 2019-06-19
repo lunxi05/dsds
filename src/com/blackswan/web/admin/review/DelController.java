@@ -14,7 +14,7 @@ import com.blackswan.web.dao.oracle.OracleReviewDao;
 import com.newlecture.web.dao.NoticeDao;
 import com.newlecture.web.dao.oracle.OracleNoticeDao;
 
-@WebServlet("/funding/del")
+@WebServlet("/review/del")
 public class DelController extends HttpServlet {
 	
 	@Override
