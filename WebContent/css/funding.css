@@ -1,16 +1,13 @@
 /* 
- * 1. @import url
- * 2. funding list css
- * 3. funding detail css
+ * 1. funding list css
+ * 2. funding detail css
  */
 
-/* ------------------------------ 1. @import url ------------------------------ */
-/* @import url("./style.css"); */
-
-/* ------------------------------ 2. funding list css ------------------------------ */
+/* ------------------------------ 1. funding list css ------------------------------ */
 
 #main {
 	border-top: 1px solid #e0e0e0;
+	padding-bottom: 0;
 	}
 
 	#main .count-option {
@@ -225,7 +222,7 @@
 
 
 
-/* ------------------------------ 3. funding detail css ------------------------------ */
+/* ------------------------------ 2. funding detail css ------------------------------ */
 
 #funding-title {
 	width: 100%;
@@ -295,10 +292,142 @@
 	#funding-content .funding-detail {
 		width: 820px;
 		border-right: 1px solid #d2d2d2;
+		padding: 50px;
 	}
+	
+		#funding-content .funding-detail .funding-visual {
+			width: 100%;
+		}	
+		
+			#funding-content .funding-detail .funding-visual .funding-img {
+				position: relative;
+				background: gray;
+			}
 
-
+				#funding-content .funding-detail .funding-visual .funding-img img {
+					width: 720px;
+					height: 480px;
+				}
+				
+				#funding-content .funding-detail .funding-visual .funding-img div {
+					width: 47px;
+					height: 47px;
+					position: absolute;
+					background: rgba(0,0,0,0.2);
+					border: 1px solid #fff; 
+					border-radius: 50%;
+					top: 50%;
+					transform: translateY(-50%);
+					box-shadow: 3px 3px 5px rgba(0,0,0,0.2); 
+					transition: background 0.5s ease; 			
+				}
+				
+				#funding-content .funding-detail .funding-visual .funding-img div:hover {
+					background: rgba(255,255,255,0.6);
+				}
+				
+					#funding-content .funding-detail .funding-visual .funding-img div:before {
+						content: "";
+						width: 9px;
+						height: 9px;
+						border: solid #fff;
+						position: absolute; 
+						top: 50%;
+						left: 50%;	
+					}
+				
+				#funding-content .funding-detail .funding-visual .funding-img .prev-banner {
+					left: 30px;
+				}
+				
+					#funding-content .funding-detail .funding-visual .funding-img .prev-banner:before {
+						border-width: 0 0 1px 1px;
+						transform: translate(-30%, -50%) rotate(45deg);
+					}
+				
+				#funding-content .funding-detail .funding-visual .funding-img .next-banner {
+					right: 30px; 
+				}
+				
+					#funding-content .funding-detail .funding-visual .funding-img .next-banner:before {
+						border-width: 1px 1px 0 0; 
+						transform: translate(-70%, -50%) rotate(45deg);
+					}
+			
+			#funding-content .funding-detail .funding-visual .funding-caution {
+				width: 100%;
+				height: 110px;
+				background: #222526;
+				color: #7f8080;
+				margin-top: 20px;
+				padding: 20px 30px; 
+				font-size: 14px;
+			}
+			
+				#funding-content .funding-detail .funding-visual .funding-caution .static-span {
+					color: #fff;
+					line-height: 24px;
+				}
+				
+				#funding-content .funding-detail .funding-visual .funding-caution .static-message {
+					margin-top: 5px;
+					line-height: 22px;
+				}
+				
+		#funding-content .funding-detail .funding-intro {
+		}
+		
+			#funding-content .funding-detail .funding-intro>h1 {
+				width: 100%;
+				padding: 30px 0;
+				color: #0081e0;
+				font-size: 18px;
+				line-height: 32px;
+				font-weight: bold;
+				border-bottom: 1px solid #d2d2d2;				
+			} 
 
 	#funding-content .funding-info {
-		display: flexbox;
+		padding-top: 80px;
 	}
+	
+		#funding-content .funding-info .funding-current {}
+	
+			#funding-content .funding-info .funding-current .funding-goal {
+				padding: 0 15px;
+				width: 100%;
+				display: flex;
+			}
+	
+				#funding-content .funding-info .funding-current .funding-goal div {
+					width: 200px;
+				}
+				
+					#funding-content .funding-info .funding-current .funding-goal div span {
+						display: block;
+						line-height: 32px;
+						font-weight: bold;
+						color: #333; 
+					}
+
+					#funding-content .funding-info .funding-current .funding-goal div span:first-child {
+						font-size: 20px;
+					}
+					
+					#funding-content .funding-info .funding-current .funding-goal div span:nth-child(2) {
+						font-size: 28px;
+					}
+					
+					#funding-content .funding-info .funding-current .funding-goal div span:last-child {
+						font-size: 16px;
+						color: #666;
+						line-height: 38px;
+						
+					}
+					
+				#funding-content .funding-info .funding-current .funding-goal .circle {
+					width: 90px;
+					height: 90px;
+					border: 3px solid #0081e0;
+					border-radius: 50%;
+				}

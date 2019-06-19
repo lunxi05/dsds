@@ -77,21 +77,29 @@
 					<h1 class="hidden">펀딩 소개</h1>
 					<section class="funding-visual">
 						<h1 class="hidden">펀딩 이미지</h1>
-						<div class="funding-img">
-							<img src="${funding.introImg}">
+						<div class="funding-img" value="${funding.introImg}">
+							<img src="https://happybean-phinf.pstatic.net/20190516_270/1557995844250za2Lj_JPEG/00.jpg?type=w720">
 							<div class="prev-banner"></div>
 							<div class="next-banner"></div>
 						</div>
 						<div class="funding-caution">
-							<div class="funding-goal">
-								<span>목표금액</span> <span>${funding.tAmount}</span> <span>펀딩기간</span>
+							<div class="static-span">
+								<span>목표금액</span>
+								<span>${funding.tAmount}</span>
+								<span>펀딩기간</span>
 								<span>${funding.sdate} ~ ${funding.edate}</span>
+							</div>
+							<div class="static-message">
+								100% 이상 모이면 펀딩이 성공되는 프로젝트<br>
+								이 프로젝트는 펀딩 마감일까지 목표 금액이 100% 모이지 않으면 결제가 진행되지 않습니다.
 							</div>
 						</div>
 					</section>
 					<section class="funding-intro">
 						<h1>스토리 소개</h1>
-	
+						<div>
+							내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+						</div>
 					</section>
 				</section>
 				<section class="funding-info">
@@ -100,8 +108,9 @@
 						<h1 class="hidden">펀딩 상황</h1>
 						<div class="funding-goal">
 							<div>
-								<span>모인금액</span> <span>nnn,nnn,nnn원</span> <span>${funding.tAmount}원
-									목표</span>
+								<span>모인금액</span>
+								<span>nnn,nnn,nnn원</span>
+								<span>${funding.tAmount}원 목표</span>
 							</div>
 							<div class="circle">nn%</div>
 						</div>
