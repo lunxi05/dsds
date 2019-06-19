@@ -109,10 +109,10 @@
 						<div class="funding-goal">
 							<div>
 								<span>모인금액</span>
-								<span>nnn,nnn,nnn원</span>
+								<span>11,111,999원</span>
 								<span>${funding.tAmount}원 목표</span>
 							</div>
-							<div class="circle">nn%</div>
+							<div class="circle">50%</div>
 						</div>
 						<table>
 							<tr>
@@ -126,24 +126,24 @@
 						</table>
 						<div class="funding-attend">
 							<input type="button" value="참여하기">
+							<div>
+								참여 금액별 리워드 보기
+							</div>
 						</div>
 					</section>
 
 					<section class="funding-item">
 						<!-- 반복문 써서 돌리기 -->
 						<h1 class="hidden">펀딩 아이템</h1>
-						<div class="current-item">
-							<div class="label">nnn원 펀딩옵션 가격</div>
-							<div class="data">펀딩옵션 내용</div>
-							<div class="label">배송비</div>
-							<div class="data">2,500원</div>
-							<div class="label">펀딩 발송 시작일</div>
-							<div class="data">2019년 0데이터 받아오기</div>
-							<div class="funding-count">
-								<span>현재 /받아오기~~~/ 개 남음!</span> <span>제한수량 100개</span>
+							<div class="price"><span>nnn</span>원</div>
+							<div class="foption">
+								<span>펀딩옵션 내용</span>
+								<br>
+								<span>발송 예상일 몇년 몇월 받기</span>
 							</div>
-							<div class="funding-join">총 /받아오기~~~~/개 펀딩완료</div>
-						</div>
+							<div class="fcount">
+								<span>00명 참여</span> <span>00개 남음</span>
+							</div>
 					</section>
 				</section>
 

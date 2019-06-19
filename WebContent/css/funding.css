@@ -95,7 +95,7 @@
 				width: 285px;
 				height: 365px;
 				margin: 0 0 20px 20px;
-				border: 1px solid #d2d2d2;
+				border: 1px solid #e5e5e5;
 			}
 			
 			#main .funding-list ul li:nth-child(4n+1) {
@@ -113,7 +113,7 @@
 			}
 				
 			#main .funding-list ul .first-page-img:hover {
-				border: 1px solid #d2d2d2;
+				border: 1px solid #e5e5e5;
 			}
 			
 				#main .funding-list ul li a {
@@ -256,7 +256,7 @@
 #funding-tap {
 	width: 100%;
 	height: 40px;
-	border-top: 1px solid #d2d2d2;
+	border-top: 1px solid #e5e5e5;
 }
 
 	#funding-tap .center ul {
@@ -280,19 +280,19 @@
 		}
 
 #funding-content {
-	border-top: 1px solid #d2d2d2;
+	border-top: 1px solid #e5e5e5;
 }
 
 	#funding-content .center {
-		border: solid #d2d2d2;
+		border: solid #e5e5e5;
 		border-width: 0 1px;
 		display: flex;
 	}
 
 	#funding-content .funding-detail {
-		width: 820px;
-		border-right: 1px solid #d2d2d2;
-		padding: 50px;
+		width: 880px;
+		border-right: 1px solid #e5e5e5;
+		padding: 50px 80px;
 	}
 	
 		#funding-content .funding-detail .funding-visual {
@@ -302,11 +302,13 @@
 			#funding-content .funding-detail .funding-visual .funding-img {
 				position: relative;
 				background: gray;
+				width: 100%;
+				height: 480px;
 			}
 
 				#funding-content .funding-detail .funding-visual .funding-img img {
-					width: 720px;
-					height: 480px;
+					width: 100%;
+					height: 100%;
 				}
 				
 				#funding-content .funding-detail .funding-visual .funding-img div {
@@ -384,10 +386,11 @@
 				font-size: 18px;
 				line-height: 32px;
 				font-weight: bold;
-				border-bottom: 1px solid #d2d2d2;				
+				border-bottom: 1px solid #e5e5e5;				
 			} 
 
 	#funding-content .funding-info {
+		width: 320px;
 		padding-top: 80px;
 	}
 	
@@ -397,6 +400,7 @@
 				padding: 0 15px;
 				width: 100%;
 				display: flex;
+				justify-content: space-between;
 			}
 	
 				#funding-content .funding-info .funding-current .funding-goal div {
@@ -422,7 +426,8 @@
 						font-size: 16px;
 						color: #666;
 						line-height: 38px;
-						
+						font-weight: normal;
+						color: #888;
 					}
 					
 				#funding-content .funding-info .funding-current .funding-goal .circle {
@@ -430,4 +435,133 @@
 					height: 90px;
 					border: 3px solid #0081e0;
 					border-radius: 50%;
+					text-align: center;
+					line-height: 83px;
+					font-size: 30px;
+					color: #0081e0;
 				}
+				
+			#funding-content .funding-info .funding-current table {
+				color: #666;
+				border-collapse: collapse;
+				width: 100%; 
+			}				
+				
+				#funding-content .funding-info .funding-current table tr {
+					height: 55px;
+				}
+				
+					#funding-content .funding-info .funding-current table tr td {
+						border: solid #e5e5e5;
+						border-width: 1px 0;
+						text-align: right;
+						padding-right: 15px;
+					}
+					
+					#funding-content .funding-info .funding-current table tr td:first-child {
+						background: #f6f6f8;
+						width: 120px;
+						text-align: center; 
+						padding: 0;
+					}
+					
+					#funding-content .funding-info .funding-current table tr td+td {
+						border-left: 1px solid #e5e5e5;
+					}
+					
+				#funding-content .funding-info .funding-current .funding-attend input {
+					width: 100%;
+					height: 60px;
+					text-align: center;
+					color: #fff;
+					font-size: 20px;
+					font-weight: bold;
+					margin-top: 25px;
+					background: #0081e0;
+					
+				}
+				
+				#funding-content .funding-info .funding-current .funding-attend div {
+					width: 100%;
+					height: 48px;
+					background: #f6f6f8;
+					border: solid #e5e5e5;
+					border-width: 1px 0;
+					padding-left: 66px;
+					font-size: 16px;
+					color: #888;
+					line-height: 48px;
+					position: relative; 
+				}
+				
+					#funding-content .funding-info .funding-current .funding-attend div:before {
+						position: absolute;
+						width: 8px;
+						height: 8px;
+						content: "";
+						bottom: 20px;
+						right: 66px;
+						background: #888;
+						transform: rotate(45deg);
+					}
+					
+					#funding-content .funding-info .funding-current .funding-attend div:after {
+						width: 8px;
+						height: 8px;
+						background: #f6f6f8;
+						content: "";
+						position: absolute;
+						bottom: 21px;
+						right: 66px;
+						transform: rotate(45deg);
+					}
+					
+		#funding-content .funding-info .funding-item {
+			width: 100%;
+			height: 220px;
+		}
+		
+			#funding-content .funding-info .funding-item .price {
+				width: 100%;
+				height: 55px;
+				border-bottom: 1px solid #e5e5e5;
+				padding-left: 30px;
+				line-height: 55px;
+				font-size: 18px;
+			}
+			
+				#funding-content .funding-info .funding-item .price span {
+					font-weight: bold;
+				}
+				
+			#funding-content .funding-info .funding-item .foption {
+				width: 100%;
+				height: 107px;
+				border-bottom: 1px solid #e5e5e5;
+				padding: 30px;
+				font-size: 15px;
+			}
+			
+				#funding-content .funding-info .funding-item .foption span {
+					display: block;
+					color: #888;
+				}
+		
+				#funding-content .funding-info .funding-item .foption span:first-child {
+					color: #666;
+				}
+				
+			#funding-content .funding-info .funding-item .fcount {
+				width: 100%; 
+				height: 55px;
+				border-bottom: 1px solid #e5e5e5;
+				padding-left: 30px;
+				background: #fcfcfe;
+				font-size: 15px;
+				color: #888;
+				line-height: 55px;
+			}
+					
+				
+				
+				

@@ -10,6 +10,7 @@
 	border-radius: 0;
 	box-shadow: none;
 	font-family:'Malgun Gothic', san-serif;
+	letter-spacing: -1px;
 }
 
 ul, ol, li, dl, dt, dd {
