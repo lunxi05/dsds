@@ -22,8 +22,19 @@ public class ListController extends HttpServlet {
 		
 		FundingDao fundingDao = new OracleFundingDao();
 		
+		int page = 1;
+		if(request.getParameter("p") != null && request.getParameter("p") != "")
+			page = Integer.parseInt(request.getParameter("p"));
+		
+		
+		String field = "title";
+		if(request.getParameter("field") != null && request.getParameter("field") != "")
+			field = request.getParameter("field");
+		
+		String query = "";
+		
 		try {
-			request.setAttribute("list", fundingDao.getList());
+			request.setAttribute("list", fundingDao.getList(page, field, query));
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -46,7 +46,7 @@
 						</li>
 						<c:forEach var="n" items="${list}" >
 						<li>
-							<a href="/detail?id=${n.id}">
+							<a href="/blackswan2/funding/detail?id=${n.id}">
 								<div class="item-img">
 									<img src="../images/.jpg">
 								</div>

@@ -36,10 +36,10 @@ public class OracleFundingDao implements FundingDao{
 		
 		List<Funding> list = new ArrayList<>();
 		
-		int start =(page-1)*10+1;
-		int end =page+9;
+		int start =(page-1)*6+1;
+		int end =page+6;
 		
-		String sql ="SELECT * FROM funding WHERE "+field+" LIKE ? ";
+		String sql ="SELECT * FROM FUNDING WHERE "+field+" LIKE ? AND NUM BETWEEN ? AND ?";
 		
 		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		
@@ -48,8 +48,8 @@ public class OracleFundingDao implements FundingDao{
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setString(1, "%"+query+"%");
-//		st.setInt(2, start);
-//		st.setInt(3, end);
+		st.setInt(2, start);
+		st.setInt(3, end);
 		
 		ResultSet rs = st.executeQuery();
 		
