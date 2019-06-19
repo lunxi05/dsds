@@ -23,7 +23,7 @@ public class ListController extends HttpServlet {
 		FundingDao fundingDao = new OracleFundingDao();
 		
 		try {
-			request.setAttribute("list", fundingDao.getList());
+			request.setAttribute("flist", fundingDao.getList());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

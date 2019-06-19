@@ -44,7 +44,7 @@
 						<!-- 1페이지일때만 노출 -->
 						<li class="first-page-img">
 						</li>
-						<c:forEach var="n" items="${list}" >
+						<c:forEach var="n" items="${flist}" >
 						<li>
 							<a href="">
 								<div class="item-img">
@@ -52,8 +52,7 @@
 								</div>
 								<div class="item-info">
 									<div class="title">${n.title}</div>
-									<c:if  test="${n.categoryId}">
-									<div class="category"><span>${n.categoryId}</span><span>기업명</span></div>
+									<div class="category"><span>${n.categoryName}</span><span>기업명</span></div>
 									<div class="graph"><div class="percent" style="width: 30%"></div></div>
 									<div class="gvalue"><span>30%</span><span>0,000,000원</span></div>
 								</div>
