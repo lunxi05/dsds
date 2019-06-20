@@ -519,6 +519,12 @@
 		#funding-content .funding-info .funding-item {
 			width: 100%;
 			height: 220px;
+			border: 1px solid transparent;
+			border-bottom: 1px solid #e5e5e5;
+		}
+		
+		#funding-content .funding-info .funding-item:hover {
+			border: 1px solid #0081e0;
 		}
 		
 			#funding-content .funding-info .funding-item .price {
@@ -554,7 +560,6 @@
 			#funding-content .funding-info .funding-item .fcount {
 				width: 100%; 
 				height: 55px;
-				border-bottom: 1px solid #e5e5e5;
 				padding-left: 30px;
 				background: #fcfcfe;
 				font-size: 15px;
