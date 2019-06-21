@@ -18,28 +18,29 @@ import com.blackswan.web.entity.Review;
 public class OracleFundingDao implements FundingDao{
 
 	@Override
-	public List<Funding> getList() throws ClassNotFoundException, SQLException {
+	public List<FundingView> getList() throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		return getList(1,"title","");
 	}
 
 	@Override
-	public List<Funding> getList(int page) throws ClassNotFoundException, SQLException {
+	public List<FundingView> getList(int page) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		
 		return getList(page,"title","");
 	}
 
 	@Override
-	public List<Funding> getList(int page, String field, String query) throws ClassNotFoundException, SQLException {
+	public List<FundingView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		
-		List<Funding> list = new ArrayList<>();
+		List<FundingView> list = new ArrayList<>();
 		
-		int start =(page-1)*6+1;
-		int end =page+6;
+		int start =(page-1)*10+1;
+		int end =page+9;
 		
-		String sql ="SELECT * FROM FUNDING WHERE "+field+" LIKE ? AND NUM BETWEEN ? AND ?";
+		String sql ="SELECT * FROM FUNDING_VIEW WHERE "+field+" LIKE ? AND NUM BETWEEN ? AND ?";
+
 		
 		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		
@@ -54,7 +55,7 @@ public class OracleFundingDao implements FundingDao{
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
-			Funding funding = new Funding(
+			FundingView funding = new FundingView(
 					 rs.getInt("id"),
 					 rs.getInt("admin_id"),
 					 rs.getInt("member_id"),
@@ -67,7 +68,9 @@ public class OracleFundingDao implements FundingDao{
 					 rs.getDate("s_date"),
 					 rs.getDate("e_date"),
 					 rs.getInt("hit"),
-					 rs.getInt("state")
+					 rs.getInt("state"),
+					 rs.getString("company_name"),
+					 rs.getString("name")
 					);
 					list.add(funding);
 		}
