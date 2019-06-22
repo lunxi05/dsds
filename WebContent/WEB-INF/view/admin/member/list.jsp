@@ -23,26 +23,6 @@
 	<section id="admin-title">
 		<h1>관리자</h1>
 		<section id="admin-tap">
-			<style>
-#admin-title {
-	background: #bdbdbd;
-}
-
-#admin-title h1 {
-	width: 100%;
-	text-align: center;
-}
-
-#admin-tap ul {
-	display: flex;
-}
-
-#member-search {
-	border-bottom: 1px solid;
-	margni-bottom: 20px;
-}
-</style>
-
 			<h1 class="hidden">관리자 탭</h1>
 			<ul>
 				<li>회원관리</li>

@@ -560,13 +560,24 @@
 			#funding-content .funding-info .funding-item .fcount {
 				width: 100%; 
 				height: 55px;
-				padding-left: 30px;
+				padding: 20px 30px;
 				background: #fcfcfe;
 				font-size: 15px;
 				color: #888;
-				line-height: 55px;
 			}
 					
+				#funding-content .funding-info .funding-item .fcount img {
+					margin-right: 5px; 
+					vertical-align: top; 
+				}
 				
+				#funding-content .funding-info .funding-item .fcount span:last-child {
+					color: #0081e0;
+					float: right;
+				}
+				
+					#funding-content .funding-info .funding-item .fcount span:last-child:after {
+						clear: both;
+					}
 				
 				
