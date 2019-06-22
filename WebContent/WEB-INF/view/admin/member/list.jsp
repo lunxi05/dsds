@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../../css/style.css">
-<link rel="stylesheet" type="text/css" href="../../css/index.css">
+<link rel="stylesheet" type="text/css" href="../../css/admin.css">
 <script src="/js/admin/member/list.js"></script>
 </head>
 
@@ -20,19 +20,19 @@
 	<jsp:include page="../../inc/header.jsp" />
 
 	<main>
-	<section id="admin-title">
-		<h1>관리자</h1>
-		<section id="admin-tap">
-			<h1 class="hidden">관리자 탭</h1>
+	<section id="admin-title">관리자</section>
+	<section id="admin-tab">
+		<h1 class="hidden">관리자 탭</h1>
+		<div class="center">
 			<ul>
 				<li>회원관리</li>
 				<li>펀딩관리</li>
 				<li>이벤트관리</li>
 				<li>카테고리관리</li>
 			</ul>
-		</section>
+		</div>
 	</section>
-	<section id="main">
+	<section id="main" class="admin">
 		<h1 class="hidden">회원관리페이지</h1>
 		<div class="center">
 			<section id="member-search">

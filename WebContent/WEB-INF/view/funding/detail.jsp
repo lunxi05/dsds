@@ -53,7 +53,7 @@
 			<div class="category">${funding.categoryId}</div>
 		</section>
 
-		<section id="funding-tap">
+		<section id="funding-tab">
 			<h1 class="hidden">펀딩 탭</h1>
 			<div class="center">
 				<ul>
