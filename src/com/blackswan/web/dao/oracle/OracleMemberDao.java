@@ -36,10 +36,16 @@ public class OracleMemberDao implements MemberDao {
 
 		st.setString(1, "%" + query + "%");
 
-		count = st.executeUpdate();
-
+		ResultSet rs = st.executeQuery();
+		
+		while (rs.next())
+			count = rs.getInt("count");
+		
+		
+		rs.close();
 		st.close();
 		con.close();
+		
 
 		return count;
 	}

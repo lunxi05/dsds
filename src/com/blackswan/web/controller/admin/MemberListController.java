@@ -25,11 +25,13 @@ public class MemberListController extends HttpServlet {
 			page = Integer.parseInt(p_);
 		
 		String field = "name";
-		if (field != null && !field.equals(""))
+		if (req.getParameter("field") != null && !req.getParameter("field").equals(""))
 			field = req.getParameter("field");
+	
+			System.out.println(field);
 		
 		String query = "";
-		if (query != null && !query.equals(""))
+		if (req.getParameter("q") != null && !req.getParameter("q").equals(""))
 			query = req.getParameter("q");
 
 		try {
@@ -42,10 +44,15 @@ public class MemberListController extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/view/admin/member/list.jsp").forward(req, resp);
 
 	}
-
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String field = req.getParameter("field");
 		MemberDao memberDao = new OracleMemberDao();
+		
+		resp.sendRedirect("list");
+		
 	}
-
+	
 }
