@@ -54,7 +54,7 @@
 									<div class="title">${n.title}</div>
 									<div class="category"><span>${n.categoryName}</span><span>${n.companyName}</span></div>
 									<div class="graph"><div class="percent" style="width: 30%"></div></div>
-									<div class="gvalue"><span>30%</span><span>0,000,000원</span></div>
+									<div class="gvalue"><span>50%</span><span>${n.pay}원</span></div>
 								</div>
 							</a>
 						</li>
