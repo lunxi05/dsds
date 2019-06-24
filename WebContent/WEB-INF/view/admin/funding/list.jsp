@@ -20,7 +20,7 @@
 	<jsp:include page="../../inc/header.jsp" />
 
 	<main>
-	<section id="admin-title">관리자</section>
+	<section id="admin-title"><h1>관리자</h1></section>
 	<section id="admin-tab">
 		<h1 class="hidden">관리자 탭</h1>
 		<div class="center">
@@ -33,11 +33,11 @@
 		</div>
 	</section>
 	<section id="main" class="admin">
-		<h1 class="hidden">회원관리페이지</h1>
+		<h1 class="hidden">펀딩관리페이지</h1>
 		<div class="center">
-			<section id="member-search">
-				<h1 class="hidden">회원 검색</h1>
-				<form id="member-search-form" method="post">
+			<section id="funding-search">
+				<h1 class="hidden">펀딩 검색</h1>
+				<form id="funding-search-form" method="post">
 <!-- 					<input type="radio" name="field" value="email" id="msemail">
 					<label for="msemail">
 						<label for="member-mail">이메일</label><input type="text" name="query" id="member-mail">
@@ -57,7 +57,7 @@
 					<input type="submit" value="검색"> -->
 				</form>
 			</section>
-			<section id="member-list">
+			<section id="funding-list">
 				<h1 class="hidden">펀딩 목록</h1>
 				<div class="search-count">검색결과 : 총 ${afcount}건</div>
 				<table class="list-table">
@@ -78,40 +78,41 @@
 						<c:forEach var="l" items="${aflist}">
 							<tr>
 								<td>${l.id}</td>
-								<td>${l.id}</td>
-								<td>신청일</td>
-								<td>펀딩기간</td>
-								<td>참여율</td>
-								<td>목표금액</td>
-								<td>상태</td>
-								<td>관리</td>
+								<td>${l.companyName}</td>
+								<td>${l.cateName}</td>
+								<td>${l.regdate}</td>
+								<td>${l.sdate} ~ ${l.edate}</td>
+								<td>${l.partRate}%</td>
+								<td>${l.tAmount}</td>
+								<td>${l.state}</td>
+								<td><a href="detail?id=${l.id}">관리</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 			</section>
 
-			<c:set var="page" value="${(empty param.p) ? 1 : param.p}"></c:set>
-			<c:set var="start" value="${page-(page-1)%5}"></c:set>
+			<c:set var="p" value="${(empty param.page) ? 1 : param.page}" />
+			<c:set var="start" value="${p - (p-1)%5}" />
 
 			<section class="paging">
 				<h1 class="hidden">페이저</h1>
 				<div class="first-page">
-					<!-- <a href="list?p=1">처음</a> -->
+					<a href="list?p=1">처음</a>
 				</div>
 				<div class="prev-page">
-					<%-- <a href="list?p=${(start == 1) ? 1 : start-1}">이전</a> --%>
+					<a href="list?page=${(p < 6)? p : p -5}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">이전</a>
 				</div>
 				<ul>
 					<c:forEach var="n" begin="${start}" end="${start+4}" varStatus="s">
-						<li value="${n}">${n}</li>
+						<li><a href="list?page=${n}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">${n}</a></li>
 					</c:forEach>
 				</ul>
 				<div class="next-page">
-					<%-- <a href="${start+5}">다음</a> --%>
+					<a href="list?page=${start+5}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">다음</a>
 				</div>
 				<div class="end-page">
-					<!-- <a href="">끝</a> -->
+					<a href="">끝</a>
 				</div>
 			</section>
 		</div>

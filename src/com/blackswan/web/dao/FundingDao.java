@@ -7,6 +7,7 @@ import com.blackswan.web.dao.oracle.FundingView;
 import com.blackswan.web.dao.oracle.NoticeView;
 import com.blackswan.web.entity.Funding;
 import com.blackswan.web.entity.Notice;
+import com.blackswan.web.entity.Seller;
 
 public interface FundingDao {
 	
@@ -21,6 +22,7 @@ public interface FundingDao {
 	
 	
 	int insert(Funding funding) throws ClassNotFoundException, SQLException;
+	int insert1(Seller seller) throws ClassNotFoundException, SQLException;
 	int update(Funding funding) throws ClassNotFoundException, SQLException;
 	int delete(int id) throws ClassNotFoundException, SQLException;
 }

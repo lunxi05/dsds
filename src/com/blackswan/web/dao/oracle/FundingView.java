@@ -11,17 +11,19 @@ public class FundingView extends Funding {
 	private String companyName;
 	private String cateName;
 	private int pay;
-	
+	private int partRate;
 	public FundingView() {
+		
 	}
 	
 	public FundingView(int num, int id, int adminId, int memberId, int categoryId, Date regdate, String title, int tAmount,
-			String introImg, Date sdate, Date edate, int hit, int state, String companyName, String cateName, int pay) {
+			String introImg, Date sdate, Date edate, int hit, int state, String companyName, String cateName, int pay, int partRate) {
 		super(id, adminId, memberId, categoryId, regdate, title, tAmount, introImg, sdate, edate, hit, state);
 		this.num = num;
 		this.companyName = companyName;
 		this.cateName = cateName;
 		this.pay = pay;
+		this.partRate = partRate;
 	}
 
 	public int getNum() {
@@ -56,6 +58,11 @@ public class FundingView extends Funding {
 		this.pay = pay;
 	}
 	
-	
+	public int getPartRate() {
+		return partRate;
+	}
 
+	public void setPartRate(int partRate) {
+		this.partRate = partRate;
+	}
 }
