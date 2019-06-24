@@ -64,22 +64,16 @@
 					</thead>
 
 					<tbody class="tbody">
-
-
-						<tr>
-							<td class="id">111111</td>
-							<td class="division">이벤트</td>
-							<td class="title"><a href="detail?id=${n.id}">제목제목</a></td>
-							<td class="date">17.01.21</td>
-							<td class="hit">321321</td>
-						</tr>
 						<c:forEach var="n" items="${nlist}" varStatus="s">
 							<tr>
 								<td class="id">${n.id}</td>
-								<td class="division"></td>
+								<td class="division">
+									<c:if test="${n.division == 0}">공지사항</c:if>
+		              			    <c:if test="${n.division == 1}">이벤트</c:if>
+								</td>
 								<td class="title"><a href="detail?id=${n.id}">${n.title}</a></td>
-								<td class="date"></td>
-								<td class="hit"></td>
+								<td class="date">${n.regdate}</td>
+								<td class="hit">${n.hit}</td>
 							</tr>
 						</c:forEach>
 					</tbody>

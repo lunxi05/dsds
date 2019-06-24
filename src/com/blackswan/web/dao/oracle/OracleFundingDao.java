@@ -69,7 +69,8 @@ public class OracleFundingDao implements FundingDao{
 					 rs.getInt("state"),
 					 rs.getString("company_name"),
 					 rs.getString("name"),
-					 rs.getInt("pay")
+					 rs.getInt("pay"),
+					 rs.getInt("part_rate")
 					);
 					list.add(funding);
 		}
@@ -111,7 +112,8 @@ public class OracleFundingDao implements FundingDao{
 					 rs.getInt("state"),
 					 rs.getString("company_name"),
 					 rs.getString("name"),
-					 rs.getInt("pay")
+					 rs.getInt("pay"),
+					 rs.getInt("part_rate")
 					);
 		}
 		

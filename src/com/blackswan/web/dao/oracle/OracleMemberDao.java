@@ -121,8 +121,28 @@ public class OracleMemberDao implements MemberDao {
 
 	@Override
 	public int insert(Member member) throws ClassNotFoundException, SQLException {
+		
+		int result = 0;
 
-		return 0;
+		String sql = "insert into member(id, email, name, pw, phone) "
+				+ "values(noti_seq.nextval,?,?,?,?)";
+
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, (member.getEmail());
+		st.setString(2, ());
+		st.setString(3, ());
+		st.setString(4, ());
+
+		result = st.executeUpdate();
+
+		st.close();
+		con.close();
+
+		return result;
 	}
 
 	@Override

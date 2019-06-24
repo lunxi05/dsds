@@ -78,12 +78,13 @@
 						<c:forEach var="l" items="${aflist}">
 							<tr>
 								<td>${l.id}</td>
-								<td>${l.id}</td>
-								<td>신청일</td>
-								<td>펀딩기간</td>
-								<td>참여율</td>
-								<td>목표금액</td>
-								<td>상태</td>
+								<td>${l.companyName}</td>
+								<td>${l.cateName}</td>
+								<td>${l.regdate}</td>
+								<td>${l.sdate} ~ ${l.edate}</td>
+								<td>${l.partRate}%</td>
+								<td>${l.tAmount}</td>
+								<td>${l.state}</td>
 								<td>관리</td>
 							</tr>
 						</c:forEach>

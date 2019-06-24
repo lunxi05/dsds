@@ -20,7 +20,11 @@ public class NoticeDetailController extends HttpServlet{
 		
 		NoticeDao noticeDao = new OracleNoticeDao();
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		Integer id = 53;
+		
+		if(request.getParameter("id") != null && !request.getParameter("id").equals(""))
+			id = Integer.parseInt(request.getParameter("id"));
+		
 		
 		try {
 			request.setAttribute("notice", noticeDao.get(id));
