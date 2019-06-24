@@ -221,6 +221,10 @@
 								color: #1a85d6;
 								font-weight: bold;
 							}
+							
+							#main .funding-list ul li.complete a .item-info .gvalue span:first-child {
+								color: #00b331;
+							}						
 
 
 
