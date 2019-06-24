@@ -13,6 +13,7 @@ public class FundingView extends Funding {
 	private int pay;
 	private int partRate;
 	public FundingView() {
+		
 	}
 	
 	public FundingView(int num, int id, int adminId, int memberId, int categoryId, Date regdate, String title, int tAmount,
