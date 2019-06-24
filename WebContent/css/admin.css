@@ -1,6 +1,5 @@
 /*
-<<<<<<< HEAD
- * 1. admin main list css
+ * 1. admin °øÅë css
  * 2-1. admin member list css
  * 2-2. admin member detail css
  * 3. admin funding list css
@@ -8,110 +7,7 @@
  * 5. admin category list css
  */
 
-/* ------------------------------ 1. admin main list css ------------------------------ */
-
-#admin-title {
-	width: 100%;
-	min-width: 1200px;
-	text-align: center;
-	height: 140px;
-	background: #f4f4f4;
-	position: relative;
-	padding-top: 70px;
-}
-
-	#admin-title>h1 {
-		font-size: 28px;
-		font-weight: normal;
-	}
-	
-	#admin-title .category {
-		width: 62px;
-		height: 20px;
-		line-height: 20px;
-		background: #222526;
-		color: #fff;
-		font-size: 13px;
-		text-align: center;
-		position: absolute;
-		top: 30px;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-	
-#funding-tap {
-	width: 100%;
-	height: 40px;
-	border-top: 1px solid #e5e5e5;
-}
-
-	#funding-tap .center ul {
-		height: inherit;
-		display: flex;
-		justify-content: center;
-	}
-	
-		#funding-tap .center ul li {
-			width: 100px;
-			margin: 0 30px;
-			line-height: 40px;
-			text-align: center; 
-			color: #999;
-			font-size: 16px;
-		}
-		
-		#funding-tap .center ul li:hover {
-			color: #0081e0;
-			font-weight: bold;
-		}
-
-#funding-content {
-	border-top: 1px solid #e5e5e5;
-}
-
-
-
-/* ------------------------------ 2-1. admin member list css ------------------------------ */
-
-
-
-
-
-/* ------------------------------ 2-2. admin member detail css ------------------------------ */
-
-
-
-
-
-/* ------------------------------ 3. admin funding list css ------------------------------ */
-
-
-
-
-
-/* ------------------------------ 4. admin event list css ------------------------------ */
-
-
-
-
-
-/* ------------------------------ 5. admin category list css ------------------------------ */
-
-
-
-
-=======
- * 1. admin css
- * 2. admin member list css
- * 3. admin member detail css
- * 
- * 
- * 
- * 
- * 
- */
- 
- /* ------------------------------ 1. admin css ------------------------------ */
+/* ------------------------------ 1. admin css ------------------------------ */
  
  #admin-title {
  	width: 100%;
@@ -151,12 +47,69 @@
 			font-weight: bold;
  		}
  		
+	 		#admin-tab .center ul li a {
+	 			display: block;
+	 			width: 100%;
+	 			height: 100%;
+	 			line-height: inherit;
+	 		}
+ 		
  #main.admin {
  	border-top: 1px solid #e5e5e5;
  }
- 
- 
- 
- 
- 
->>>>>>> refs/remotes/origin/master
+
+
+
+
+
+/* ------------------------------ 2-1. admin member list css ------------------------------ */
+
+.admin-detail .list-table {
+	margin: 50px 0;
+}
+
+.admin-detail .list-table tr td:first-child {
+	background: #ebebeb;
+	width: 20%;
+}
+
+.admin-detail .list-table tr td:last-child {
+	text-align: left; 
+	padding: 0 30px;
+}
+
+
+
+
+/* ------------------------------ 2-2. admin member detail css ------------------------------ */
+
+
+
+
+
+/* ------------------------------ 3. admin funding list css ------------------------------ */
+
+
+
+
+
+/* ------------------------------ 4. admin event list css ------------------------------ */
+
+
+
+
+
+/* ------------------------------ 5. admin category list css ------------------------------ */
+
+
+
+
+
+
+
+
+
+
+
+
+

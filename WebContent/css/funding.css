@@ -149,6 +149,9 @@
 							line-height: 30px; 
 							font-weight: bold;
 							color: #333;
+							height: 60px;
+							overflow: hidden;
+							text-overflow: ellipsis;
 						}
 						
 						#main .funding-list ul li a .item-info .category {

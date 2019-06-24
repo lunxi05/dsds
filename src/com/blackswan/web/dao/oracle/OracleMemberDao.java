@@ -37,15 +37,13 @@ public class OracleMemberDao implements MemberDao {
 		st.setString(1, "%" + query + "%");
 
 		ResultSet rs = st.executeQuery();
-		
+
 		while (rs.next())
 			count = rs.getInt("count");
-		
-		
+
 		rs.close();
 		st.close();
 		con.close();
-		
 
 		return count;
 	}
@@ -83,13 +81,11 @@ public class OracleMemberDao implements MemberDao {
 		ResultSet rs = st.executeQuery();
 		while (rs.next()) {
 			MemberView member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"),
-					rs.getString("name"), "", rs.getInt("phone"), rs.getString("profile"),
-					rs.getInt("event_check"), 1, rs.getString("address"), rs.getInt("address_num"),
-					rs.getDate("regdate"));
+					rs.getString("name"), "", rs.getInt("phone"), rs.getString("profile"), rs.getInt("event_check"), 1,
+					rs.getString("address"), rs.getInt("address_num"), rs.getDate("regdate"), rs.getInt("mcount"),
+					rs.getInt("bcount"));
 			list.add(member);
 		}
-		
-		
 
 		rs.close();
 		st.close();
@@ -103,7 +99,7 @@ public class OracleMemberDao implements MemberDao {
 
 		Member member = null;
 
-		String sql = "SELECT * FROM MEMBER WHERE ID=" + id; // 조인해서 쓴 글 수, 참여한 펀딩 수 가져오기
+		String sql = "SELECT * FROM MEMBER_VIEW WHERE ID=" + id;
 		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
@@ -113,7 +109,7 @@ public class OracleMemberDao implements MemberDao {
 		while (rs.next()) {
 			member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"), rs.getString("name"), "",
 					rs.getInt("phone"), rs.getString("profile"), rs.getInt("event_check"), 1, rs.getString("address"),
-					rs.getInt("address_number"), rs.getDate("regdate"));
+					rs.getInt("address_num"), rs.getDate("regdate"), rs.getInt("mcount"), rs.getInt("bcount"));
 		}
 
 		rs.close();

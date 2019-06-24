@@ -57,13 +57,19 @@ public class OracleFundingDao implements FundingDao{
 		
 		while(rs.next()) {
 			FundingView funding = new FundingView(
+					 rs.getInt("num"),
 					 rs.getInt("id"),
-					 rs.getInt("category_id"),
-					 rs.getDate("regDate"),
+					 0,
+					 0,
+					 0,
+					 rs.getDate("regdate"),
 					 rs.getString("title"),
 					 rs.getInt("t_amount"),
 					 rs.getString("intro_img"),
-					 rs.getInt("sid"),
+					 rs.getDate("s_date"),
+					 rs.getDate("e_date"),
+					 rs.getInt("hit"),
+					 rs.getInt("state"),
 					 rs.getString("company_name"),
 					 rs.getString("name"),
 					 rs.getInt("pay")
@@ -79,9 +85,9 @@ public class OracleFundingDao implements FundingDao{
 	}
 
 	@Override
-	public Funding get(int id) throws ClassNotFoundException, SQLException {
+	public FundingView get(int id) throws ClassNotFoundException, SQLException {
 		
-		Funding funding = null;
+		FundingView funding = null;
 		
 		String sql = "SELECT * FROM FUNDING WHERE ID="+id;
 		
@@ -92,20 +98,23 @@ public class OracleFundingDao implements FundingDao{
 		ResultSet rs = st.executeQuery(sql);
 		
 		if(rs.next()) {
-			funding = new Funding(
-					rs.getInt("id"),
-					rs.getInt("admin_id"),
-					rs.getInt("member_id"),
-					rs.getInt("category_id"),
-					rs.getDate("regdate"),
-					rs.getString("title"),
-					rs.getInt("t_amount"),
-					rs.getString("intro_video"),
-					rs.getString("intro_img"),
-					rs.getDate("s_date"),
-					rs.getDate("e_date"),
-					rs.getInt("hit"),
-					rs.getInt("state")
+			funding = new FundingView(
+					 rs.getInt("num"),
+					 rs.getInt("id"),
+					 0,
+					 0,
+					 0,
+					 rs.getDate("regdate"),
+					 rs.getString("title"),
+					 rs.getInt("t_amount"),
+					 rs.getString("intro_img"),
+					 rs.getDate("s_date"),
+					 rs.getDate("e_date"),
+					 rs.getInt("hit"),
+					 rs.getInt("state"),
+					 rs.getString("company_name"),
+					 rs.getString("name"),
+					 rs.getInt("pay")
 					);
 		}
 		
@@ -144,17 +153,36 @@ public class OracleFundingDao implements FundingDao{
 		return 0;
 	}
 
-//	rs.getInt("id"),
-//	 rs.getInt("admin_id"),
-//	 rs.getInt("member_id"),
-//	 rs.getInt("category_id"),
-//	 rs.getDate("regDate"),
-//	 rs.getString("title"),
-//	 rs.getInt("t_amount"),
-//	 rs.getString("intro_video"),
-//	 rs.getString("intro_img"),
-//	 rs.getDate("s_date"),
-//	 rs.getDate("e_date"),
-//	 rs.getInt("hit"),
-//	 rs.getInt("state")
+	@Override
+	public int getCount() throws ClassNotFoundException, SQLException {
+		
+		return getCount("title", "");
+	}
+	
+	@Override
+	public int getCount(String field, String query) throws ClassNotFoundException, SQLException {
+		
+		int count = 0;
+		
+		String sql = "SELECT COUNT(ID) COUNT FROM FUNDING WHERE " + field + " LIKE ?";
+
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+		PreparedStatement st = con.prepareStatement(sql);
+
+		st.setString(1, "%" + query + "%");		
+		
+		ResultSet rs = st.executeQuery();
+		
+		while (rs.next())
+			count = rs.getInt("count");
+		
+		rs.close();
+		st.close();
+		con.close();
+
+		return count;
+	}
+
 }

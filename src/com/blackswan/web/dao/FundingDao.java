@@ -9,11 +9,15 @@ import com.blackswan.web.entity.Funding;
 import com.blackswan.web.entity.Notice;
 
 public interface FundingDao {
+	
+	int getCount() throws ClassNotFoundException, SQLException;
+	int getCount(String field, String query) throws ClassNotFoundException, SQLException;
+	
 	List<FundingView> getList() throws ClassNotFoundException, SQLException;
 	List<FundingView> getList(int page) throws ClassNotFoundException, SQLException;
 	List<FundingView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
 	
-	Funding get(int id) throws ClassNotFoundException, SQLException;
+	FundingView get(int id) throws ClassNotFoundException, SQLException;
 	
 	
 	int insert(Funding funding) throws ClassNotFoundException, SQLException;
