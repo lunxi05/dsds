@@ -40,7 +40,7 @@
                     </tbody>
                 </table>
 	           <div>
-	  
+	  			
 	         	<input type="submit" value="저장">
 	         	<a href="list">취소</a>
 	           </div>

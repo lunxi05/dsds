@@ -28,23 +28,37 @@
 
 
 			<section>
-				<h1>공지사항1</h1>
+				<h1>펀딩등록</h1>
 
 				<section>
-					<h3>공지사항 내용</h3>
+					<h2>펀딩등록 상세</h2>
 					<form action="reg" method="post">
-						<select name="type">
-							<option value="공지사항">공지사항</option>
-							<option value="이벤트" >이벤트</option>
-						</select>
+						
 						<table>
 							<tbody>
 								<tr>
-									<th>제목</th>
-									<td><input name="title" type="text"></td>
+									<th>카테고리</th>
+									<td>
+										<select name="category" >
+											<option value="4">사료</option>
+											<option value="5">간식</option>
+											<option value="6">배변용품</option>
+											<option value="7">건강관리</option>
+											<option value="8">미용용품</option>
+											<option value="9">장난감</option>
+											<option value="10">리빙</option>
+											<option value="11">패션</option>
+											<option value="12">야외용품</option>
+											<option value="13">기타</option>
+										</select>
+									</td>
 								</tr>
 								<tr>
-									<th>내용</th>
+									<th>프로젝트 제목</th>
+									<td><textarea name="content"></textarea></td>
+								</tr>
+								<tr>
+									<th>프로젝트 이미지</th>
 									<td><textarea name="content"></textarea></td>
 								</tr>
 							</tbody>
