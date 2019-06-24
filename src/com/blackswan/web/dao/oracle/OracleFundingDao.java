@@ -7,13 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.blackswan.web.dao.FundingDao;
 import com.blackswan.web.entity.Funding;
-import com.blackswan.web.entity.Notice;
-import com.blackswan.web.entity.Review;
 
 public class OracleFundingDao implements FundingDao{
 
@@ -129,12 +126,37 @@ public class OracleFundingDao implements FundingDao{
 	@Override
 	public int insert(Funding funding) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		/*
-		 * String sql =
-		 * "insert into funding(ID, ADMIN_ID, MEMBER_ID, CATEGORY_ID, REGDATE, "
-		 * +" TITLE, T_AMOUNT, INTRO_VIDEO, INTRO_IMG, S_DATE, E_DATE, HIT, STATE)" +
-		 * "values(fun_seq.nextval,?,?,?,,'admin')";
-		 */
+		
+		int result = 0;
+
+		String sql = "insert into notice(id, member_id, category_id, title, "
+				+ " t_amount, intro_img, s_date, e_date, state)"
+				+ "values(fun_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+
+		PreparedStatement st = con.prepareStatement(sql); // preparedStatement : 실행 전에 statement를 준비, prepare로 준비할 경우
+															// st.executeUpdate에 sql 적지 않기
+		st.setInt(1, funding.getId());
+		st.setInt(2, funding.getMemberId());
+		st.setInt(3, funding.getCategoryId());
+		st.setString(4, funding.getTitle());
+		st.setInt(5, funding.gettAmount());
+		st.setString(6, funding.getIntroImg());
+		st.setDate(7, funding.getSdate());
+		st.setDate(8, funding.getEdate());
+		st.setInt(9, funding.getState());
+
+	
+		result = st.executeUpdate();
+
+		st.close();
+		con.close();
+
+		return result;
+		 
 
 		
 		
