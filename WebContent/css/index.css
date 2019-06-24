@@ -32,18 +32,35 @@
 			#banner .center ul li {
 				position: absolute;
 				top: 0;
-			}
-			
-			#banner .center li.back {
-				left: 100%;
 				z-index: 0;
-				transition: left 0s ease 0.5s;
+				transition: left: 0.5s ease;
 			}
 			
-			#banner .center li.front {
+/*			#banner .center li.back {
+				left: 0;
+				z-index: 0;
+				transition: left 10ms linear 1s;
+			}
+			
+ 			#banner .center li.front {
 				left: 0;
 				z-index: 10;
-				transition: left 0.5s ease;
+				transition: animation 0.5s ease;
+			} */
+			
+			#banner .center li.right {
+				left: 100%;
+				z-index: 10;
+			}
+			
+			#banner .center li.center {
+				left: 0;
+				z-index: 10;
+			}
+			
+			#banner .center li.left {
+				left: -100%;
+				z-index: 10;
 			}
 	
 		#banner .center .prev-banner, #banner .center .next-banner {

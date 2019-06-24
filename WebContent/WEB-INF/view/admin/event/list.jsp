@@ -54,12 +54,12 @@
 						<td><input type="text" name="title"></td>
 					</tr>
 				</table>
-				<input type="hidden" name="page" value="${param.page}"> <input
-					type="hidden" name="old_title" value="${param.title}"> <input
-					type="hidden" name="old_edate" value="${param.edate}"> <input
-					type="hidden" name="old_sdate" value="${param.sdate}"> <input
-					type="hidden" name="old_state" value="${param.state}"> <input
-					type="submit" value="검색">
+				<input type="hidden" name="page" value="${param.page}">
+				<input type="hidden" name="old_title" value="${param.title}">
+				<input type="hidden" name="old_edate" value="${param.edate}">
+				<input type="hidden" name="old_sdate" value="${param.sdate}">
+				<input type="hidden" name="old_state" value="${param.state}">
+				<input type="submit" value="검색">
 			</form>
 
 
