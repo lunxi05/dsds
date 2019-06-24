@@ -14,7 +14,7 @@ import com.blackswan.web.dao.oracle.OracleNoticeDao;
 import com.blackswan.web.entity.Notice;
 
 @WebServlet("/notice/reg")
-public class RegContrller extends HttpServlet{
+public class NoticeRegContrller extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
