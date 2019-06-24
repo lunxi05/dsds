@@ -9,6 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
+<!-- <script src="../js/member/signUp.js"></script> -->
 <style type="text/css">
 
 input {
@@ -29,7 +30,7 @@ border: 1px solid;
 
 		<section>
 			<form action="signUp" method="post">
-				<table>
+				<table >
 					<tbody>
 						<tr>
 							<td><input name="email" type="email" placeholder="email을 입력하세요"></td>
@@ -56,7 +57,7 @@ border: 1px solid;
 				</div>
 				
 				<div>
-					<input type="submit" value="가입하기"> <br> <a href="/blackswan2/index">홈으로 돌아가기</a>
+					<input class="signUp" type="submit" value="가입하기"> <br> <a href="/blackswan2/index">홈으로 돌아가기</a>
 				</div>
 			</form>
 		</section>
