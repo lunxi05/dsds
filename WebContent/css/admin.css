@@ -9,7 +9,7 @@
 
 /* ------------------------------ 1. admin css ------------------------------ */
  
- #admin-title {
+ #admin-title, #admin-title>h1 {
  	width: 100%;
 	min-width: 1200px;
 	text-align: center;

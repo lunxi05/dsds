@@ -1,5 +1,6 @@
 package com.blackswan.web.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.blackswan.web.entity.SelEvent;
@@ -15,8 +16,11 @@ public interface SelEventDao {
 	
 	List<SelEventView> getList() throws Exception;
 	List<SelEventView> getList(int page) throws Exception;
-	List<SelEventView> getList(int page, String field, String query) throws Exception;
-
-	SelEvent search() throws Exception;
 	
+	List<SelEventView> getList(int page, String query, String sdate, String edate, String state) throws ClassNotFoundException, SQLException;
+	
+	int getCount() throws Exception;
+
+	int getCount(String query, String sdate, String edate, String state) throws Exception;
+	 
 }
