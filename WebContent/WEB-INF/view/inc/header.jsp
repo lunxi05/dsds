@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 
 <header>
@@ -12,6 +13,8 @@
 					<li><a href="/blackswan2/funding/list">펀딩</a></li>
 					<li><a href="/blackswan2/leg">등록신청</a></li>
 					<li><a href="/blackswan2/notice/list">고객센터</a></li>
+					
+					<li><a href="/blackswan2/admin/member/list">관리자</a></li>
 				</ul>
 			</section>
 			<section id="user-menu">
