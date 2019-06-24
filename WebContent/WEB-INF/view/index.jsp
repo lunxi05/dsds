@@ -30,6 +30,9 @@
 					<li class="front"><a href=""><img src="images/banner.jpg"></a></li>
 					<li class="back"><a href=""><img src="https://cdn.pixabay.com/photo/2017/03/25/17/55/color-2174045__340.png"></a></li>
 					<li class="back"><a href=""><img src="https://cdn.pixabay.com/photo/2015/09/26/11/21/banner-958962_960_720.jpg"></a></li>
+					<li class="back"><a href=""><img src="https://png.pngtree.com/thumb_back/fw800/back_pic/03/96/79/9557ee154608f74.jpg"></a></li>
+				
+				
 				</ul>
 				<div class="prev-banner"></div>
 				<div class="next-banner"></div>

@@ -11,6 +11,7 @@
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../../css/style.css">
 <link rel="stylesheet" type="text/css" href="../../css/index.css">
+<link rel="stylesheet" type="text/css" href="../../css/admin.css">
 <script src="/js/admin/member/list.js"></script>
 </head>
 
@@ -21,28 +22,8 @@
 
 	<main>
 	<section id="admin-title">
-		<h1>관리자</h1>
+		<h1>관리자sdfsdfsdf</h1>
 		<section id="admin-tap">
-			<style>
-#admin-title {
-	background: #bdbdbd;
-}
-
-#admin-title h1 {
-	width: 100%;
-	text-align: center;
-}
-
-#admin-tap ul {
-	display: flex;
-}
-
-#member-search {
-	border-bottom: 1px solid;
-	margni-bottom: 20px;
-}
-</style>
-
 			<h1 class="hidden">관리자 탭</h1>
 			<ul>
 				<li>회원관리</li>

@@ -293,6 +293,7 @@
 		width: 880px;
 		border-right: 1px solid #e5e5e5;
 		padding: 50px 80px;
+		padding-bottom: 100px;
 	}
 	
 		#funding-content .funding-detail .funding-visual {
@@ -379,7 +380,7 @@
 		#funding-content .funding-detail .funding-intro {
 		}
 		
-			#funding-content .funding-detail .funding-intro>h1 {
+			#funding-content .funding-detail .funding-intro h1 {
 				width: 100%;
 				padding: 30px 0;
 				color: #0081e0;
@@ -388,10 +389,15 @@
 				font-weight: bold;
 				border-bottom: 1px solid #e5e5e5;				
 			} 
+			
+			#funding-content .funding-detail .funding-intro div {
+				padding: 30px 0;
+			}
 
 	#funding-content .funding-info {
 		width: 320px;
 		padding-top: 80px;
+		padding-bottom: 100px;
 	}
 	
 		#funding-content .funding-info .funding-current {}
@@ -560,13 +566,28 @@
 			#funding-content .funding-info .funding-item .fcount {
 				width: 100%; 
 				height: 55px;
-				padding-left: 30px;
+				padding: 20px 30px 0;
 				background: #fcfcfe;
 				font-size: 15px;
 				color: #888;
-				line-height: 55px;
 			}
 					
+				#funding-content .funding-info .funding-item .fcount img {
+					vertical-align: top;
+					margin-right: 5px;
+				}
+				
+				#funding-content .funding-info .funding-item .fcount span:last-child {
+					color: #0081e0;
+					float: right;
+				}
+				
+					#funding-content .funding-info .funding-item .fcount span:last-child:after {
+						clear: both;
+					}
+				
+				
+				
 				
 				
 				

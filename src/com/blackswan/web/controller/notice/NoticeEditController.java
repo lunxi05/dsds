@@ -16,7 +16,7 @@ import com.blackswan.web.entity.Notice;
 
 
 @WebServlet("/notice/edit")
-public class EditController extends HttpServlet {
+public class NoticeEditController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

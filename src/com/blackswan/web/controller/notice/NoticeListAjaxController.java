@@ -18,7 +18,7 @@ import com.blackswan.web.dao.oracle.OracleNoticeDao;
 import com.blackswan.web.entity.Notice;
 
 @WebServlet("/notice/list-ajax")
-public class ListAjaxController extends HttpServlet {
+public class NoticeListAjaxController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
