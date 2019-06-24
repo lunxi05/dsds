@@ -81,7 +81,7 @@ public class OracleMemberDao implements MemberDao {
 		ResultSet rs = st.executeQuery();
 		while (rs.next()) {
 			MemberView member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"),
-					rs.getString("name"), "", rs.getInt("phone"), rs.getString("profile"), rs.getInt("event_check"), 1,
+					rs.getString("name"), "", rs.getInt("phone"), rs.getString("profile"), rs.getString("event_agree"), 1,
 					rs.getString("address"), rs.getInt("address_num"), rs.getDate("regdate"), rs.getInt("mcount"),
 					rs.getInt("bcount"));
 			list.add(member);
@@ -108,7 +108,7 @@ public class OracleMemberDao implements MemberDao {
 
 		while (rs.next()) {
 			member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"), rs.getString("name"), "",
-					rs.getInt("phone"), rs.getString("profile"), rs.getInt("event_check"), 1, rs.getString("address"),
+					rs.getInt("phone"), rs.getString("profile"), rs.getString("event_agree"), 1, rs.getString("address"),
 					rs.getInt("address_num"), rs.getDate("regdate"), rs.getInt("mcount"), rs.getInt("bcount"));
 		}
 
@@ -124,18 +124,19 @@ public class OracleMemberDao implements MemberDao {
 		
 		int result = 0;
 
-		String sql = "insert into member(id, email, name, pw, phone) "
-				+ "values(noti_seq.nextval,?,?,?,?)";
+		String sql = "insert into member(id, email, name, pw, phone, event_agree) "
+				+ "values(mem_seq.nextval,?,?,?,?,?)";
 
 		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, (member.getEmail());
-		st.setString(2, ());
-		st.setString(3, ());
-		st.setString(4, ());
+		st.setString(1, member.getEmail());
+		st.setString(2, member.getName());
+		st.setString(3, member.getPw());
+		st.setInt(4, member.getPhone());
+		st.setString(5, member.getEventAgree());
 
 		result = st.executeUpdate();
 

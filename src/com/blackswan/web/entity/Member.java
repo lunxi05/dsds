@@ -10,26 +10,26 @@ public class Member {
 	private String pw;
 	private int phone;
 	private String profile;
-	private int eventCheck;
+	private String eventAgree;
 	private int adminId;
 	private String address;
 	private int addressNum;
 	private Date regdate;
 	
 	public Member() {
-	
+		// TODO Auto-generated constructor stub
 	}
-
-	public Member(int id, String email, String name, String pw, int phone, String profile, int eventCheck, int adminId,
-			String address, int addressNum, Date regdate) {
-		super();
+	
+	public Member(int id, String email, String name, String pw, int phone, String profile, String eventAgree,
+			int adminId, String address, int addressNum, Date regdate) {
+		
 		this.id = id;
 		this.email = email;
 		this.name = name;
 		this.pw = pw;
 		this.phone = phone;
 		this.profile = profile;
-		this.eventCheck = eventCheck;
+		this.eventAgree = eventAgree;
 		this.adminId = adminId;
 		this.address = address;
 		this.addressNum = addressNum;
@@ -84,12 +84,12 @@ public class Member {
 		this.profile = profile;
 	}
 
-	public int getEventCheck() {
-		return eventCheck;
+	public String getEventAgree() {
+		return eventAgree;
 	}
 
-	public void setEventCheck(int eventCheck) {
-		this.eventCheck = eventCheck;
+	public void setEventAgree(String eventAgree) {
+		this.eventAgree = eventAgree;
 	}
 
 	public int getAdminId() {
@@ -123,5 +123,7 @@ public class Member {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	
 
+	
 }
