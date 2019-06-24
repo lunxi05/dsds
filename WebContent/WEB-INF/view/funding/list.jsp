@@ -44,17 +44,24 @@
 						<!-- 1페이지일때만 노출 -->
 						<li class="first-page-img">
 						</li>
-						<c:forEach var="n" items="${flist}" >
+						<c:forEach var="f" items="${flist}" >
+						<c:if test="${f.partRate >= 100}">
+						<li class="complete">
+						</c:if>
+						<c:if test="${f.partRate < 100}">
 						<li>
-							<a href="/blackswan2/funding/detail?id=${n.id}">
+						</c:if>
+							<a href="/blackswan2/funding/detail?id=${f.id}">
 								<div class="item-img">
 									<img src="../images/.jpg">
 								</div>
 								<div class="item-info">
-									<div class="title">${n.title}</div>
-									<div class="category"><span>${n.categoryName}</span><span>${n.companyName}</span></div>
-									<div class="graph"><div class="percent" style="width: 30%"></div></div>
-									<div class="gvalue"><span>50%</span><span>${n.pay}원</span></div>
+									<div class="title">${f.title}</div>
+									<div class="category"><span>${f.cateName}</span><span>${f.companyName}</span></div>						
+									<div class="graph"><div class="percent" style="width: ${f.partRate}%"></div></div>
+									
+									
+									<div class="gvalue"><span>${f.partRate}%</span><span>${f.pay}원</span></div>
 								</div>
 							</a>
 						</li>
