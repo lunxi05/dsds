@@ -27,6 +27,16 @@ public class RegContrller extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String url Path = "/upload";
+		String path = request.getServletContext().getRealPath(urlPath);
+		
+		System.out.println(path);
+		
+		
+		
+		
+		if(pathFile.exists())
+		
 		String type = request.getParameter("type");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
