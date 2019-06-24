@@ -7,13 +7,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%
-	NoticeDao noticeDao = new OracleNoticeDao();
-
-	int id = Integer.parseInt(request.getParameter("id"));
-	Notice n = noticeDao.get(id);
-%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +30,10 @@
 						<tbody>
 							<tr>
 								<th>타입</th>
-								<td>${notice.type}</td>
+								<td>
+									<c:if test="${notice.division == 0}">공지사항</c:if>
+		              			    <c:if test="${notice.division == 1}">이벤트</c:if>
+	              			    </td>
 							</tr>
 							<tr>
 								<th>제목</th>
@@ -43,7 +41,7 @@
 							</tr>
 							<tr>
 								<th>작성일</th>
-								<td>${notice.regDate}</td>
+								<td>${notice.regdate}</td>
 							</tr>
 							<tr>
 								<th>내용</th>

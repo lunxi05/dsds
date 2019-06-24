@@ -1,4 +1,4 @@
-*, body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, a, a:link, a:visited, a:active, a:hover {
+*, body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, span, a, a:link, a:visited, a:active, a:hover {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -9,6 +9,8 @@
 	border: 0;
 	border-radius: 0;
 	box-shadow: none;
+	font-family:'Malgun Gothic', san-serif;
+	letter-spacing: -1px;
 }
 
 ul, ol, li, dl, dt, dd {

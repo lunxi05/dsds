@@ -1,0 +1,63 @@
+/* 
+ * 1. @import url
+ * 2. notice list css
+ */
+
+/* ------------------------------ 1. @import url ------------------------------ */
+/* @import url("./style.css"); */
+
+/* ------------------------------ 2. notice list css ------------------------------ */
+
+#main>h1 {
+	width: 100%;
+	min-width: 1200px;
+	height: 85px;
+	font-size: 32px;
+	text-align: center; 
+	line-height: 85px;
+	border-top: 1px solid #e5e5e5;
+}
+
+	#main .notice-table {
+		display: block; 
+		position: relative; 
+		padding-top: 30px; 
+	}
+	
+		#main .notice-table label {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		#main .notice-table table {
+			width: 100%; 
+			border-collapse: collapse;
+			text-align: center; 
+		}
+	
+		#main .notice-table table thead {
+			background: #ebebeb;
+			font-weight: bold;
+		}
+		
+		#main .notice-table table tbody {
+			color: #666; 
+		}
+	
+		#main .notice-table table tr {
+			height: 40px;
+		}
+
+			#main .notice-table table tr td {
+				border: 1px solid #e5e5e5;
+			}
+			
+			#main .notice-table table tbody tr td.title {
+				text-align: left; 
+				padding-left: 35px;
+			}
+			
+			
+			
+			

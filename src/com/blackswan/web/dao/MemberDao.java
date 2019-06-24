@@ -11,13 +11,16 @@ import com.blackswan.web.entity.Member;
 
 public interface MemberDao {
 	
+	int getCount() throws ClassNotFoundException, SQLException;
+	int getCount(String field, String query) throws ClassNotFoundException, SQLException;
+	
 	List<MemberView> getList() throws ClassNotFoundException, SQLException;
 	List<MemberView> getList(int page) throws ClassNotFoundException, SQLException;
 	List<MemberView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
 	
-	Member get(int id);
+	Member get(int id) throws ClassNotFoundException, SQLException;
 	
-	int insert(Member member);
-	int update(Member member);
+	int insert(Member member) throws ClassNotFoundException, SQLException;
+	int update(Member member) throws ClassNotFoundException, SQLException;
 
 }

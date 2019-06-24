@@ -13,25 +13,23 @@ import com.blackswan.web.dao.NoticeDao;
 import com.blackswan.web.dao.oracle.OracleNoticeDao;
 
 @WebServlet("/notice/list")
-public class ListController extends HttpServlet {
+public class NoticeListController extends HttpServlet {
 	
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		NoticeDao noticeDao = new OracleNoticeDao();
 		
 		try {
-			request.setAttribute("list", noticeDao.getList());
+			request.setAttribute("nlist", noticeDao.getList());
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
-		request.getRequestDispatcher("../WEB-INF/view/notice/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/notice/list.jsp").forward(request, response);
 	}
 	
 }

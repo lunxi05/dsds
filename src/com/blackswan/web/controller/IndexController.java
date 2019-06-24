@@ -1,4 +1,4 @@
-package com.blackswan.web.controller.index;
+package com.blackswan.web.controller;
 
 import java.io.IOException;
 
@@ -14,9 +14,9 @@ public class IndexController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		
 		req.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(req, resp);
 
 	}
 
 }
-

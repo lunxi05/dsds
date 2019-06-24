@@ -16,7 +16,7 @@ import com.blackswan.web.entity.Notice;
 
 
 @WebServlet("/notice/edit")
-public class EditController extends HttpServlet {
+public class NoticeEditController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,15 +28,13 @@ public class EditController extends HttpServlet {
 		try {
 			request.setAttribute("notice", noticeDao.get(id));
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
-		request.getRequestDispatcher("../WEB-INF/view/notice/edit.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/notice/edit.jsp").forward(request, response);
 		
 		
 	}
@@ -47,7 +45,7 @@ public class EditController extends HttpServlet {
 		
 		NoticeDao noticeDao = new OracleNoticeDao();
 		
-		String type = request.getParameter("type");
+		int division = Integer.parseInt(request.getParameter("division"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		Integer id = Integer.parseInt(request.getParameter("id"));
@@ -56,7 +54,7 @@ public class EditController extends HttpServlet {
 		
 		try {
 			Notice n = noticeDao.get(id);
-			n.setType(type);
+			n.setDivision(division);
 			n.setTitle(title);
 			n.setContent(content);
 			
@@ -64,10 +62,8 @@ public class EditController extends HttpServlet {
 			request.setAttribute("notice", noticeDao.get(id));
 			
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
