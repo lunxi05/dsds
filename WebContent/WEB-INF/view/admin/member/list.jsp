@@ -10,10 +10,6 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../../css/style.css">
-<<<<<<< HEAD
-<link rel="stylesheet" type="text/css" href="../../css/index.css">
-=======
->>>>>>> refs/remotes/origin/master
 <link rel="stylesheet" type="text/css" href="../../css/admin.css">
 <script src="/js/admin/member/list.js"></script>
 </head>
@@ -24,17 +20,10 @@
 	<jsp:include page="../../inc/header.jsp" />
 
 	<main>
-<<<<<<< HEAD
-	<section id="admin-title">
-		<h1>관리자sdfsdfsdf</h1>
-		<section id="admin-tap">
-			<h1 class="hidden">관리자 탭</h1>
-=======
 	<section id="admin-title">관리자</section>
 	<section id="admin-tab">
 		<h1 class="hidden">관리자 탭</h1>
 		<div class="center">
->>>>>>> refs/remotes/origin/master
 			<ul>
 				<li>회원관리</li>
 				<li>펀딩관리</li>
