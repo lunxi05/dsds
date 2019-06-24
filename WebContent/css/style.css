@@ -31,7 +31,7 @@
 #header {
 	background: #fff; 
 	height: 70px;
-	border-bottom: 1px solid #e0e0e0; 
+	border-bottom: 1px solid #e5e5e5; 
 	font-family : "Malgun Gothic", "Gothic", san-serif;
 }
 
@@ -373,6 +373,7 @@
 	width: 100%;
 	border-collapse : collapse;
 	text-align: center;
+	table-layout : fixed;
 }
 
 	.list-table thead {

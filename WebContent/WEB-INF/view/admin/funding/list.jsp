@@ -38,7 +38,7 @@
 			<section id="member-search">
 				<h1 class="hidden">회원 검색</h1>
 				<form id="member-search-form" method="post">
-					<input type="radio" name="field" value="email" id="msemail">
+<!-- 					<input type="radio" name="field" value="email" id="msemail">
 					<label for="msemail">
 						<label for="member-mail">이메일</label><input type="text" name="query" id="member-mail">
 					</label>
@@ -54,30 +54,37 @@
 					<label for="msregdate">
 						<label for="member-reg">가입일</label><input type="date" name="query" id="member-reg">
 					</label>
-					<input type="submit" value="검색">
+					<input type="submit" value="검색"> -->
 				</form>
 			</section>
 			<section id="member-list">
-				<h1 class="hidden">회원 목록</h1>
-				<div class="search-count">검색결과 : 총 ${count}건</div>
+				<h1 class="hidden">펀딩 목록</h1>
+				<div class="search-count">검색결과 : 총 ${afcount}건</div>
 				<table class="list-table">
-					<thead>
+ 					<thead>
 						<tr>
-							<th>회원번호</th>
-							<th>아이디(메일)</th>
-							<th>이름(기업명)</th>
-							<th>가입일</th>
-							<th>정보조회</th>
+							<th>펀딩번호</th>
+							<th>업체명</th>
+							<th>펀딩이름</th>
+							<th>신청일</th>
+							<th>펀딩기간</th>
+							<th>참여율</th>
+							<th>목표금액</th>
+							<th>상태</th>
+							<th>관리</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="m" items="${member}">
+						<c:forEach var="l" items="${aflist}">
 							<tr>
-								<td class="id">${m.id}</td>
-								<td class="email">${m.email}</td>
-								<td class="name">${m.name}</td>
-								<td class="regdate">${m.regdate}</td>
-								<td><a href="detail?id=${m.id}">보기</a></td>
+								<td>${l.id}</td>
+								<td>${l.id}</td>
+								<td>신청일</td>
+								<td>펀딩기간</td>
+								<td>참여율</td>
+								<td>목표금액</td>
+								<td>상태</td>
+								<td>관리</td>
 							</tr>
 						</c:forEach>
 					</tbody>
