@@ -10,7 +10,10 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../../css/style.css">
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="../../css/index.css">
+=======
+>>>>>>> refs/remotes/origin/master
 <link rel="stylesheet" type="text/css" href="../../css/admin.css">
 <script src="/js/admin/member/list.js"></script>
 </head>
@@ -21,33 +24,47 @@
 	<jsp:include page="../../inc/header.jsp" />
 
 	<main>
+<<<<<<< HEAD
 	<section id="admin-title">
 		<h1>관리자sdfsdfsdf</h1>
 		<section id="admin-tap">
 			<h1 class="hidden">관리자 탭</h1>
+=======
+	<section id="admin-title">관리자</section>
+	<section id="admin-tab">
+		<h1 class="hidden">관리자 탭</h1>
+		<div class="center">
+>>>>>>> refs/remotes/origin/master
 			<ul>
 				<li>회원관리</li>
 				<li>펀딩관리</li>
 				<li>이벤트관리</li>
 				<li>카테고리관리</li>
 			</ul>
-		</section>
+		</div>
 	</section>
-	<section id="main">
+	<section id="main" class="admin">
 		<h1 class="hidden">회원관리페이지</h1>
 		<div class="center">
 			<section id="member-search">
 				<h1 class="hidden">회원 검색</h1>
-				<form id="member-search-form" action="post">
-					<label for="member-id">아이디(메일)</label><input type="text"
-						id="member-id"> <label for="member-name">이름(기업명)</label><input
-						type="text" id="member-name"> <label for="member-reg">가입일</label><input
-						type="date" id="member-reg"> <label for="member-black">구분</label>
-					<div id="member-black">
-						<label for="m-normal">일반</label><input type="checkbox" checked
-							id="m-normal"> <label for="m-black">블랙</label><input
-							type="checkbox" checked id="m-black">
-					</div>
+				<form id="member-search-form" method="post">
+					<input type="radio" name="field" value="email" id="msemail">
+					<label for="msemail">
+						<label for="member-mail">이메일</label><input type="text" name="query" id="member-mail">
+					</label>
+					<input type="radio" name="field" value="name" id="msname">
+					<label for="msname">
+						<label for="member-name">이름</label><input type="text" name="query" id="member-name">
+					</label>
+					<input type="radio" name="field" value="id" id="msid">
+					<label for="msid">
+						<label for="member-id">회원번호</label><input type="text" name="query" id="member-id">
+					</label>
+					<input type="radio" name="field" value="regdate" id="msregdate">
+					<label for="msregdate">
+						<label for="member-reg">가입일</label><input type="date" name="query" id="member-reg">
+					</label>
 					<input type="submit" value="검색">
 				</form>
 			</section>
@@ -57,7 +74,7 @@
 				<table class="list-table">
 					<thead>
 						<tr>
-							<td>번호</td>
+							<td>회원번호</td>
 							<td>아이디(메일)</td>
 							<td>이름(기업명)</td>
 							<td>가입일</td>
