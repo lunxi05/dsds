@@ -12,7 +12,6 @@ public class Funding {
 	private Date regdate;
 	private String title;
 	private int tAmount;
-	private String introVideo;
 	private String introImg;
 	private Date sdate;
 	private Date edate;
@@ -24,7 +23,7 @@ public class Funding {
 	}
 
 	public Funding(int id, int adminId, int memberId, int categoryId, Date regdate, String title, int tAmount,
-			String introVideo, String introImg, Date sdate, Date edate, int hit, int state) {
+			String introImg, Date sdate, Date edate, int hit, int state) {
 		this.id = id;
 		this.adminId = adminId;
 		this.memberId = memberId;
@@ -32,7 +31,6 @@ public class Funding {
 		this.regdate = regdate;
 		this.title = title;
 		this.tAmount = tAmount;
-		this.introVideo = introVideo;
 		this.introImg = introImg;
 		this.sdate = sdate;
 		this.edate = edate;
@@ -94,14 +92,6 @@ public class Funding {
 
 	public void settAmount(int tAmount) {
 		this.tAmount = tAmount;
-	}
-
-	public String getIntroVideo() {
-		return introVideo;
-	}
-
-	public void setIntroVideo(String introVideo) {
-		this.introVideo = introVideo;
 	}
 
 	public String getIntroImg() {

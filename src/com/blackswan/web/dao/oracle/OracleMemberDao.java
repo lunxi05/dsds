@@ -36,8 +36,12 @@ public class OracleMemberDao implements MemberDao {
 
 		st.setString(1, "%" + query + "%");
 
-		count = st.executeUpdate();
+		ResultSet rs = st.executeQuery();
 
+		while (rs.next())
+			count = rs.getInt("count");
+
+		rs.close();
 		st.close();
 		con.close();
 
@@ -77,13 +81,11 @@ public class OracleMemberDao implements MemberDao {
 		ResultSet rs = st.executeQuery();
 		while (rs.next()) {
 			MemberView member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"),
-					rs.getString("name"), "", rs.getInt("phone"), rs.getString("profile"),
-					rs.getInt("event_check"), 1, rs.getString("address"), rs.getInt("address_num"),
-					rs.getDate("regdate"));
+					rs.getString("name"), "", rs.getInt("phone"), rs.getString("profile"), rs.getString("event_agree"), 1,
+					rs.getString("address"), rs.getInt("address_num"), rs.getDate("regdate"), rs.getInt("mcount"),
+					rs.getInt("bcount"));
 			list.add(member);
 		}
-		
-		
 
 		rs.close();
 		st.close();
@@ -92,12 +94,39 @@ public class OracleMemberDao implements MemberDao {
 		return list;
 	}
 
+	
+	@Override
+	public Member get(String email) throws ClassNotFoundException, SQLException {
+		Member member = null;
+
+		String sql = "SELECT * FROM MEMBER_VIEW WHERE EMAIL=?";
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, email);
+		
+		ResultSet rs = st.executeQuery();
+
+		while (rs.next()) {
+			member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"), rs.getString("name"), rs.getString("pw"),
+					rs.getInt("phone"), rs.getString("profile"), rs.getString("event_agree"), 1, rs.getString("address"),
+					rs.getInt("address_num"), rs.getDate("regdate"), rs.getInt("mcount"), rs.getInt("bcount"));
+		}
+
+		rs.close();
+		st.close();
+		con.close();
+
+		return member;
+	}
+	
 	@Override
 	public Member get(int id) throws ClassNotFoundException, SQLException {
 
 		Member member = null;
 
-		String sql = "SELECT * FROM MEMBER WHERE ID=" + id; // 조인해서 쓴 글 수, 참여한 펀딩 수 가져오기
+		String sql = "SELECT * FROM MEMBER_VIEW WHERE ID=" + id;
 		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
@@ -106,8 +135,8 @@ public class OracleMemberDao implements MemberDao {
 
 		while (rs.next()) {
 			member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"), rs.getString("name"), "",
-					rs.getInt("phone"), rs.getString("profile"), rs.getInt("event_check"), 1, rs.getString("address"),
-					rs.getInt("address_number"), rs.getDate("regdate"));
+					rs.getInt("phone"), rs.getString("profile"), rs.getString("event_agree"), 1, rs.getString("address"),
+					rs.getInt("address_num"), rs.getDate("regdate"), rs.getInt("mcount"), rs.getInt("bcount"));
 		}
 
 		rs.close();
@@ -119,8 +148,29 @@ public class OracleMemberDao implements MemberDao {
 
 	@Override
 	public int insert(Member member) throws ClassNotFoundException, SQLException {
+		
+		int result = 0;
 
-		return 0;
+		String sql = "insert into member(id, email, name, pw, phone, event_agree) "
+				+ "values(mem_seq.nextval,?,?,?,?,?)";
+
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, member.getEmail());
+		st.setString(2, member.getName());
+		st.setString(3, member.getPw());
+		st.setInt(4, member.getPhone());
+		st.setString(5, member.getEventAgree());
+
+		result = st.executeUpdate();
+
+		st.close();
+		con.close();
+
+		return result;
 	}
 
 	@Override

@@ -7,20 +7,31 @@ import com.blackswan.web.entity.Member;
 
 public class FundingView extends Funding {
 
-	private	String companyName;
-	private String categoryName;
-
+	private int num;
+	private String companyName;
+	private String cateName;
+	private int pay;
+	private int partRate;
 	public FundingView() {
-		// TODO Auto-generated constructor stub
+		
+	}
+	
+	public FundingView(int num, int id, int adminId, int memberId, int categoryId, Date regdate, String title, int tAmount,
+			String introImg, Date sdate, Date edate, int hit, int state, String companyName, String cateName, int pay, int partRate) {
+		super(id, adminId, memberId, categoryId, regdate, title, tAmount, introImg, sdate, edate, hit, state);
+		this.num = num;
+		this.companyName = companyName;
+		this.cateName = cateName;
+		this.pay = pay;
+		this.partRate = partRate;
 	}
 
-	public FundingView(int id, int adminId, int memberId, int categoryId, Date regdate, String title, int tAmount,
-			String introVideo, String introImg, Date sdate, Date edate, int hit, int state, String companyName, String categoryName) {
-		super(id, adminId, memberId, categoryId, regdate, title, tAmount,
-				 introVideo, introImg, sdate, edate, hit, state);
-		
-		this.companyName = companyName;
-		this.categoryName = categoryName;
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	public String getCompanyName() {
@@ -31,16 +42,27 @@ public class FundingView extends Funding {
 		this.companyName = companyName;
 	}
 
-	public String getCategoryName() {
-		return categoryName;
+	public String getCateName() {
+		return cateName;
 	}
 
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+	public void setCateName(String cateName) {
+		this.cateName = cateName;
 	}
 
+	public int getPay() {
+		return pay;
+	}
+
+	public void setPay(int pay) {
+		this.pay = pay;
+	}
 	
-	
+	public int getPartRate() {
+		return partRate;
+	}
+
+	public void setPartRate(int partRate) {
+		this.partRate = partRate;
+	}
 }
-
-	

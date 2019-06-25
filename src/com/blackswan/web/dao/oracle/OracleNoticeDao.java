@@ -185,8 +185,8 @@ public class OracleNoticeDao implements NoticeDao {
 	public int insert(Notice notice) throws ClassNotFoundException, SQLException {
 		int result = 0;
 
-		String sql = "insert into notice(id, division, title, content, admin_id) "
-				+ "values(notice_seq.nextval,?,?,?,?)";
+		String sql = "insert into notice(id, division, title, content) "
+				+ "values(noti_seq.nextval,?,?,?)";
 
 		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -196,7 +196,6 @@ public class OracleNoticeDao implements NoticeDao {
 		st.setInt(1, notice.getDivision());
 		st.setString(2, notice.getTitle());
 		st.setString(3, notice.getContent());
-		st.setInt(4, notice.getAdminId());
 
 		result = st.executeUpdate();
 

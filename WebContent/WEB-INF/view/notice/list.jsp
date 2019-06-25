@@ -11,7 +11,7 @@
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/notice.css">
-<script src="../js/notice/list.js"></script>
+<!-- <script src="../js/notice/list.js"></script> -->
 </head>
 
 
@@ -44,7 +44,7 @@
 				<li>공지사항</li>
 			</ul>
 		</div>
-	</section> 
+	</section>
 
 	<section id="main">
 		<h1>공지사항</h1>
@@ -64,13 +64,16 @@
 					</thead>
 
 					<tbody class="tbody">
-					
 						<c:forEach var="n" items="${nlist}" varStatus="s">
 							<tr>
 								<td class="id">${n.id}</td>
-								<td class="division">${n.division}</td>
+
+								<td class="division">
+								<c:if test="${n.division == 0}">공지사항</c:if>
+								<c:if test="${n.division == 1}">이벤트</c:if></td>
 								<td class="title"><a href="detail?id=${n.id}">${n.title}</a></td>
 								<td class="date">${n.date}</td>
+								<td class="date">${n.regdate}</td>
 								<td class="hit">${n.hit}</td>
 							</tr>
 						</c:forEach>

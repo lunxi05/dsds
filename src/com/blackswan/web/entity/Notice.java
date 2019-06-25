@@ -53,14 +53,6 @@ public class Notice {
 		this.adminId = adminId;
 	}
 
-	public int getDivision() {
-		return division;
-	}
-
-	public void setDivision(int division) {
-		this.division = division;
-	}
-
 	public String getTitle() {
 		return title;
 	}
@@ -75,6 +67,14 @@ public class Notice {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public int getDivision() {
+		return division;
+	}
+
+	public void setDivision(int division) {
+		this.division = division;
 	}
 
 	public String getAttach() {

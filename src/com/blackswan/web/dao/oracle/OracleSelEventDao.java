@@ -1,23 +1,17 @@
 package com.blackswan.web.dao.oracle;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.blackswan.web.dao.MemberDao;
 import com.blackswan.web.dao.SelEventDao;
-import com.blackswan.web.entity.Event;
-import com.blackswan.web.entity.Member;
 import com.blackswan.web.entity.SelEvent;
 import com.blackswan.web.entity.SelEventView;
-import com.blackswan.web.event.UserEvent;
-import com.blackswan.web.event.UserEventDAO;
 
 public class OracleSelEventDao implements SelEventDao {
 
@@ -30,31 +24,41 @@ public class OracleSelEventDao implements SelEventDao {
 	@Override
 	public List<SelEventView> getList(int page) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		return getList(page, "title", "");
+		return getList(page, "","","","");
 	}
-
-	@Override
-	public List<SelEventView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException {
+	
+	public List<SelEventView> getList(int page, String query, String sdate, String edate, String state) throws ClassNotFoundException, SQLException {
 		int start = 1 + (page - 1) * 10;
+		
 		int end = page * 10;
 		
 		List<SelEventView> list = new ArrayList<>();
 		
-
-		String sql ="select title,regdate,to_char(sdate,'YYYY-MM-DD') sdate,to_char(edate,'YYYY-MM-DD') edate, state, id from SEL_EVENT_VIEW "
-				+ "where "+field+" like ? and num between ? and ?";
+		//String sql ="SELECT num, title, to_char(regdate,'YYYY.MM.DD') regdate, to_char(sdate,'YYYY.MM.DD') sdate, to_char(edate,'YYYY.MM.DD') edate, state, id FROM sel_event_view where title like '%"+query+"%'";
 		
+		StringBuilder sql= new StringBuilder(); 
+		sql.append("SELECT num, title, to_char(regdate,'YYYY.MM.DD') regdate, to_char(sdate,'YYYY.MM.DD') sdate, to_char(edate,'YYYY.MM.DD') edate, state, id FROM sel_event_view where title like '%"+query+"%'");
+		
+		if("0".equals(state))
+			sql.append("");	
+		if(!sdate.equals(""))
+			sql.append(" and sdate >=to_date('"+sdate+"')"); 
+		if(!edate.equals(""))
+			sql.append(" and edate <=to_date('"+edate+"')"); 
+		if(!state.equals("") && !"0".equals(state))
+			sql.append(" and state ="+state); 
+		sql.append(" and num between "+start+" and "+end);
+		
+	
 		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
-		PreparedStatement st = con.prepareStatement(sql);
+		Statement st = con.createStatement();
 		
-		st.setString(1, "%" + query + "%");
-		st.setInt(2, start);
-		st.setInt(3, end);
-		ResultSet rs = st.executeQuery();
+	
+		ResultSet rs = st.executeQuery(sql.toString());
 		
-		while (rs.next()) {
+		while(rs.next()) {
 			SelEventView event = new SelEventView(
 					rs.getString("id"),
 					rs.getString("regdate"),
@@ -62,8 +66,6 @@ public class OracleSelEventDao implements SelEventDao {
 					rs.getString("edate"), 
 					rs.getString("state"),
 					rs.getString("title"));
-				
-
 			list.add(event);
 		}
 
@@ -160,10 +162,48 @@ public class OracleSelEventDao implements SelEventDao {
 	}
 
 	@Override
-	public SelEvent search() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public int getCount() throws Exception {
+		
+		return getCount("","","","");
 	}
+
+	@Override
+	public int getCount(String query, String sdate, String edate, String state)throws Exception {
+		int count=0;
+		StringBuilder sql = new StringBuilder();
+		
+		sql.append("select count(id) count from SEL_EVENT_VIEW where title like '%"+query+"%'");		
+				
+		if("0".equals(state) && state != null)
+			sql.append("");	
+		if(!sdate.equals("") && sdate!= null)
+			sql.append(" and sdate >=to_date('"+sdate+"')"); 
+		if(!edate.equals("") && edate != null)
+			sql.append(" and edate <=to_date('"+edate+"')"); 
+		if(!state.equals("") && !"0".equals(state) && state !=null)
+			sql.append(" and state ="+state); 
+		
+		
+		
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		
+		
+		Connection connection = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+		Statement statement = connection.createStatement();
+		
+		
+		ResultSet rs = statement.executeQuery(sql.toString());
+		while(rs.next())
+			count = rs.getInt("count");
+
+ 		rs.close();	
+		statement.close();
+		connection.close();
+		return count;
+
+	}
+
 	
 	
 }

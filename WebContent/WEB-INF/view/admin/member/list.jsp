@@ -20,15 +20,15 @@
 	<jsp:include page="../../inc/header.jsp" />
 
 	<main>
-	<section id="admin-title">관리자</section>
+	<section id="admin-title"><h1>관리자</h1></section>
 	<section id="admin-tab">
 		<h1 class="hidden">관리자 탭</h1>
 		<div class="center">
 			<ul>
-				<li>회원관리</li>
-				<li>펀딩관리</li>
-				<li>이벤트관리</li>
-				<li>카테고리관리</li>
+				<li><a href="/blackswan2/admin/member/list">회원관리</a></li>
+				<li><a href="/blackswan2/admin/funding/list">펀딩관리</a></li>
+				<li><a href="/blackswan2/admin/event/list">이벤트관리</a></li>
+				<li><a href="/blackswan2/admin/category">카테고리관리</a></li>
 			</ul>
 		</div>
 	</section>
@@ -37,16 +37,23 @@
 		<div class="center">
 			<section id="member-search">
 				<h1 class="hidden">회원 검색</h1>
-				<form id="member-search-form" action="post">
-					<label for="member-id">아이디(메일)</label><input type="text"
-						id="member-id"> <label for="member-name">이름(기업명)</label><input
-						type="text" id="member-name"> <label for="member-reg">가입일</label><input
-						type="date" id="member-reg"> <label for="member-black">구분</label>
-					<div id="member-black">
-						<label for="m-normal">일반</label><input type="checkbox" checked
-							id="m-normal"> <label for="m-black">블랙</label><input
-							type="checkbox" checked id="m-black">
-					</div>
+				<form id="member-search-form" method="post">
+					<input type="radio" name="field" value="email" id="msemail">
+					<label for="msemail">
+						<label for="member-mail">이메일</label><input type="text" name="query" id="member-mail">
+					</label>
+					<input type="radio" name="field" value="name" id="msname">
+					<label for="msname">
+						<label for="member-name">이름</label><input type="text" name="query" id="member-name">
+					</label>
+					<input type="radio" name="field" value="id" id="msid">
+					<label for="msid">
+						<label for="member-id">회원번호</label><input type="text" name="query" id="member-id">
+					</label>
+					<input type="radio" name="field" value="regdate" id="msregdate">
+					<label for="msregdate">
+						<label for="member-reg">가입일</label><input type="date" name="query" id="member-reg">
+					</label>
 					<input type="submit" value="검색">
 				</form>
 			</section>
@@ -56,11 +63,11 @@
 				<table class="list-table">
 					<thead>
 						<tr>
-							<td>번호</td>
-							<td>아이디(메일)</td>
-							<td>이름(기업명)</td>
-							<td>가입일</td>
-							<td>정보조회</td>
+							<th>회원번호</th>
+							<th>아이디(메일)</th>
+							<th>이름(기업명)</th>
+							<th>가입일</th>
+							<th>정보조회</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -83,21 +90,21 @@
 			<section class="paging">
 				<h1 class="hidden">페이저</h1>
 				<div class="first-page">
-					<!-- <a href="list?p=1">처음</a> -->
+					<a href="list?p=1">처음</a>
 				</div>
 				<div class="prev-page">
-					<%-- <a href="list?p=${(start == 1) ? 1 : start-1}">이전</a> --%>
+					<a href="list?page=${(p < 6)? p : p -5}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">이전</a>
 				</div>
 				<ul>
 					<c:forEach var="n" begin="${start}" end="${start+4}" varStatus="s">
-						<li value="${n}">${n}</li>
+						<li><a href="list?page=${n}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">${n}</a></li>
 					</c:forEach>
 				</ul>
 				<div class="next-page">
-					<%-- <a href="${start+5}">다음</a> --%>
+					<a href="list?page=${start+5}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">다음</a>
 				</div>
 				<div class="end-page">
-					<!-- <a href="">끝</a> -->
+					<a href="">끝</a>
 				</div>
 			</section>
 		</div>

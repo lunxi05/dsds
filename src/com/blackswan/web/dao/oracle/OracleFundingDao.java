@@ -1,19 +1,19 @@
 package com.blackswan.web.dao.oracle;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.blackswan.web.dao.FundingDao;
 import com.blackswan.web.entity.Funding;
-import com.blackswan.web.entity.Notice;
-import com.blackswan.web.entity.Review;
+import com.blackswan.web.entity.Seller;
 
 public class OracleFundingDao implements FundingDao{
 
@@ -37,14 +37,15 @@ public class OracleFundingDao implements FundingDao{
 		List<FundingView> list = new ArrayList<>();
 		
 		int start =(page-1)*10+1;
-		int end =page+9;
+		int end =page+10;
 		
 		String sql ="SELECT * FROM FUNDING_VIEW WHERE "+field+" LIKE ? AND NUM BETWEEN ? AND ?";
 
 		
-		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
-		
+		//String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
+		//Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 		PreparedStatement st = con.prepareStatement(sql);
 		
@@ -56,21 +57,23 @@ public class OracleFundingDao implements FundingDao{
 		
 		while(rs.next()) {
 			FundingView funding = new FundingView(
+					 rs.getInt("num"),
 					 rs.getInt("id"),
-					 rs.getInt("admin_id"),
-					 rs.getInt("member_id"),
-					 rs.getInt("category_id"),
-					 rs.getDate("regDate"),
+					 0,
+					 0,
+					 0,
+					 rs.getDate("regdate"),
 					 rs.getString("title"),
 					 rs.getInt("t_amount"),
-					 rs.getString("intro_video"),
 					 rs.getString("intro_img"),
 					 rs.getDate("s_date"),
 					 rs.getDate("e_date"),
 					 rs.getInt("hit"),
 					 rs.getInt("state"),
 					 rs.getString("company_name"),
-					 rs.getString("name")
+					 rs.getString("name"),
+					 rs.getInt("pay"),
+					 rs.getInt("part_rate")
 					);
 					list.add(funding);
 		}
@@ -83,9 +86,9 @@ public class OracleFundingDao implements FundingDao{
 	}
 
 	@Override
-	public Funding get(int id) throws ClassNotFoundException, SQLException {
+	public FundingView get(int id) throws ClassNotFoundException, SQLException {
 		
-		Funding funding = null;
+		FundingView funding = null;
 		
 		String sql = "SELECT * FROM FUNDING WHERE ID="+id;
 		
@@ -96,20 +99,24 @@ public class OracleFundingDao implements FundingDao{
 		ResultSet rs = st.executeQuery(sql);
 		
 		if(rs.next()) {
-			funding = new Funding(
-					rs.getInt("id"),
-					rs.getInt("admin_id"),
-					rs.getInt("member_id"),
-					rs.getInt("category_id"),
-					rs.getDate("regdate"),
-					rs.getString("title"),
-					rs.getInt("t_amount"),
-					rs.getString("intro_video"),
-					rs.getString("intro_img"),
-					rs.getDate("s_date"),
-					rs.getDate("e_date"),
-					rs.getInt("hit"),
-					rs.getInt("state")
+			funding = new FundingView(
+					 rs.getInt("num"),
+					 rs.getInt("id"),
+					 0,
+					 0,
+					 0,
+					 rs.getDate("regdate"),
+					 rs.getString("title"),
+					 rs.getInt("t_amount"),
+					 rs.getString("intro_img"),
+					 rs.getDate("s_date"),
+					 rs.getDate("e_date"),
+					 rs.getInt("hit"),
+					 rs.getInt("state"),
+					 rs.getString("company_name"),
+					 rs.getString("name"),
+					 rs.getInt("pay"),
+					 rs.getInt("part_rate")
 					);
 		}
 		
@@ -124,18 +131,85 @@ public class OracleFundingDao implements FundingDao{
 	@Override
 	public int insert(Funding funding) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		/*
-		 * String sql =
-		 * "insert into funding(ID, ADMIN_ID, MEMBER_ID, CATEGORY_ID, REGDATE, "
-		 * +" TITLE, T_AMOUNT, INTRO_VIDEO, INTRO_IMG, S_DATE, E_DATE, HIT, STATE)" +
-		 * "values(fun_seq.nextval,?,?,?,,'admin')";
-		 */
+		
+		int result = 0;
+		SimpleDateFormat sdate_ = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat edate_ = new SimpleDateFormat("yyyy-mm-dd");
+		
+
+		String sql = "insert into funding(id, member_id, category_id, title, "
+				+ " t_amount, intro_img, s_date, e_date, state)"
+				+ "values(fun_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+
+		PreparedStatement st = con.prepareStatement(sql); // preparedStatement : 실행 전에 statement를 준비, prepare로 준비할 경우
+		
+															// st.executeUpdate에 sql 적지 않기
+	
+	
+		st.setInt(1, funding.getId());
+		st.setInt(2, funding.getMemberId());
+		st.setInt(3, funding.getCategoryId());
+		st.setString(4, funding.getTitle());
+		st.setInt(5, funding.gettAmount());
+		st.setString(6, funding.getIntroImg());
+		st.setDate(7, (java.sql.Date)funding.getSdate());
+		st.setDate(8, (java.sql.Date)funding.getEdate());
+		st.setInt(9, funding.getState());
+		
+	
+		result = st.executeUpdate();
+
+		st.close();
+		con.close();
 
 		
-		
-		return 0;
+		return result;
 	}
 
+	@Override
+	public int insert1(Seller seller) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+		int result = 0;
+
+		String sql = "insert into seller(id, company_tel, company_email, company_name, "
+				+ " company_img, company_web, company_comi, company_regnum, company_reg,"
+				+ " company_pass, company_boss, company_bossemail)"
+				+ "values(fun_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+
+		PreparedStatement st = con.prepareStatement(sql); // preparedStatement : 실행 전에 statement를 준비, prepare로 준비할 경우
+															// st.executeUpdate에 sql 적지 않기
+		st.setInt(1, seller.getId());
+		st.setInt(2, seller.getCompanyTel());
+		st.setString(3, seller.getCompanyEmail());
+		st.setString(4, seller.getCompanyName());
+		st.setString(5, seller.getCompanyImg());
+		st.setString(6, seller.getCompanyWeb());
+		st.setInt(7,seller.getCompanyComi());
+		st.setInt(8, seller.getCompanyRegNum());
+		st.setString(9, seller.getCompanyReg());
+		st.setString(6, seller.getCompanyPass());
+		st.setString(6, seller.getCompanyBoss());
+		st.setString(6, seller.getCompanyBossEmail());
+
+	
+		result = st.executeUpdate();
+
+		st.close();
+		con.close();
+
+		
+		return result;
+	}
+	
 	@Override
 	public int update(Funding funding) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
@@ -148,17 +222,36 @@ public class OracleFundingDao implements FundingDao{
 		return 0;
 	}
 
-//	rs.getInt("id"),
-//	 rs.getInt("admin_id"),
-//	 rs.getInt("member_id"),
-//	 rs.getInt("category_id"),
-//	 rs.getDate("regDate"),
-//	 rs.getString("title"),
-//	 rs.getInt("t_amount"),
-//	 rs.getString("intro_video"),
-//	 rs.getString("intro_img"),
-//	 rs.getDate("s_date"),
-//	 rs.getDate("e_date"),
-//	 rs.getInt("hit"),
-//	 rs.getInt("state")
+	@Override
+	public int getCount() throws ClassNotFoundException, SQLException {
+		
+		return getCount("title", "");
+	}
+	
+	@Override
+	public int getCount(String field, String query) throws ClassNotFoundException, SQLException {
+		
+		int count = 0;
+		
+		String sql = "SELECT COUNT(ID) COUNT FROM FUNDING WHERE " + field + " LIKE ?";
+
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+		PreparedStatement st = con.prepareStatement(sql);
+
+		st.setString(1, "%" + query + "%");		
+		
+		ResultSet rs = st.executeQuery();
+		
+		while (rs.next())
+			count = rs.getInt("count");
+		
+		rs.close();
+		st.close();
+		con.close();
+
+		return count;
+	}
+
 }

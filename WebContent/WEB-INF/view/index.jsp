@@ -27,9 +27,9 @@
 			<h1 class="hidden">배너</h1>
 			<div class="center">
 				<ul>
-					<li class="front"><a href=""><img src="images/banner.jpg"></a></li>
-					<li class="back"><a href=""><img src="https://cdn.pixabay.com/photo/2017/03/25/17/55/color-2174045__340.png"></a></li>
-					<li class="back"><a href=""><img src="https://cdn.pixabay.com/photo/2015/09/26/11/21/banner-958962_960_720.jpg"></a></li>
+					<li class="left"><a href=""><img src="images/banner.jpg"></a></li>
+					<li class="center"><a href=""><img src="https://cdn.pixabay.com/photo/2017/03/25/17/55/color-2174045__340.png"></a></li>
+					<li class="right"><a href=""><img src="https://cdn.pixabay.com/photo/2015/09/26/11/21/banner-958962_960_720.jpg"></a></li>
 				</ul>
 				<div class="prev-banner"></div>
 				<div class="next-banner"></div>
