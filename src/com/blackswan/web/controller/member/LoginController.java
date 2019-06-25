@@ -42,6 +42,7 @@ public class LoginController extends HttpServlet {
 			} else {
 				HttpSession session = req.getSession();
 				session.setAttribute("ssid", member.getId());
+				req.setAttribute("hmember", member);
 				resp.sendRedirect("/blackswan2/index");
 
 			}

@@ -28,7 +28,7 @@
 					<c:if test="${ssid != null}">
 					<div class="user">
 						<img src="/images/banner.png">
-						<span>USER님</span>
+						<span>${hmember.name} 님</span>
 						<span class="user-button"></span>
 					</div>
 					</c:if>
@@ -43,7 +43,7 @@
 					<li><a href="">최근 본 목록</a></li>
 					<li><a href="">마이페이지</a></li>
 					<li><a href="">회원정보수정</a></li>
-					<li><a href="">로그아웃</a></li>
+					<li><a href="/blackswan2/member/logout">로그아웃</a></li>
 				</ul>
 			</nav>
 		</div>
