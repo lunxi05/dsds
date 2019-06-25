@@ -21,8 +21,11 @@ public class EventController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
-		String sessionId = (String) session.getAttribute("id");
-		if (sessionId != null && sessionId.equals("1")) {
+		int sessionId = (int) session.getAttribute("ssid");
+		if (session.getAttribute("ssid") == null && sessionId!=1) {
+			resp.sendRedirect("/blackswan2/error");
+			return;
+		}
 
 			int page = 1;
 			String p = req.getParameter("page");
@@ -80,7 +83,5 @@ public class EventController extends HttpServlet {
 				e.printStackTrace();
 			}
 			req.getRequestDispatcher("/WEB-INF/view/admin/event/list.jsp").forward(req, resp);
-		} else
-			resp.sendRedirect("/blackswan2/error");
 	}
 }
