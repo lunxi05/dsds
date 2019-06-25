@@ -34,7 +34,7 @@ public class OracleQnaDao implements QnaDao {
 		int end = start + 9;
 
 		String sql = "SELECT * FROM QNA_VIEW WHERE" + field + " LIKE ? AND NUM BETWEEN ? AND ?";
-		String url = "";
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection cnc = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 		PreparedStatement st = cnc.prepareStatement(sql);
@@ -63,7 +63,7 @@ public class OracleQnaDao implements QnaDao {
 	public Qna get(int id) throws ClassNotFoundException, SQLException {
 		Qna qna = null;
 		String sql = "selet * from qna where id=" + id;
-		String url = "";
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection cnc = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 		Statement st = cnc.createStatement();
@@ -87,7 +87,7 @@ public class OracleQnaDao implements QnaDao {
 		Qna qna = null;
 		String sql = "SELECT * FROM (SELECT * FROM QNA_VIEW ORDER BY REGDATE) WHERE REGDATE > "
 				+ "(SELECT REGDATE FROM QNA WHERE ID = '" + id + "')" + "AND ROWNUM = 1";
-		String url = "";
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection cnc = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 		Statement st = cnc.createStatement();
@@ -114,7 +114,7 @@ public class OracleQnaDao implements QnaDao {
 		String sql = "SELECT * FROM (SELECT * FROM QNA_VIEW ORDER BY REGDATE) WHERE REGDATE > "
 				+ "(SELECT REGDATE FROM QNA WHERE ID = '" + id + "')" + "AND ROWNUM = 1";
 
-		String url = "";
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection cnc = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 		Statement st = cnc.createStatement();
@@ -139,7 +139,7 @@ public class OracleQnaDao implements QnaDao {
 		int result = 0;
 
 		String sql = "insert into qna(id, division, title, content)" + "values(qna_seq.nextval,?,?,?)";
-		String url = "";
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection cnc = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 
@@ -161,7 +161,7 @@ public class OracleQnaDao implements QnaDao {
 		int result = 0;
 
 		String sql = "update qna set division=?, title=?, content=? where id=?";
-		String url = "";
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection cnc = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 

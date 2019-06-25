@@ -12,7 +12,6 @@ public class QnaView {
 
 	public QnaView(int id, String type, String title, String content, String writerId
 			, Date regDate, int hit) {
-		super();
 		
 		
 	}
