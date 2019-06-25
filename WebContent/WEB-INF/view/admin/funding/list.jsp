@@ -38,23 +38,16 @@
 			<section id="funding-search">
 				<h1 class="hidden">펀딩 검색</h1>
 				<form id="funding-search-form" method="post">
-<!-- 					<input type="radio" name="field" value="email" id="msemail">
-					<label for="msemail">
+ 					<input type="radio" name="field" value="email" id="msemail">
 						<label for="member-mail">이메일</label><input type="text" name="query" id="member-mail">
-					</label>
+					
 					<input type="radio" name="field" value="name" id="msname">
-					<label for="msname">
 						<label for="member-name">이름</label><input type="text" name="query" id="member-name">
-					</label>
 					<input type="radio" name="field" value="id" id="msid">
-					<label for="msid">
 						<label for="member-id">회원번호</label><input type="text" name="query" id="member-id">
-					</label>
 					<input type="radio" name="field" value="regdate" id="msregdate">
-					<label for="msregdate">
 						<label for="member-reg">가입일</label><input type="date" name="query" id="member-reg">
-					</label>
-					<input type="submit" value="검색"> -->
+					<input type="submit" value="검색">
 				</form>
 			</section>
 			<section id="funding-list">

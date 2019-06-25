@@ -23,15 +23,17 @@ public class FundingListController extends HttpServlet {
 		FundingDao fundingDao = new OracleFundingDao();
 		
 		int page = 1;
-		if(request.getParameter("p") != null && request.getParameter("p") != "")
+		if(request.getParameter("p") != null && request.getParameter("p").equals(""))
 			page = Integer.parseInt(request.getParameter("p"));
 		
 		
 		String field = "title";
-		if(request.getParameter("field") != null && request.getParameter("field") != "")
+		if(request.getParameter("field") != null && request.getParameter("field").equals(""))
 			field = request.getParameter("field");
 		
 		String query = "";
+		if(request.getParameter("query") != null && request.getParameter("query").equals(""))
+			query = request.getParameter("query");
 		
 		try {
 			request.setAttribute("flist", fundingDao.getList(page, field, query));
