@@ -12,6 +12,7 @@ import java.util.List;
 
 import com.blackswan.web.dao.NoticeDao;
 import com.blackswan.web.entity.Notice;
+import com.blackswan.web.dao.oracle.NoticeView;
 
 public class OracleNoticeDao implements NoticeDao {
 

@@ -6,7 +6,7 @@
 <header>
 	<section id="header">
 		<div class="center">
-			<h1>로고</h1>
+			<h1><a href="/blackswan2/index">로고</a></h1>
 			<section id="gnb">
 				<h1 class="hidden">메인메뉴</h1>
 				<ul class="main-menu">

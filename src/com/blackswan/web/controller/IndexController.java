@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.blackswan.web.dao.FundingDao;
 import com.blackswan.web.dao.MemberDao;
+import com.blackswan.web.dao.oracle.OracleFundingDao;
 import com.blackswan.web.dao.oracle.OracleMemberDao;
 import com.blackswan.web.entity.Member;
 
@@ -21,6 +23,15 @@ public class IndexController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		HttpSession session = req.getSession();
+		FundingDao fundingDao = new OracleFundingDao();
+		
+		try {
+			req.setAttribute("iflist", fundingDao.getList());
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 
 		if (session.getAttribute("ssid") != null) {
 			int sId = (int) session.getAttribute("ssid");
