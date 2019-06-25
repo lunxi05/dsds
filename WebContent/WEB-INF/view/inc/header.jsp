@@ -20,16 +20,17 @@
 			<section id="user-menu">
 				<h1 class="hidden">사용자메뉴</h1>
 				<div class="user-direct">
-					<!-- 로그인 안했을때	
- 					<div class="log"><a href="">로그인</a></div>
-					<div class="signup"><a href="">회원가입</a></div> -->
-					
-					<!-- 로그인 했을때 -->
+					<c:if test="${ssid == null}">
+ 					<div class="log"><a href="/blackswan2/member/login">로그인</a></div>
+					<div class="signup"><a href="/blackswan2/member/signUp">회원가입</a></div>
+					</c:if>
+					<c:if test="${ssid != null}">
 					<div class="user">
 						<img src="/images/banner.png">
 						<span>USER님</span>
 						<span class="user-button"></span>
-					</div>	
+					</div>
+					</c:if>
 					
 					<div class="search"><a href=""><span>검색</span></a></div>
 				</div>

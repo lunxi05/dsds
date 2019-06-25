@@ -94,6 +94,31 @@ public class OracleMemberDao implements MemberDao {
 		return list;
 	}
 
+	
+	@Override
+	public Member get(String email) throws ClassNotFoundException, SQLException {
+		Member member = null;
+
+		String sql = "SELECT * FROM MEMBER_VIEW WHERE EMAIL=" + email;
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+
+		while (rs.next()) {
+			member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"), rs.getString("name"), "",
+					rs.getInt("phone"), rs.getString("profile"), rs.getString("event_agree"), 1, rs.getString("address"),
+					rs.getInt("address_num"), rs.getDate("regdate"), rs.getInt("mcount"), rs.getInt("bcount"));
+		}
+
+		rs.close();
+		st.close();
+		con.close();
+
+		return member;
+	}
+	
 	@Override
 	public Member get(int id) throws ClassNotFoundException, SQLException {
 

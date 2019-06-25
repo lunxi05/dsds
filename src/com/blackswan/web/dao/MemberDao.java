@@ -18,6 +18,7 @@ public interface MemberDao {
 	List<MemberView> getList(int page) throws ClassNotFoundException, SQLException;
 	List<MemberView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
 	
+	Member get(String email) throws ClassNotFoundException, SQLException;
 	Member get(int id) throws ClassNotFoundException, SQLException;
 	
 	int insert(Member member) throws ClassNotFoundException, SQLException;

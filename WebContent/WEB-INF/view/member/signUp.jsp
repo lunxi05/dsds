@@ -9,7 +9,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
-<!-- <script src="../js/member/signUp.js"></script> -->
+
+
 <style type="text/css">
 
 input {
