@@ -27,9 +27,13 @@ public class SignUpController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String email = request.getParameter("email");
+		
+		
 		String name = request.getParameter("name");
 		String pw = request.getParameter("pw");
+
 		int phone = Integer.parseInt(request.getParameter("phone"));
+
 		String eventAgree = "N";
 		if(request.getParameter("event_agree") != null && !request.getParameter("event_agree").equals(""))
 			eventAgree =request.getParameter("event_agree");

@@ -99,12 +99,14 @@ public class OracleMemberDao implements MemberDao {
 	public Member get(String email) throws ClassNotFoundException, SQLException {
 		Member member = null;
 
-		String sql = "SELECT * FROM MEMBER_VIEW WHERE EMAIL=" + email;
+		String sql = "SELECT * FROM MEMBER_VIEW WHERE EMAIL=?";
 		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
-		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery(sql);
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, email);
+		
+		ResultSet rs = st.executeQuery();
 
 		while (rs.next()) {
 			member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"), rs.getString("name"), rs.getString("pw"),

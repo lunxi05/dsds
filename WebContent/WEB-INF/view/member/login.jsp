@@ -19,7 +19,7 @@
 		<h1>로그인</h1>
 
 		<section>
-			<form action="signUp" method="post">
+			<form action="login" method="post">
 				<table >
 					<tbody>
 						<tr>
