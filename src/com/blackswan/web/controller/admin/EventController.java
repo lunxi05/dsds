@@ -22,7 +22,7 @@ public class EventController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		String sessionId = (String) session.getAttribute("id");
-//		if (sessionId != null && sessionId.equals("1")) {
+		if (sessionId != null && sessionId.equals("1")) {
 
 			int page = 1;
 			String p = req.getParameter("page");
@@ -73,14 +73,14 @@ public class EventController extends HttpServlet {
 				req.setAttribute("scount", scount);
 				req.setAttribute("count", count);
 				req.setAttribute("event", list);
+				req.setAttribute("ssid", sessionId);
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			req.getRequestDispatcher("/WEB-INF/view/admin/event/list.jsp").forward(req, resp);
-//		}
-//		else 
-//				resp.sendRedirect("/error.jsp");
+		} else
+			resp.sendRedirect("/blackswan2/error");
 	}
 }
