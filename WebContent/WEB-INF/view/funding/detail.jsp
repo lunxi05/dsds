@@ -142,11 +142,7 @@
 								<span>발송 예상일 몇년 몇월 받기</span>
 							</div>
 							<div class="fcount">
-<<<<<<< HEAD
-								<img src=".././images/check.png"><span>00명 참여</span><span>00개 남음</span>
-=======
 								<img src=".././images/check.png"><span>00명 참여</span> <span>00개 남음</span>
->>>>>>> refs/remotes/origin/master
 							</div>
 					</section>
 				</section>
