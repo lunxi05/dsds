@@ -3,60 +3,42 @@ package com.blackswan.web.entity;
 import java.util.Date;
 
 public class Qna {
-	private int id;
-	private int adminId;
-	private int division;
+	private int admin_id;
+	private String content; 
+	private int id; 
+	private String member_id; 
+	private Date regdate; 
+	private String reply;
+	private Date r_date;
+	private int secretnum; 
+	private int state; 
 	private String title;
-	private String content;
-	private String attach;
-	private Date regdate;
-	private Date sdate;
-	private Date edate;
-	private int hit;
-	private int state;
 	
 	public Qna() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Qna(int id, int adminId, int division, String title, String content, String attach, Date regdate,
-			Date sdate, Date edate, int hit, int state) {
-		
-		this.id = id;
-		this.adminId = adminId;
-		this.division = division;
-		this.title = title;
+	public Qna(int admin_id, String content, int id, String member_id, Date regdate, String reply, Date r_date,
+			int secretnum, int state, String title) {
+		super();
+		this.admin_id = admin_id;
 		this.content = content;
-		this.attach = attach;
-		this.regdate = regdate;
-		this.sdate = sdate;
-		this.edate = edate;
-		this.hit = hit;
-		this.state = state;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getAdminId() {
-		return adminId;
-	}
-
-	public void setAdminId(int adminId) {
-		this.adminId = adminId;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
+		this.member_id = member_id;
+		this.regdate = regdate;
+		this.reply = reply;
+		this.r_date = r_date;
+		this.secretnum = secretnum;
+		this.state = state;
 		this.title = title;
+	}
+
+	public int getAdmin_id() {
+		return admin_id;
+	}
+
+	public void setAdmin_id(int admin_id) {
+		this.admin_id = admin_id;
 	}
 
 	public String getContent() {
@@ -67,20 +49,20 @@ public class Qna {
 		this.content = content;
 	}
 
-	public int getDivision() {
-		return division;
+	public int getId() {
+		return id;
 	}
 
-	public void setDivision(int division) {
-		this.division = division;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getAttach() {
-		return attach;
+	public String getMember_id() {
+		return member_id;
 	}
 
-	public void setAttach(String attach) {
-		this.attach = attach;
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
 	}
 
 	public Date getRegdate() {
@@ -91,28 +73,28 @@ public class Qna {
 		this.regdate = regdate;
 	}
 
-	public Date getSdate() {
-		return sdate;
+	public String getReply() {
+		return reply;
 	}
 
-	public void setSdate(Date sdate) {
-		this.sdate = sdate;
+	public void setReply(String reply) {
+		this.reply = reply;
 	}
 
-	public Date getEdate() {
-		return edate;
+	public Date getR_date() {
+		return r_date;
 	}
 
-	public void setEdate(Date edate) {
-		this.edate = edate;
+	public void setR_date(Date r_date) {
+		this.r_date = r_date;
 	}
 
-	public int getHit() {
-		return hit;
+	public int getSecretnum() {
+		return secretnum;
 	}
 
-	public void setHit(int hit) {
-		this.hit = hit;
+	public void setSecretnum(int secretnum) {
+		this.secretnum = secretnum;
 	}
 
 	public int getState() {
@@ -122,7 +104,14 @@ public class Qna {
 	public void setState(int state) {
 		this.state = state;
 	}
-	
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	
 	
 

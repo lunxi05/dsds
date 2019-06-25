@@ -12,6 +12,7 @@ import java.util.List;
 
 import com.blackswan.web.dao.NoticeDao;
 import com.blackswan.web.entity.Notice;
+import com.blackswan.web.dao.oracle.NoticeView;
 
 public class OracleNoticeDao implements NoticeDao {
 
@@ -48,6 +49,7 @@ public class OracleNoticeDao implements NoticeDao {
 
 		while (rs.next()) {
 			NoticeView notice = new NoticeView(
+					rs.getInt("num"),
 					rs.getInt("id"),
 					rs.getInt("admin_id"), 
 					rs.getInt("division"), 

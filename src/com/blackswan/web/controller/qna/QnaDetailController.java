@@ -30,8 +30,7 @@ public class QnaDetailController extends HttpServlet {
 		
 		try {
 			req.setAttribute("qna", qnaDao.get(id));
-			req.setAttribute("prev", qnaDao.getPrev(id));
-			req.setAttribute("next", qnaDao.getNext(id));
+		
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

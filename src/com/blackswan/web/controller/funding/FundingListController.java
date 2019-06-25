@@ -36,10 +36,8 @@ public class FundingListController extends HttpServlet {
 		try {
 			request.setAttribute("flist", fundingDao.getList(page, field, query));
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

@@ -2,9 +2,8 @@ package com.blackswan.web.entity;
 
 import java.util.Date;
 
-
 public class Notice {
-	
+
 	private int id;
 	private int adminId;
 	private int division;
@@ -16,14 +15,14 @@ public class Notice {
 	private Date edate;
 	private int hit;
 	private int state;
-	
+
 	public Notice() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Notice(int id, int adminId, int division, String title, String content, String attach, Date regdate,
 			Date sdate, Date edate, int hit, int state) {
-		
+
 		this.id = id;
 		this.adminId = adminId;
 		this.division = division;
@@ -124,9 +123,5 @@ public class Notice {
 	public void setState(int state) {
 		this.state = state;
 	}
-	
-	
-	
 
 }
-	

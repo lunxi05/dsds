@@ -32,36 +32,35 @@
 			#banner .center ul li {
 				position: absolute;
 				top: 0;
+				left: 0;
 				z-index: 0;
 				transition: left: 0.5s ease;
 			}
 			
-/*			#banner .center li.back {
-				left: 0;
-				z-index: 0;
-				transition: left 10ms linear 1s;
+			#banner .center ul li.main {
+				z-index: 10;
+				animation: 1s ease;
 			}
 			
- 			#banner .center li.front {
-				left: 0;
-				z-index: 10;
-				transition: animation 0.5s ease;
-			} */
-			
-			#banner .center li.right {
-				left: 100%;
-				z-index: 10;
-			}
-			
-			#banner .center li.center {
-				left: 0;
-				z-index: 10;
-			}
-			
-			#banner .center li.left {
-				left: -100%;
-				z-index: 10;
-			}
+@keyframes right {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes left {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
 	
 		#banner .center .prev-banner, #banner .center .next-banner {
 			width: 47px;
@@ -346,6 +345,9 @@
 							line-height: 30px; 
 							font-weight: bold;
 							color: #333;
+							height: 60px;
+							overflow: hidden;
+							text-overflow: ellipsis;
 						}
 						
 						#main .funding-select ul li a .item-info .category {

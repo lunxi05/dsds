@@ -101,7 +101,10 @@
 
 /* ------------------------------ 5. admin category list css ------------------------------ */
 
-
+.adminCate {
+	border-top: 1px solid #e5e5e5;
+	padding: 50px 0;
+}
 
 
 

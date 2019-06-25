@@ -54,9 +54,9 @@
 							</tbody>
 						</table>
 						<div>
-							<input type="hidden" name="id" value="${notice.id}">
-							<input type="submit" value="저장">
-							<a href="detail?id=${notice.id}">취소</a>
+							<input type="hidden" name="id" value="${notice.id}"> <input
+								type="submit" value="저장"> <a
+								href="detail?id=${notice.id}">취소</a>
 						</div>
 					</form>
 				</section>

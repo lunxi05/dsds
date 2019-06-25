@@ -13,44 +13,39 @@ import com.blackswan.web.dao.QnaDao;
 import com.blackswan.web.dao.oracle.OracleQnaDao;
 import com.blackswan.web.entity.Qna;
 
-@WebServlet("/qna/reg")
+@WebServlet("/qna/replyreg")
 public class QnaRegController extends HttpServlet {
 
 	
 @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-req.getRequestDispatcher("/WEB-INF/view/qna/reg.jsp");
+req.getRequestDispatcher("/WEB-INF/view/qna/replyreg.jsp");
 }
 
 @Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-	int division = Integer.parseInt(req.getParameter("division"));
-	String title = req.getParameter("title");
-	String content = req.getParameter("content");
-	
-	Qna qna = new Qna();
-	qna.setDivision(division);
-	qna.setTitle(title);
-	qna.setContent(content);
-	
 	QnaDao qnaDao = new OracleQnaDao();
 	
-	int result=0;
+	
+	Integer id = 53;
+	
+	if(req.getParameter("id") !=null && !req.getParameter("id").equals(""))
+	id = Integer.parseInt(req.getParameter("id"));
 	
 	try {
-		result = qnaDao.insert(qna);
+		req.setAttribute("qna", qnaDao.get(id));
+	
+		
 	} catch (ClassNotFoundException e) {
 		e.printStackTrace();
 	}
 	catch (SQLException e) {
-	e.printStackTrace();
-	}
+		e.printStackTrace();
 	
-	if(result !=1)
-		resp.sendRedirect("error");
-	else
-		resp.sendRedirect("list");
 	
 	}
+	req.getRequestDispatcher("/WEB-INF/view/qna/replyreg.jsp").forward(req,resp);
 }
+}
+
