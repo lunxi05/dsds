@@ -19,13 +19,12 @@ public class NoticeDetailController extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		NoticeDao noticeDao = new OracleNoticeDao();
-		
+
 		Integer id = 53;
 		
 		if(request.getParameter("id") != null && !request.getParameter("id").equals(""))
 			id = Integer.parseInt(request.getParameter("id"));
-		
-		
+
 		try {
 			request.setAttribute("notice", noticeDao.get(id));
 			request.setAttribute("prev", noticeDao.getPrev(id));
