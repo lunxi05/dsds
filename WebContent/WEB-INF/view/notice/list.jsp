@@ -64,15 +64,7 @@
 					</thead>
 
 					<tbody class="tbody">
-
-
-						<tr>
-							<td class="id">111111</td>
-							<td class="division">이벤트</td>
-							<td class="title"><a href="detail?id=${n.id}">제목제목</a></td>
-							<td class="date">17.01.21</td>
-							<td class="hit">321321</td>
-						</tr>
+					
 						<c:forEach var="n" items="${nlist}" varStatus="s">
 							<tr>
 								<td class="id">${n.id}</td>
