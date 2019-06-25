@@ -12,20 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.blackswan.web.dao.NoticeDao;
 import com.blackswan.web.dao.oracle.OracleNoticeDao;
 
-@WebServlet("/notice/detail")
-public class DetailController extends HttpServlet{
+@WebServlet("/notice/list")
+public class NoticeListController extends HttpServlet {
 	
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		NoticeDao noticeDao = new OracleNoticeDao();
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		
 		try {
-			request.setAttribute("notice", noticeDao.get(id));
-			request.setAttribute("prev", noticeDao.getPrev(id));
-			request.setAttribute("next", noticeDao.getNext(id));
+			request.setAttribute("nlist", noticeDao.getList());
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -33,7 +29,7 @@ public class DetailController extends HttpServlet{
 		}
 		
 		
-		request.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/notice/list.jsp").forward(request, response);
 	}
-
+	
 }

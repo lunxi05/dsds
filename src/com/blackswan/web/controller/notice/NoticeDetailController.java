@@ -8,12 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.blackswan.web.dao.NoticeDao;
 import com.blackswan.web.dao.oracle.OracleNoticeDao;
 
-
-@WebServlet("/notice/del")
-public class DelController extends HttpServlet {
+@WebServlet("/notice/detail")
+public class NoticeDetailController extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,15 +23,17 @@ public class DelController extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		try {
-			noticeDao.delete(id);
+			request.setAttribute("notice", noticeDao.get(id));
+			request.setAttribute("prev", noticeDao.getPrev(id));
+			request.setAttribute("next", noticeDao.getNext(id));
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		response.sendRedirect("list");
+		
+		request.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp").forward(request, response);
 	}
+
 }

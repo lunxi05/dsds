@@ -9,17 +9,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import com.blackswan.web.dao.NoticeDao;
 import com.blackswan.web.dao.oracle.OracleNoticeDao;
 import com.blackswan.web.entity.Notice;
 
-@WebServlet("/notice/reg")
-public class RegContrller extends HttpServlet{
+
+@WebServlet("/notice/edit")
+public class NoticeEditController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/WEB-INF/view/notice/reg.jsp").forward(request, response);
+		NoticeDao noticeDao = new OracleNoticeDao();
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		try {
+			request.setAttribute("notice", noticeDao.get(id));
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		request.getRequestDispatcher("/WEB-INF/view/notice/edit.jsp").forward(request, response);
 		
 		
 	}
@@ -27,35 +42,42 @@ public class RegContrller extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		NoticeDao noticeDao = new OracleNoticeDao();
+		
 		int division = Integer.parseInt(request.getParameter("division"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		Integer id = Integer.parseInt(request.getParameter("id"));
 		
-		Notice notice = new Notice();
-		notice.setDivision(division);
-		notice.setTitle(title);
-		notice.setContent(content);
-		
-		NoticeDao noticeDao = new OracleNoticeDao();
-	
 		int result = 0;
 		
 		try {
-			result = noticeDao.insert(notice);
+			Notice n = noticeDao.get(id);
+			n.setDivision(division);
+			n.setTitle(title);
+			n.setContent(content);
+			
+			result = noticeDao.update(n);
+			request.setAttribute("notice", noticeDao.get(id));
 			
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 		}
 		
 		if(result != 1)
 			response.sendRedirect("error");
 		else
-			response.sendRedirect("list");
+			response.sendRedirect("detail?id="+id);
+		
 		
 	}
-
+	
+	
+	
+	
+	
+	
 }
