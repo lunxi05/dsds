@@ -34,23 +34,23 @@ border: 1px solid;
 				<div class="container" >
 					<div class="label">이메일</div>
 						<div class="form">
-						<input id="email" type="email" placeholder="email을 입력하세요"></input>
+						<input id="email" type="email" placeholder="email을 입력하세요">
 						</div>
 					<div class="label">이름</div>
 						<div class="form">
-						<input id="name" type="text" placeholder="이름을 입력하세요"></input>
+						<input id="name" type="text" placeholder="이름을 입력하세요">
 						</div>
 					<div class="label">비밀번호</div>
 						<div class="form">
-						<input id="pw" type="password" placeholder="새 비밀번호(영문,숫자,특수문자를 포함한 10~16자리)"></input>
+						<input id="pw" type="password" placeholder="새 비밀번호(영문,숫자,특수문자를 포함한 10~16자리)">
 						</div>
 					<div class="label">비밀번호 확인</div>
 						<div class="form">
-							<input id="pw" type="password" placeholder="비밀번호 확인"></input>
+							<input id="pw" type="password" placeholder="비밀번호 확인">
 						</div>
 					<div class="label">전화번호</div>
 						<div class="form">
-							<input id="phone" type="number" placeholder="휴대폰번호(‘-’ 없이 입력)"></input>
+							<input id="phone" type="number" placeholder="휴대폰번호(‘-’ 없이 입력)">
 						</div>
 				</div>
 				
