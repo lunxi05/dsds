@@ -12,19 +12,26 @@ public class FundingView extends Funding {
 	private String cateName;
 	private int pay;
 	private int partRate;
+	
+	
+	
+	
 	public FundingView() {
-		
+		// TODO Auto-generated constructor stub
 	}
 	
+
+
 	public FundingView(int num, int id, int adminId, int memberId, int categoryId, Date regdate, String title, int tAmount,
-			String introImg, Date sdate, Date edate, int hit, int state, String companyName, String cateName, int pay, int partRate) {
-		super(id, adminId, memberId, categoryId, regdate, title, tAmount, introImg, sdate, edate, hit, state);
+			String introImg, String sdate, String edate, int hit, int state, String content, String companyName, String cateName, int pay, int partRate) {
+		super(id, adminId, memberId, categoryId, regdate, title, tAmount, introImg, sdate, edate, hit, state, content);
 		this.num = num;
 		this.companyName = companyName;
 		this.cateName = cateName;
 		this.pay = pay;
 		this.partRate = partRate;
 	}
+
 
 	public int getNum() {
 		return num;
