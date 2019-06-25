@@ -107,7 +107,7 @@ public class OracleMemberDao implements MemberDao {
 		ResultSet rs = st.executeQuery(sql);
 
 		while (rs.next()) {
-			member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"), rs.getString("name"), "",
+			member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"), rs.getString("name"), rs.getString("pw"),
 					rs.getInt("phone"), rs.getString("profile"), rs.getString("event_agree"), 1, rs.getString("address"),
 					rs.getInt("address_num"), rs.getDate("regdate"), rs.getInt("mcount"), rs.getInt("bcount"));
 		}
