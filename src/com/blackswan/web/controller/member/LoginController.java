@@ -29,25 +29,19 @@ public class LoginController extends HttpServlet {
 
 		String email = req.getParameter("email");
 		String pw = req.getParameter("pw");
-		HttpSession session = req.getSession();
 		MemberDao memberDao = new OracleMemberDao();
 
 		try {
 			Member member = memberDao.get(email);
-			
-			System.out.println("error1");
 
 			if (member == null) {
-				System.out.println("error2");
 				resp.sendRedirect("/blackswan2/error");
 			}
 			else if (!member.getPw().equals(pw)) {
-				System.out.println("error3");
 				resp.sendRedirect("/blackswan2/error");
 			} else {
-				System.out.println("error4");
-				session.setAttribute("id", member.getId());
-
+				HttpSession session = req.getSession();
+				session.setAttribute("ssid", member.getId());
 				resp.sendRedirect("/blackswan2/index");
 
 			}
