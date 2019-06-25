@@ -11,7 +11,7 @@
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/notice.css">
-<script src="../js/notice/list.js"></script>
+<!-- <script src="../js/notice/list.js"></script> -->
 </head>
 
 

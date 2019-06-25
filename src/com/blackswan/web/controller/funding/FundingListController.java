@@ -15,7 +15,7 @@ import com.blackswan.web.dao.oracle.OracleFundingDao;
 import com.blackswan.web.dao.oracle.OracleNoticeDao;
 
 @WebServlet("/funding/list")
-public class ListController extends HttpServlet {
+public class FundingListController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
