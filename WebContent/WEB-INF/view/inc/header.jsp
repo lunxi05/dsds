@@ -11,7 +11,7 @@
 				<h1 class="hidden">메인메뉴</h1>
 				<ul class="main-menu">
 					<li><a href="/blackswan2/funding/list">펀딩</a></li>
-					<li><a href="/blackswan2/leg">등록신청</a></li>
+					<li><a href="/blackswan2/funding/leg">등록신청</a></li>
 					<li><a href="/blackswan2/notice/list">고객센터</a></li>
 					<c:if test="${ssid == 1}">
 					<li><a href="/blackswan2/admin/member/list">관리자</a></li>

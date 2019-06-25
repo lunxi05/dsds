@@ -11,17 +11,13 @@
 <script src="../js/admin/category/category.js"></script>
 </head>
 <body>
+	<h1 class="hidden">BLACKSWAN</h1>
 	<jsp:include page="../../inc/header.jsp" />
-	<h1>카테고리관리</h1>
-	<!-- 헤더 -------------------------------------------- -->
-	<div>
-		<a href="../main">home</a>
 
-	</div>
-
-	<!-- 바디 ------------------------------------------- -->
-
-
+	<main>
+	<section id="admin-title">
+		<h1>관리자</h1>
+	</section>
 	<section id="admin-tab">
 		<h1 class="hidden">관리자 탭</h1>
 		<div class="center">
@@ -33,58 +29,62 @@
 			</ul>
 		</div>
 	</section>
+	<section id="main" class="adminCate">
+		<h1 class="hidden">카테고리 관리페이지</h1>
 
-	<!--메인------------------------------------------------  -->
-	<section id="main">
-		<section id="category">
-			<form action="category" method="get">
-				<template class="list-template">
-				<tr>
-					<td class="name"></td>
-					<td class="count"></td>
-				</tr>
-				</template>
-				<template class="sum-template">
-				<tr>
-					<td class="summ">합계</td>
-					<td class="sum"></td>
-				</tr>
-				</template>
-				<table class="list-table">
-					<thead>
-						<tr>
-							<td>카테고리 이름</td>
-							<td>업체 수</td>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="cate" items="${countlist}">
+		<div class="center">
+			<section id="category">
+				<form action="category" method="get">
+					<template class="list-template">
+					<tr>
+						<td class="name"></td>
+						<td class="count"></td>
+					</tr>
+					</template>
+					<template class="sum-template">
+					<tr>
+						<td class="summ">합계</td>
+						<td class="sum"></td>
+					</tr>
+					</template>
+					<table class="list-table">
+						<thead>
 							<tr>
-								<td class="name">${cate.name}</td>
-								<td class="sum">${cate.count}</td>
+								<td>카테고리 이름</td>
+								<td>업체 수</td>
 							</tr>
-						</c:forEach>
-						<tr>
-							<td class="summ">합계</td>
-							<td class="sum">${sum}</td>
-						</tr>
-					</tbody>
-				</table>
-			</form>
-			<input type="text" name="name"> <input type="button"
-				value="추가">
-			<!-- <div>
-			<dl>
-				<c:forEach var="cate" items="${countlist}">
-					<dt class="name">${cate.name}</dt>
-					<dd class="count">${cate.count}</dd>
-				</c:forEach>
-				<dt class="summ">합계</dt>
-				<dd class="sum">${sum}</dd>
-			</dl>
-		</div> -->
-		</section>
+						</thead>
+						<tbody>
+							<c:forEach var="cate" items="${countlist}">
+								<tr>
+									<td class="name">${cate.name}</td>
+									<td class="sum">${cate.count}</td>
+								</tr>
+							</c:forEach>
+							<tr>
+								<td class="summ">합계</td>
+								<td class="sum">${sum}</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+				<input type="text" name="name"> <input type="button"
+					value="추가">
+				<!-- <div>
+				<dl>
+					<c:forEach var="cate" items="${countlist}">
+						<dt class="name">${cate.name}</dt>
+						<dd class="count">${cate.count}</dd>
+					</c:forEach>
+					<dt class="summ">합계</dt>
+					<dd class="sum">${sum}</dd>
+				</dl>
+			</div> -->
+			</section>
+		</div>
 	</section>
-	<jsp:include page="../../inc/footer.jsp" />
+	</main>
+
+	<jsp:include page="../../inc/footer.jsp" />ter.jsp" />
 </body>
 </html>
