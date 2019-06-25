@@ -29,7 +29,7 @@ public class SignUpController extends HttpServlet {
 		String email = request.getParameter("email");
 		String name = request.getParameter("name");
 		String pw = request.getParameter("pw");
-		//int phone = Integer.parseInt(request.getParameter("phone"));
+		int phone = Integer.parseInt(request.getParameter("phone"));
 		String eventAgree = "N";
 		if(request.getParameter("event_agree") != null && !request.getParameter("event_agree").equals(""))
 			eventAgree =request.getParameter("event_agree");
@@ -39,7 +39,7 @@ public class SignUpController extends HttpServlet {
 		member.setEmail(email);
 		member.setName(name);
 		member.setPw(pw);
-		//member.setPhone(phone);
+		member.setPhone(phone);
 		member.setEventAgree(eventAgree);
 		
 		MemberDao memberDao = new OracleMemberDao();
@@ -50,7 +50,6 @@ public class SignUpController extends HttpServlet {
 			result = memberDao.insert(member);
 			
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
 			
