@@ -41,6 +41,10 @@ public class OracleFundingPriceDao implements FundingPriceDao{
 					);
 			list.add(fundingPrice);
 		}
+		       
+		
+		
+		
 		
 		rs.close();
 		st.close();

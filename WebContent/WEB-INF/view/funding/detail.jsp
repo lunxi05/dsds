@@ -122,7 +122,7 @@
 							<tr>
 								<td>마감일</td>
 								<td>${funding.edate}</td>
-							</tr>
+							</tr>  
 						</table>
 						<div class="funding-attend">
 							<input type="button" value="참여하기">
