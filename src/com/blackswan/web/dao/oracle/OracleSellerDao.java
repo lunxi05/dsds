@@ -106,6 +106,13 @@ public int delete(int id) throws ClassNotFoundException, SQLException {
 	// TODO Auto-generated method stub
 	return 0;
 }
+
+@Override
+public int getLastId() throws ClassNotFoundException, SQLException {
+	return 0;
+	// TODO Auto-generated method stub
+	
+}
 	
 
 

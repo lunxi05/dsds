@@ -96,6 +96,29 @@ public class OracleFundingPriceDao implements FundingPriceDao{
 		return 0;
 	}
 
+	@Override
+	public int getLastId() throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		String sql = "select id from (select * from funding order by regdate desc) where rownum = 1 ";
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		
+		int id=-1;
+		
+		if(rs.next()) {
+			id=rs.getInt("id");
+		}
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+		return id;
+	}
+
 
 
 

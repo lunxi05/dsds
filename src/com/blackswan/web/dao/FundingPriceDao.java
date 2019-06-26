@@ -26,4 +26,5 @@ public interface FundingPriceDao {
 	int insert(FundingPrice fundingprice) throws ClassNotFoundException, SQLException;
 	int update(FundingPrice fundingprice) throws ClassNotFoundException, SQLException;
 	int delete(int id) throws ClassNotFoundException, SQLException;
+	int getLastId() throws ClassNotFoundException, SQLException;
 }

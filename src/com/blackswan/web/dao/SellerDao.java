@@ -25,4 +25,5 @@ public interface SellerDao {
 	int insert(Seller seller) throws ClassNotFoundException, SQLException;
 	int update(Funding seller) throws ClassNotFoundException, SQLException;
 	int delete(int id) throws ClassNotFoundException, SQLException;
+	int getLastId() throws ClassNotFoundException, SQLException;
 }

@@ -89,6 +89,10 @@
 									<th>프로젝트 소개</th>
 									<td><textarea name="content"></textarea></td>
 								</tr>
+								<!-- <tr>
+									<th>펀딩 id</th>
+									<td>내용<input type="text" name="fid"></td>
+								</tr> -->
 								<tr>
 									<th>리워드 내용</th>
 									<td>금액<input type="text" name="rPrice"></td>
