@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Black Swan QnA</title>
+<title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>

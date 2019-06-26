@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.blackswan.web.dao.MemberDao;
 import com.blackswan.web.dao.oracle.OracleMemberDao;
 
-@WebServlet("/member/mypage")
+@WebServlet("/member/mypage2")
 public class MypageController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,7 +35,7 @@ public class MypageController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		req.getRequestDispatcher("/WEB-INF/view/member/mypage/mypage.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/member/mypage.jsp").forward(req, resp);
 
 	}
 }

@@ -1,4 +1,50 @@
+<<<<<<< HEAD
 package com.blackswan.web.dao.oracle;
+=======
+package com.blackswan.web.dao.oracle;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.blackswan.web.dao.FundingDao;
+import com.blackswan.web.entity.Funding;
+import com.blackswan.web.entity.Seller;
+import com.blackswan.web.entity.view.FundingView;
+
+public class OracleFundingDao implements FundingDao{
+
+	@Override
+	public List<FundingView> getList() throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return getList(1,"title","");
+	}
+
+	@Override
+	public List<FundingView> getList(int page) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+		return getList(page,"title","");
+	}
+
+	@Override
+	public List<FundingView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+		List<FundingView> list = new ArrayList<>();
+		
+		int start =1 + (page - 1) * 7;
+		int end =start+6;
+		
+		String sql ="SELECT * FROM FUNDING_VIEW WHERE "+field+" LIKE ? AND NUM BETWEEN ? AND ?";
+>>>>>>> refs/remotes/origin/master
 
 import java.sql.Connection;
 import java.sql.Date;

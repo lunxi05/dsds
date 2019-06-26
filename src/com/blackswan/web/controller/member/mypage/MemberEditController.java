@@ -15,7 +15,7 @@ import com.blackswan.web.dao.MemberDao;
 import com.blackswan.web.dao.oracle.OracleMemberDao;
 import com.blackswan.web.entity.Member;
 
-@WebServlet("/member/edit")
+@WebServlet("/member/mypage1")
 @MultipartConfig(
 
 )
@@ -53,7 +53,7 @@ public class MemberEditController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		req.getRequestDispatcher("/WEB-INF/view/member/mypage/mypage.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/member/mypage.jsp").forward(req, resp);
 
 	}
 

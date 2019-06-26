@@ -7,9 +7,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.blackswan.web.dao.QnaDao;
-import com.blackswan.web.entity.Admin_Qna_View;
 import com.blackswan.web.entity.Notice;
 import com.blackswan.web.entity.Qna;
+import com.blackswan.web.entity.view.AdminQnaView;
 import com.sun.xml.internal.bind.annotation.OverrideAnnotationOf;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,18 +19,18 @@ import java.sql.ResultSet;
 public class OracleQnaDao implements QnaDao {
 
 	@Override
-	public List<Admin_Qna_View> getList() throws ClassNotFoundException, SQLException {
+	public List<AdminQnaView> getList() throws ClassNotFoundException, SQLException {
 		return getList(1, "title", "");
 	}
 
 	@Override
-	public List<Admin_Qna_View> getList(int page) throws ClassNotFoundException, SQLException {
+	public List<AdminQnaView> getList(int page) throws ClassNotFoundException, SQLException {
 		return getList(page, "title", "");
 	}
 
 	@Override
-	public List<Admin_Qna_View> getList(int page, String field, String query) throws ClassNotFoundException, SQLException {
-		List<Admin_Qna_View> list = new ArrayList<>();
+	public List<AdminQnaView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException {
+		List<AdminQnaView> list = new ArrayList<>();
 
 		int start = 1 + (page - 1) * 10;
 		int end = start + 9;
@@ -47,7 +47,7 @@ public class OracleQnaDao implements QnaDao {
 		ResultSet rs = st.executeQuery();
 
 		while (rs.next()) {
-			Admin_Qna_View qna = new Admin_Qna_View(rs.getInt("num"), rs.getString("name"), rs.getInt("admin_id"), rs.getString("content"), rs.getInt("id"), rs.getString("member_id"), rs.getDate("regdate"), rs.getString("reply"), rs.getDate("r_date"),
+			AdminQnaView qna = new AdminQnaView(rs.getInt("num"), rs.getString("name"), rs.getInt("admin_id"), rs.getString("content"), rs.getInt("id"), rs.getString("member_id"), rs.getDate("regdate"), rs.getString("reply"), rs.getDate("r_date"),
 					rs.getInt("secretnum"),rs.getInt("state"), rs.getString("title"));
 			list.add(qna);
 
@@ -71,7 +71,7 @@ public class OracleQnaDao implements QnaDao {
 		Statement st = cnc.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 		if (rs.next()) {
-			qna = new Admin_Qna_View(rs.getInt("num"), rs.getString("name"), rs.getInt("admin_id"), rs.getString("content"), rs.getInt("id"), rs.getString("member_id"), rs.getDate("regdate"), rs.getString("reply"), rs.getDate("r_date"),
+			qna = new AdminQnaView(rs.getInt("num"), rs.getString("name"), rs.getInt("admin_id"), rs.getString("content"), rs.getInt("id"), rs.getString("member_id"), rs.getDate("regdate"), rs.getString("reply"), rs.getDate("r_date"),
 					rs.getInt("secretnum"),rs.getInt("state"), rs.getString("title"));
 
 		}

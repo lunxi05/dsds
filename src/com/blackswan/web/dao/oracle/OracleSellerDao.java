@@ -14,8 +14,8 @@ import java.util.List;
 import com.blackswan.web.dao.FundingDao;
 import com.blackswan.web.dao.SellerDao;
 import com.blackswan.web.entity.Funding;
-import com.blackswan.web.entity.FundingView;
 import com.blackswan.web.entity.Seller;
+import com.blackswan.web.entity.view.FundingView;
 
 public class OracleSellerDao implements SellerDao{
 

@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.blackswan.web.entity.SelEvent;
-import com.blackswan.web.entity.SelEventView;
+import com.blackswan.web.entity.view.SelEventView;
 
 public interface SelEventDao {
 	

@@ -29,19 +29,15 @@ import com.blackswan.web.entity.FundingPrice;
 import com.blackswan.web.entity.Seller;
 
 @WebServlet("/funding/reg2")
-@MultipartConfig(
-		 location="d:\\temp",   
-		 fileSizeThreshold = 1024*1024,
-		 maxFileSize = 1024*1024*5, //5메가
-		 maxRequestSize = 1024*1024*5*5 // 5메가 5개까지
-		)
+@MultipartConfig(location = "d:\\temp", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, // 5메가
+		maxRequestSize = 1024 * 1024 * 5 * 5 // 5메가 5개까지
+)
 public class SellerRegController extends HttpServlet {
-	
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		int id = Integer.parseInt(request.getParameter("memberId"));
 		int companyTel = Integer.parseInt(request.getParameter("companyTel"));
 		String companyEmail = request.getParameter("companyEmail");
@@ -54,11 +50,11 @@ public class SellerRegController extends HttpServlet {
 		String companyPass = request.getParameter("companyPass");
 		String companyBoss = request.getParameter("companyBoss");
 		String companyBossEmail = request.getParameter("companyBossEmail");
-		
+
 		int result = 0;
-		
+
 		Seller seller = new Seller();
-		
+
 		seller.setId(id);
 		seller.setCompanyTel(companyTel);
 		seller.setCompanyEmail(companyEmail);
@@ -71,16 +67,14 @@ public class SellerRegController extends HttpServlet {
 		seller.setCompanyPass(companyPass);
 		seller.setCompanyBoss(companyBoss);
 		seller.setCompanyBossEmail(companyBossEmail);
-		
+
 		SellerDao sellerDao = new OracleSellerDao();
-		
+
 		try {
 			result = sellerDao.insert(seller);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		FundingPrice fundingprice = new FundingPrice();
@@ -91,93 +85,76 @@ public class SellerRegController extends HttpServlet {
 			fid = fundingPriceDao.getLastId();
 			int rPrice = Integer.parseInt(request.getParameter("rPrice"));
 			String rContent = request.getParameter("rContent");
-			
-			
-			
+
 			fundingprice.setId(fid);
 			fundingprice.setrPrice(rPrice);
 			fundingprice.setrContent(rContent);
 		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		
+
 		try {
 			result = fundingPriceDao.insert(fundingprice);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		Part filePart = request.getPart("file");
 		String urlPath = "/upload";
 		String path = request.getServletContext().getRealPath(urlPath);
 		String fileName = filePart.getSubmittedFileName();
 		String filePath = path + File.separator + fileName;
-		
+
 		File sameFile = new File(filePath);
-		
-		
-		if(sameFile.exists()) {            
-			
-			int n = fileName.lastIndexOf(".");         
+
+		if (sameFile.exists()) {
+
+			int n = fileName.lastIndexOf(".");
 			String name = fileName.substring(0, n);
-			String suffix = fileName.substring(n);         
-			
+			String suffix = fileName.substring(n);
+
 			int parenS = name.lastIndexOf("(");
 			int parenE = name.lastIndexOf(")");
-			
-			String indexC = name.substring(parenS+1, parenE);
-			
-			int indexN = Integer.parseInt(indexC);         
-			
+
+			String indexC = name.substring(parenS + 1, parenE);
+
+			int indexN = Integer.parseInt(indexC);
+
 			if (parenS == -1)
-				fileName = name +"("+ 1 +")"+ suffix;
+				fileName = name + "(" + 1 + ")" + suffix;
 			else {
 				indexN++;
-				fileName = fileName.substring(0, parenS+1)+ indexN +")"+ suffix;
-			}         
+				fileName = fileName.substring(0, parenS + 1) + indexN + ")" + suffix;
+			}
 		}
-		
+
 		InputStream fis = filePart.getInputStream();
 		FileOutputStream fos = new FileOutputStream(filePath);
-		
+
 		byte[] buf = new byte[1024];
-		int size =0;
-		
-		while((size=fis.read(buf))!=-1)
+		int size = 0;
+
+		while ((size = fis.read(buf)) != -1)
 			fos.write(buf, 0, size);
-		
+
 		fis.close();
 		fos.close();
-		
-		if(result != 1)
+
+		if (result != 1)
 			response.sendRedirect("error");
 		else
 			response.sendRedirect("list");
-		 
-		
-		
-	}
 
-	
+	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		
-			request.getRequestDispatcher("/WEB-INF/view/funding/reg2.jsp").forward(request, response);
-		
-		
-		
-		
+
+		request.getRequestDispatcher("/WEB-INF/view/funding/reg2.jsp").forward(request, response);
+
 	}
 }

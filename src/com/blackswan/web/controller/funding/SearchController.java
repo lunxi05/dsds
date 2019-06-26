@@ -21,11 +21,12 @@ public class SearchController extends HttpServlet {
 		FundingDao fundingDao = new OracleFundingDao();
 		
 		int page = 1;
-		if(req.getParameter("p") != null && req.getParameter("p").equals(""))
-			page = Integer.parseInt(req.getParameter("p"));
+		String p_ = req.getParameter("page");
+		if(p_ != null && !p_.equals(""))
+			page = Integer.parseInt(p_);
 		
 		String query = "";
-		if(req.getParameter("query") != null && req.getParameter("query").equals(""))
+		if(req.getParameter("query") != null && !req.getParameter("query").equals(""))
 			query = req.getParameter("query");
 		
 		try {

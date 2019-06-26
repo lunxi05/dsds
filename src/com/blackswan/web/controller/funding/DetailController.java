@@ -1,3 +1,4 @@
+
 package com.blackswan.web.controller.funding;
 
 import java.io.IOException;
@@ -20,13 +21,15 @@ public class DetailController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		
+		FundingDao fundingDao = new OracleFundingDao();
+		FundingPriceDao fundingPrice = new OracleFundingPriceDao();
 		
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		
 		try {
-			//req.setAttribute(name, o);
-			
+//			req.setAttribute(name, o);
+			req.setAttribute("funding", fundingDao.get(id));
+			req.setAttribute("price", fundingPrice.getList(id));
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -42,3 +45,4 @@ public class DetailController extends HttpServlet {
 	}
 
 }
+>>>>>>> refs/remotes/origin/master
