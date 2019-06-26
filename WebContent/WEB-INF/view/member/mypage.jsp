@@ -13,7 +13,7 @@
 </head>
 <body>
 <!-- header--------------------- -->
-	<jsp:include page="../../inc/header.jsp" />
+	<jsp:include page=".././inc/header.jsp" />
 <!-- main------------------ -->
 	<section id="profile">
 		<ul>
@@ -119,6 +119,6 @@
 	</section>	
 
 	<!-- footer------------------------------ -->
-	<jsp:include page="../../inc/footer.jsp" />
+	<jsp:include page=".././inc/footer.jsp" />
 </body>
 </html>

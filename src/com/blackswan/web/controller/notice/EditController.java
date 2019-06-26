@@ -68,7 +68,7 @@ public class EditController extends HttpServlet {
 		}
 		
 		if(result != 1)
-			response.sendRedirect("error");
+			response.sendRedirect("/blackswan2/error");
 		else
 			response.sendRedirect("detail?id="+id);
 		

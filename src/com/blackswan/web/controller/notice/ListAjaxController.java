@@ -27,7 +27,7 @@ public class ListAjaxController extends HttpServlet {
 		
 		int page = 1;
 		
-		String p_ = request.getParameter("p");
+		String p_ = request.getParameter("page");
 		if(p_!=null && !p_.equals(""))
 			page = Integer.parseInt(p_);
 

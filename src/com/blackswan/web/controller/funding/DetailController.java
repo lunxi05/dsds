@@ -45,4 +45,3 @@ public class DetailController extends HttpServlet {
 	}
 
 }
->>>>>>> refs/remotes/origin/master

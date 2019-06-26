@@ -1,4 +1,4 @@
-package com.blackswan.web.entity;
+package com.blackswan.web.entity.view;
 
 public class FDetailView {
 	private String id;

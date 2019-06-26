@@ -129,9 +129,9 @@ public class RegController extends HttpServlet {
 			e.printStackTrace();
 		}
 		if(result != 1)
-			resp.sendRedirect("error");
+			resp.sendRedirect("/blackswan2/error");
 		else
-			resp.sendRedirect("mypage");
+			resp.sendRedirect("/blackswan2/member/mypage");
 	}
 	
 }

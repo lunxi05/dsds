@@ -47,7 +47,7 @@ public class EditController extends HttpServlet {
 			q.setTitle(title);
 			q.setContent(content);
 
-			result = qnaDao.update(q);
+//			result = qnaDao.update(q);
 			req.setAttribute("qna", qnaDao.get(id));
 
 		} catch (ClassNotFoundException e) {
@@ -57,7 +57,7 @@ public class EditController extends HttpServlet {
 		}
 
 		if (result != 1)
-			resp.sendRedirect("error");
+			resp.sendRedirect("/blackswan2/error");
 		else
 			resp.sendRedirect("detail?id=" + id);
 

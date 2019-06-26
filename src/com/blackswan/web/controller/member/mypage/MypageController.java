@@ -21,7 +21,7 @@ public class MypageController extends HttpServlet {
 		int id = (int) session.getAttribute("ssid");
 
 		if (session.getAttribute("ssid") == null) {
-			resp.sendRedirect("/error.jsp");
+			resp.sendRedirect("/blackswan2/error");
 			return;
 		}
 		MemberDao mDao = new OracleMemberDao();
