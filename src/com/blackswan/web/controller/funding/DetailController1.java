@@ -15,18 +15,20 @@ import com.blackswan.web.dao.oracle.OracleFundingDao;
 import com.blackswan.web.dao.oracle.OracleFundingPriceDao;
 
 @WebServlet("/funding/detail")
-public class DetailController extends HttpServlet {
+public class DetailController1 extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		
+		FundingDao fundingDao = new OracleFundingDao();
+		FundingPriceDao fundingPrice = new OracleFundingPriceDao();
 		
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		
 		try {
 			//req.setAttribute(name, o);
-			
+			req.setAttribute("funding", fundingDao.get(id));
+			req.setAttribute("price", fundingPrice.getList(id));
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
