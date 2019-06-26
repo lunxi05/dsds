@@ -15,7 +15,7 @@ import javax.servlet.ServletException;
 
 import com.blackswan.web.dao.MemberDao;
 import com.blackswan.web.entity.Member;
-import com.blackswan.web.entity.MemberView;
+import com.blackswan.web.entity.view.MemberView;
 
 public class OracleMemberDao implements MemberDao {
 

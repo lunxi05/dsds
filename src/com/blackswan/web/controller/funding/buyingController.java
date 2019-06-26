@@ -65,17 +65,14 @@ public class buyingController extends HttpServlet {
 		
 		int result = 0;
 		
-		try {
-			result = buyingDao.insert(buying);
-			
-			
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
+//		try {
+//			result = buyingDao.insert(buying);		
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			
+//			e.printStackTrace();
+//		}
 		
 		if(result != 1)
 			response.sendRedirect("/blackswan2/error");

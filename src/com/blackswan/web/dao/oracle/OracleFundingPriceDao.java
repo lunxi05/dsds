@@ -16,8 +16,8 @@ import com.blackswan.web.dao.FundingPriceDao;
 import com.blackswan.web.dao.SellerDao;
 import com.blackswan.web.entity.Funding;
 import com.blackswan.web.entity.FundingPrice;
-import com.blackswan.web.entity.FundingView;
 import com.blackswan.web.entity.Seller;
+import com.blackswan.web.entity.view.FundingView;
 
 public class OracleFundingPriceDao implements FundingPriceDao{
 

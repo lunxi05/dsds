@@ -5,10 +5,10 @@ import java.util.List;
 
 import com.blackswan.web.entity.Funding;
 import com.blackswan.web.entity.FundingPrice;
-import com.blackswan.web.entity.FundingView;
 import com.blackswan.web.entity.Notice;
-import com.blackswan.web.entity.NoticeView;
 import com.blackswan.web.entity.Seller;
+import com.blackswan.web.entity.view.FundingView;
+import com.blackswan.web.entity.view.NoticeView;
 
 public interface FundingPriceDao {
 	

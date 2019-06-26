@@ -11,7 +11,7 @@ import java.util.List;
 
 import com.blackswan.web.dao.SelEventDao;
 import com.blackswan.web.entity.SelEvent;
-import com.blackswan.web.entity.SelEventView;
+import com.blackswan.web.entity.view.SelEventView;
 
 public class OracleSelEventDao implements SelEventDao {
 

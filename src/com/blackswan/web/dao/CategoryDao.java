@@ -4,7 +4,7 @@ package com.blackswan.web.dao;
 import java.util.List;
 
 import com.blackswan.web.entity.Category;
-import com.blackswan.web.entity.CategoryView;
+import com.blackswan.web.entity.view.CategoryView;
 
 
 public interface CategoryDao {
