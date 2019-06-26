@@ -18,7 +18,11 @@
 				<form action="buying" method="post">
 					<div>
 						<label>결제 금액</label><br>
-						<input name="payPR" type="text" placeholder="email을 입력하세요"><br>
+						<select name="buySelct">
+						<option label="선택"></option>
+						<option value="">배송비 2500원</option>
+						</select>
+						
 					</div>
 				</form>
 			</section>
