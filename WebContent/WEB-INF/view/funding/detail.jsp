@@ -76,7 +76,10 @@
 		<section id="funding-content">
 			<h1 class="hidden">펀딩 내용</h1>
 			<div class="center">
+<<<<<<< HEAD
 		
+=======
+>>>>>>> refs/remotes/origin/master
 				<section class="funding-detail">
 					<h1 class="hidden">펀딩 소개</h1>
 					<section class="funding-visual">
@@ -129,7 +132,7 @@
 							</tr>  
 						</table>
 						<div class="funding-attend">
-							<input type="button" value="참여하기">
+							<a href="buying?id=${funding.id}"><input type="button" value="참여하기"></a>
 							<div>
 								참여 금액별 리워드 보기
 							</div>

@@ -1,6 +1,10 @@
 package com.blackswan.web.controller.funding;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import com.blackswan.web.dao.FundingDao;
 import com.blackswan.web.dao.FundingPriceDao;
@@ -34,28 +39,28 @@ public class FundingRegController extends HttpServlet {
 		SimpleDateFormat edate_ = new SimpleDateFormat("yyyy-mm-dd");
 		
 		//int fid = Integer.parseInt(request.getParameter("fid"));
-		int memberId = Integer.parseInt(request.getParameter("memberId"));
-		int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-		String title = request.getParameter("title");
-		int tAmount = Integer.parseInt(request.getParameter("tAmount"));
 		String introImg = request.getParameter("introImg");
-		
-		String sdate = request.getParameter("sdate");
-		String edate = request.getParameter("edate");
-		int state = Integer.parseInt(request.getParameter("state"));
-		String content = request.getParameter("content");
+		/*
+		 * int memberId = Integer.parseInt(request.getParameter("memberId")); int
+		 * categoryId = Integer.parseInt(request.getParameter("categoryId")); String
+		 * title = request.getParameter("title"); int tAmount =
+		 * Integer.parseInt(request.getParameter("tAmount"));
+		 * 
+		 * String sdate = request.getParameter("sdate"); String edate =
+		 * request.getParameter("edate"); int state =
+		 * Integer.parseInt(request.getParameter("state")); String content =
+		 * request.getParameter("content");
+		 */
 		
 		Funding funding = new Funding();
 		//funding.setId(fid);
-		funding.setMemberId(memberId);
-		funding.setCategoryId(categoryId);
-		funding.setTitle(title);
-		funding.settAmount(tAmount);
 		funding.setIntroImg(introImg);
-		funding.setSdate(sdate);
-		funding.setEdate(edate);
-		funding.setState(state);
-		funding.setContent(content);
+		/*
+		 * funding.setMemberId(memberId); funding.setCategoryId(categoryId);
+		 * funding.setTitle(title); funding.settAmount(tAmount);
+		 * funding.setSdate(sdate); funding.setEdate(edate); funding.setState(state);
+		 * funding.setContent(content);
+		 */
 		
 		int result =0;
 		
@@ -75,48 +80,50 @@ public class FundingRegController extends HttpServlet {
 			
 			
 		
-			
-		int id = Integer.parseInt(request.getParameter("memberId"));
-		int companyTel = Integer.parseInt(request.getParameter("companyTel"));
-		String companyEmail = request.getParameter("companyEmail");
-		String companyName = request.getParameter("companyName");
-		String companyImg = request.getParameter("companyImg");
-		String companyWeb = request.getParameter("companyWeb");
-		int companyComi = Integer.parseInt(request.getParameter("companyComi"));
-		int companyRegNum = Integer.parseInt(request.getParameter("companyRegNum"));
-		String companyReg = request.getParameter("companyReg");
-		String companyPass = request.getParameter("companyPass");
-		String companyBoss = request.getParameter("companyBoss");
-		String companyBossEmail = request.getParameter("companyBossEmail");
+		Part filePart = request.getPart("file");
+		String urlPath = "/upload";
+		String path = request.getServletContext().getRealPath(urlPath);
+		String fileName = filePart.getSubmittedFileName();
+		System.out.println(path);
+		System.out.println(fileName);
+		String filePath = path+File.separator+fileName;
 		
+		File pathFile = new File(path);
 		
-		
-		Seller seller = new Seller();
-		
-		seller.setId(id);
-		seller.setCompanyTel(companyTel);
-		seller.setCompanyEmail(companyEmail);
-		seller.setCompanyName(companyName);
-		seller.setCompanyImg(companyImg);
-		seller.setCompanyWeb(companyWeb);
-		seller.setCompanyComi(companyComi);
-		seller.setCompanyRegNum(companyRegNum);
-		seller.setCompanyReg(companyReg);
-		seller.setCompanyPass(companyPass);
-		seller.setCompanyBoss(companyBoss);
-		seller.setCompanyBossEmail(companyBossEmail);
-		
-		SellerDao sellerDao = new OracleSellerDao();
-		
-		try {
-			result = sellerDao.insert(seller);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(!pathFile.exists()) {
+			pathFile.mkdirs();
 		}
+		
+		File sameFile = new File(filePath);
+		if(sameFile.exists()) {
+			int ne = fileName.lastIndexOf(".");
+			String name = fileName.substring(0,ne);
+			String suffix = fileName.substring(ne);
+		
+			int parenS = name.lastIndexOf("(");
+			int parenE = name.lastIndexOf(")");
+			
+			if(parenE == -1) {
+				fileName = name +"("+1+")"+suffix;
+				filePath = path+File.separator+fileName;
+			}else {
+				String indexC = name.substring(parenS+1,parenE);
+				int indexN = Integer.parseInt(indexC);
+				indexN++;
+				fileName = fileName.substring(0,parenS+1)+indexN +")"+suffix;
+				filePath = path+File.separator+fileName;
+			}
+		}
+		InputStream fis = filePart.getInputStream();
+		OutputStream fos = new FileOutputStream(filePath);
+		
+		int i = 0;
+		byte[] arr = new byte[1024];
+ 		
+		while((i=fis.read(arr)) != -1) {
+			fos.write(arr,0,i);
+		}
+		
 		FundingPrice fundingprice = new FundingPrice();
 		FundingPriceDao fundingPriceDao = new OracleFundingPriceDao();
 
