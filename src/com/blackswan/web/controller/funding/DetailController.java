@@ -21,15 +21,14 @@ public class DetailController extends HttpServlet {
 		FundingDao fundingDao = new OracleFundingDao();
 		
 		Integer id = Integer.parseInt(req.getParameter("id"));
-		//dddddddddd
 		
-//		try {
-//			req.setAttribute("funding", fundingDao.get(id));
-//		} catch (ClassNotFoundException e) {
-//			e.printStackTrace();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			req.setAttribute("funding", fundingDao.get(id));
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		req.getRequestDispatcher("/WEB-INF/view/funding/detail.jsp").forward(req, resp);
 	}

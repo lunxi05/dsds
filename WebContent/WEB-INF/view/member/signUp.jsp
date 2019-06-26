@@ -35,7 +35,7 @@ input {
 					<label>이름</label><br>
 					<input name="name" type="text" placeholder="이름을 입력하세요"><br>
 					<label>비밀번호</label><br>
-					<input name="pw" type="password" placeholder="새 비밀번호(영문,숫자,특수문자를 포함한 10~16자리)"><br>
+					<input name="pw" type="password" placeholder="새 비밀번호(영문,숫자,특수문자를 포함한 10~16자리)" minlength="10" maxlength="16"><br>
 					<label>비밀번호 확인</label><br>
 					<input name="pwc" type="password" placeholder="비밀번호 확인"><br>
 					<label>전화번호</label><br>

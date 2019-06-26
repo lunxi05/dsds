@@ -5,16 +5,19 @@ window.addEventListener("load", function(){
     signUp.onclick = function(){
     
     var email = document.getElementsByName("email").value;
+    
+    alert(email);
     var name = document.getElementsByName("name").value;
     var pw = document.getElementsByName("pw").value;
+    var pwc = document.getElementsByName("pwc").value;
     var phone = document.getElementsByName("phone").value;
      
     if (!email){
-        alert("이메일를 입력하세요.")
+        alert("이메일을 입력하세요.")
         return;
     }
     if (!name){
-        alert("이름를 입력하세요.")
+        alert("이름을 입력하세요.")
         return;
     }
     if (!pw){
