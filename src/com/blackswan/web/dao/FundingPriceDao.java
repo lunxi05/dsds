@@ -12,18 +12,8 @@ import com.blackswan.web.entity.Seller;
 
 public interface FundingPriceDao {
 	
-	int getCount() throws ClassNotFoundException, SQLException;
-	int getCount(String field, String query) throws ClassNotFoundException, SQLException;
-	
-	List<FundingPrice> getList() throws ClassNotFoundException, SQLException;
-	List<FundingPrice> getList(int page) throws ClassNotFoundException, SQLException;
-	List<FundingPrice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
-	
-	FundingView get(int id) throws ClassNotFoundException, SQLException;
-	
-	
+	List<FundingPrice> getList(int id) throws ClassNotFoundException, SQLException;
 	
 	int insert(FundingPrice fundingprice) throws ClassNotFoundException, SQLException;
-	int update(FundingPrice fundingprice) throws ClassNotFoundException, SQLException;
-	int delete(int id) throws ClassNotFoundException, SQLException;
+	int getLastId() throws ClassNotFoundException, SQLException;
 }

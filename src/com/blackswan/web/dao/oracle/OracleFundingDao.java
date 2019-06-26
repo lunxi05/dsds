@@ -37,8 +37,8 @@ public class OracleFundingDao implements FundingDao{
 		
 		List<FundingView> list = new ArrayList<>();
 		
-		int start =(page-1)*10+1;
-		int end =page+10;
+		int start =1 + (page - 1) * 7;
+		int end =start+6;
 		
 		String sql ="SELECT * FROM FUNDING_VIEW WHERE "+field+" LIKE ? AND NUM BETWEEN ? AND ?";
 
@@ -46,7 +46,6 @@ public class OracleFundingDao implements FundingDao{
 		//String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
 		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		//Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 		PreparedStatement st = con.prepareStatement(sql);
 		
@@ -74,6 +73,7 @@ public class OracleFundingDao implements FundingDao{
 					 rs.getString("content"),
 					 rs.getString("company_name"),
 					 rs.getString("name"),
+					 rs.getInt("payc"),
 					 rs.getInt("pay"),
 					 rs.getInt("part_rate")
 					);
@@ -92,7 +92,7 @@ public class OracleFundingDao implements FundingDao{
 		
 		FundingView funding = null;
 		
-		String sql = "SELECT * FROM FUNDING WHERE ID="+id;
+		String sql = "SELECT * FROM FUNDING_VIEW WHERE ID="+id;
 		
 		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -100,7 +100,7 @@ public class OracleFundingDao implements FundingDao{
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 		
-		if(rs.next()) {
+		while(rs.next()) {
 			funding = new FundingView(
 					 rs.getInt("num"),
 					 rs.getInt("id"),
@@ -118,6 +118,7 @@ public class OracleFundingDao implements FundingDao{
 					 rs.getString("content"),
 					 rs.getString("company_name"),
 					 rs.getString("name"),
+					 rs.getInt("payc"),
 					 rs.getInt("pay"),
 					 rs.getInt("part_rate")
 					);

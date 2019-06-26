@@ -27,7 +27,6 @@
 					</c:if>
 					<c:if test="${ssid != null}">
 					<div class="user">
-						<img src="/images/banner.png">
 						<span>${hmember.name} 님</span>
 						<span class="user-button"></span>
 					</div>

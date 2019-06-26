@@ -23,20 +23,22 @@ public class FundingListController extends HttpServlet {
 		FundingDao fundingDao = new OracleFundingDao();
 		
 		int page = 1;
-		if(request.getParameter("p") != null && request.getParameter("p").equals(""))
-			page = Integer.parseInt(request.getParameter("p"));
+		String p_ = request.getParameter("page");
+		
+		if(p_ != null && !p_.equals(""))
+			page = Integer.parseInt(p_);
 		
 		
-		String field = "title";
-		if(request.getParameter("field") != null && request.getParameter("field").equals(""))
-			field = request.getParameter("field");
-		
-		String query = "";
-		if(request.getParameter("query") != null && request.getParameter("query").equals(""))
-			query = request.getParameter("query");
+//		String field = "title";
+//		if(request.getParameter("field") != null && request.getParameter("field").equals(""))
+//			field = request.getParameter("field");
+//		
+//		String query = "";
+//		if(request.getParameter("query") != null && request.getParameter("query").equals(""))
+//			query = request.getParameter("query");
 		
 		try {
-			request.setAttribute("flist", fundingDao.getList(page, field, query));
+			request.setAttribute("flist", fundingDao.getList(page));
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

@@ -10,7 +10,6 @@ public class FundingPrice {
 	private String rContent;
 	
 	public FundingPrice() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public FundingPrice(int id, int rPrice, String rContent) {

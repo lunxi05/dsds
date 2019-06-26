@@ -117,17 +117,28 @@ public class FundingRegController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		int id = Integer.parseInt(request.getParameter(""));
-		int rPrice = Integer.parseInt(request.getParameter("rPrice"));
-		String rContent = request.getParameter("rContent");
-
 		FundingPrice fundingprice = new FundingPrice();
-		
-		fundingprice.setId(id);
-		fundingprice.setrPrice(rPrice);
-		fundingprice.setrContent(rContent);
-		
 		FundingPriceDao fundingPriceDao = new OracleFundingPriceDao();
+
+		int fid;
+		try {
+			fid = fundingPriceDao.getLastId();
+			int rPrice = Integer.parseInt(request.getParameter("rPrice"));
+			String rContent = request.getParameter("rContent");
+			
+			
+			
+			fundingprice.setId(fid);
+			fundingprice.setrPrice(rPrice);
+			fundingprice.setrContent(rContent);
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		
 		try {
 			result = fundingPriceDao.insert(fundingprice);

@@ -22,45 +22,40 @@ import com.blackswan.web.entity.Seller;
 public class OracleFundingPriceDao implements FundingPriceDao{
 
 	@Override
-	public int getCount() throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getCount(String field, String query) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public List<FundingPrice> getList() throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<FundingPrice> getList(int page) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<FundingPrice> getList(int page, String field, String query)
-			throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public FundingView get(int id) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<FundingPrice> getList(int id) throws ClassNotFoundException, SQLException {
+		
+		List<FundingPrice> list = new ArrayList<>();
+		
+		String sql = "SELECT * FROM FUN_PRICE WHERE ID="+id+" ORDER BY R_PRICE";
+		
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		
+		while(rs.next()) {
+			FundingPrice fundingPrice = new FundingPrice(
+					rs.getInt("id"),
+					rs.getInt("r_price"),
+					rs.getString("r_content")
+					);
+			list.add(fundingPrice);
+		}
+		       
+		
+		
+		
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+		return list;
 	}
 
 	@Override
 	public int insert(FundingPrice fundingprice) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
 
 		int result = 0;
 
@@ -86,19 +81,26 @@ public class OracleFundingPriceDao implements FundingPriceDao{
 	}
 
 	@Override
-	public int update(FundingPrice fundingprice) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getLastId() throws ClassNotFoundException, SQLException {
+
+		String sql = "select id from (select * from funding order by regdate desc) where rownum = 1 ";
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		
+		int id=-1;
+		
+		if(rs.next()) {
+			id=rs.getInt("id");
+		}
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+		return id;
 	}
-
-	@Override
-	public int delete(int id) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-
-
 
 }
