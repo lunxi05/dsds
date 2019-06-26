@@ -1,8 +1,6 @@
-package com.blackswan.web.dao.oracle;
+package com.blackswan.web.entity;
 
 import java.util.Date;
-
-import com.blackswan.web.entity.Funding;
 
 public class FundingView extends Funding {
 
@@ -23,7 +21,7 @@ public class FundingView extends Funding {
 
 
 	public FundingView(int num, int id, int adminId, int memberId, int categoryId, Date regdate, String title, int tAmount,
-			String introImg, String sdate, String edate, int hit, int state, String content, String companyName, String cateName, int payc, int pay, int partRate) {
+			String introImg, String sdate, String edate, int hit, int state, String content, String companyName, String cateName, int payc ,int pay, int partRate) {
 		super(id, adminId, memberId, categoryId, regdate, title, tAmount, introImg, sdate, edate, hit, state, content);
 		this.num = num;
 		this.companyName = companyName;
@@ -58,14 +56,6 @@ public class FundingView extends Funding {
 		this.cateName = cateName;
 	}
 
-	public int getPayc() {
-		return payc;
-	}
-
-	public void setPayc(int payc) {
-		this.payc = payc;
-	}
-
 	public int getPay() {
 		return pay;
 	}
@@ -81,4 +71,14 @@ public class FundingView extends Funding {
 	public void setPartRate(int partRate) {
 		this.partRate = partRate;
 	}
+
+	public int getPayc() {
+		return payc;
+	}
+
+	public void setPayc(int payc) {
+		this.payc = payc;
+	}
+	
+	
 }

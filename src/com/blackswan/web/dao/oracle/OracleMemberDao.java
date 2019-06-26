@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 
 import com.blackswan.web.dao.MemberDao;
 import com.blackswan.web.entity.Member;
+import com.blackswan.web.entity.MemberView;
 
 public class OracleMemberDao implements MemberDao {
 
@@ -134,9 +135,20 @@ public class OracleMemberDao implements MemberDao {
 		ResultSet rs = st.executeQuery(sql);
 
 		while (rs.next()) {
-			member = new MemberView(rs.getInt("num"), rs.getInt("id"), rs.getString("email"), rs.getString("name"), "",
-					rs.getInt("phone"), rs.getString("profile"), rs.getString("event_agree"), 1, rs.getString("address"),
-					rs.getInt("address_num"), rs.getDate("regdate"), rs.getInt("mcount"), rs.getInt("bcount"));
+			member = new MemberView(rs.getInt("num"), 
+					rs.getInt("id"),
+					rs.getString("email"), 
+					rs.getString("name"), 
+					rs.getString("pw"),
+					rs.getInt("phone"),
+					rs.getString("profile"),
+					rs.getString("event_agree"),
+					1,
+					rs.getString("address"),
+					rs.getInt("address_num"), 
+					rs.getDate("regdate"), 
+					rs.getInt("mcount"), 
+					rs.getInt("bcount"));
 		}
 
 		rs.close();
@@ -175,8 +187,33 @@ public class OracleMemberDao implements MemberDao {
 
 	@Override
 	public int update(Member member) throws ClassNotFoundException, SQLException {
+		int result = 0;
 
-		return 0;
+		String sql =  "UPDATE member "
+				+ "SET email=?, name=?, pw=?, phone=?, profile=?, event_agree=?, address=?, address_num=? "
+				+ "WHERE id= ?";
+
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, member.getEmail());
+		st.setString(2, member.getName());
+		st.setString(3, member.getPw());
+		st.setInt(4, member.getPhone());
+		st.setNString(5, member.getProfile());
+		st.setString(6, member.getEventAgree());
+		st.setString(7, member.getAddress());
+		st.setInt(8, member.getAddressNum());
+		st.setInt(9, member.getId());
+
+		result = st.executeUpdate();
+
+		st.close();
+		con.close();
+
+		return result;
 	}
 
 }

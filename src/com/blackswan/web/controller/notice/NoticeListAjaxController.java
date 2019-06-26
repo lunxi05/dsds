@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.blackswan.web.dao.NoticeDao;
-import com.blackswan.web.dao.oracle.NoticeView;
 import com.blackswan.web.dao.oracle.OracleNoticeDao;
 import com.blackswan.web.entity.Notice;
+import com.blackswan.web.entity.NoticeView;
 
 @WebServlet("/notice/list-ajax")
 public class NoticeListAjaxController extends HttpServlet {

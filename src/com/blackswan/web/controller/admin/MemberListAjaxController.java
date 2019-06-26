@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.blackswan.web.dao.MemberDao;
-import com.blackswan.web.dao.oracle.MemberView;
 import com.blackswan.web.dao.oracle.OracleMemberDao;
 import com.blackswan.web.entity.Member;
+import com.blackswan.web.entity.MemberView;
 
 
 @WebServlet("/admin/member/list-ajax")
