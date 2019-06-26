@@ -1,3 +1,4 @@
+
 package com.blackswan.web.controller.funding;
 
 import java.io.IOException;
@@ -44,3 +45,4 @@ public class DetailController extends HttpServlet {
 	}
 
 }
+>>>>>>> refs/remotes/origin/master

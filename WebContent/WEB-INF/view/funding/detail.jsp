@@ -76,6 +76,8 @@
 		<section id="funding-content">
 			<h1 class="hidden">펀딩 내용</h1>
 			<div class="center">
+
+
 				<section class="funding-detail">
 					<h1 class="hidden">펀딩 소개</h1>
 					<section class="funding-visual">
