@@ -21,8 +21,8 @@ public class NoticeListController extends HttpServlet {
 		NoticeDao noticeDao = new OracleNoticeDao();
 		
 		int page = 1;
-		if(request.getParameter("p") != null && request.getParameter("p").equals(""))
-			page = Integer.parseInt(request.getParameter("p"));
+		if(request.getParameter("page") != null && request.getParameter("page").equals(""))
+			page = Integer.parseInt(request.getParameter("page"));
 		
 		
 		String field = "title";
