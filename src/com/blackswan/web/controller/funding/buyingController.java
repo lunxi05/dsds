@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.blackswan.web.dao.BuyingDao;
 import com.blackswan.web.dao.MemberDao;
+import com.blackswan.web.dao.oracle.OracleBuyingDao;
 import com.blackswan.web.dao.oracle.OracleMemberDao;
 import com.blackswan.web.entity.Member;
 
@@ -19,6 +21,25 @@ public class buyingController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		BuyingDao buyingDao = new OracleBuyingDao();
+		
+		int id = 0;
+		String id_ = request.getParameter("id");
+		
+		if(id_ != null && !id_.equals(""))
+			id= Integer.parseInt(id_);
+		
+		try {
+			request.setAttribute("fpr", buyingDao.getList(id));
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		request.getRequestDispatcher("/WEB-INF/view/funding/buying.jsp").forward(request, response);
 	}
 	
@@ -26,39 +47,11 @@ public class buyingController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String email = request.getParameter("email");
-		
-		
-		String name = request.getParameter("name");
-		String pw = request.getParameter("pw");
-
-		int phone = Integer.parseInt(request.getParameter("phone"));
-
-		String eventAgree = "N";
-		if(request.getParameter("event_agree") != null && !request.getParameter("event_agree").equals(""))
-			eventAgree =request.getParameter("event_agree");
-		
-		
-		Member member = new Member();
-		member.setEmail(email);
-		member.setName(name);
-		member.setPw(pw);
-		member.setPhone(phone);
-		member.setEventAgree(eventAgree);
-		
-		MemberDao memberDao = new OracleMemberDao();
+	
 		
 		int result = 0;
 		
-		try {
-			result = memberDao.insert(member);
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
+		
 		
 		if(result != 1)
 			response.sendRedirect("/blackswan2/error");
