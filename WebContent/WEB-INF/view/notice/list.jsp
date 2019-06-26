@@ -45,9 +45,23 @@
 			</ul>
 		</div>
 	</section>
-
-	<section id="main">
+	
+	<section id="notice-title">
 		<h1>공지사항</h1>
+	</section>
+	
+	<section id="notice-tab">
+		<h1 class="hidden">고객센터 탭</h1>
+		<div class="center">
+			<ul>
+				<li><a href="/blackswan2/notice/list">공지사항</a></li>
+				<li><a href="/blackswan2/qna/list">QnA</a></li>
+			</ul>
+		</div>
+	</section>	
+
+	<section id="main" class="notice">
+		<h1 class="hidden">공지사항 목록</h1>
 		<div class="center">
 			<section class="notice-table">
 				<h1 class="hidden">공지사항 테이블</h1>
@@ -55,11 +69,11 @@
 				<table id="list-table">
 					<thead>
 						<tr>
-							<td class="id">번호</td>
-							<td class="division">구분</td>
-							<td class="title">제목</td>
-							<td class="date">작성일</td>
-							<td class="hit">조회수</td>
+							<th class="id">번호</th>
+							<th class="division">구분</th>
+							<th class="title">제목</th>
+							<th class="date">작성일</th>
+							<th class="hit">조회수</th>
 						</tr>
 					</thead>
 
@@ -78,6 +92,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				<div class="notice-reg"><a href="/blackswan2/notice/reg">등록</a></div>
 			</section>
 
 			<c:set var="p" value="${(empty param.page) ? 1 : param.page}" />
@@ -86,7 +101,7 @@
 			<section class="paging">
 				<h1 class="hidden">페이저</h1>
 				<div class="first-page">
-					<a href="list?p=1">처음</a>
+					<a href="list?page=1">처음</a>
 				</div>
 				<div class="prev-page">
 					<a href="list?page=${(p < 6)? p : p -5}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">이전</a>

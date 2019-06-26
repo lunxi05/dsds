@@ -1,14 +1,18 @@
 /* 
- * 1. @import url
- * 2. notice list css
+ * 1. notice list css
+ * 2. notice reg css
  */
 
-/* ------------------------------ 1. @import url ------------------------------ */
-/* @import url("./style.css"); */
 
-/* ------------------------------ 2. notice list css ------------------------------ */
 
-#main>h1 {
+/* ------------------------------ 1. notice list css ------------------------------ */
+#main.notice {
+	padding-top: 50px;
+	
+}
+
+
+#main.notice>h1 {
 	width: 100%;
 	min-width: 1200px;
 	height: 85px;
@@ -18,10 +22,61 @@
 	border-top: 1px solid #e5e5e5;
 }
 
+	#notice-title {
+		border: solid #e5e5e5;
+		border-width: 1px 0;
+	}
+
+	#notice-title, #notice-title>h1 {
+	 	width: 100%;
+		min-width: 1200px;
+		text-align: center;
+		height: 140px;
+		background: #f4f4f4;
+		position: relative;
+		line-height: 140px;
+		font-size: 28px;
+		font-weight: normal;
+	 }
+
+	#notice-tab {
+		width: 100%;
+		height: 40px;
+		border: solid #e5e5e5;	
+		border-width: 1px 0;
+	}
+	
+		#notice-tab .center ul {
+			height: inherit;
+			display: flex;
+			justify-content: center;
+		}
+		
+			#notice-tab .center ul li {
+				width: 100px;
+				margin: 0 30px;
+				line-height: 40px;
+				text-align: center; 
+				color: #999;
+				font-size: 16px;
+			}
+	 
+	 		#notice-tab .center ul li:hover {
+				color: #0081e0;
+				font-weight: bold;
+	 		}
+	 		
+		 		#notice-tab .center ul li a {
+		 			display: block;
+		 			width: 100%;
+		 			height: 100%;
+		 			line-height: inherit;
+		 		}
+
+
 	#main .notice-table {
-		display: block; 
-		position: relative; 
 		padding-top: 30px; 
+		position: relative;
 	}
 	
 		#main .notice-table label {
@@ -41,6 +96,11 @@
 			font-weight: bold;
 		}
 		
+			#main .notice-table table thead tr th {
+				border-left: 1px solid #fff;
+				border-right: 1px solid #fff;
+			}
+		
 		#main .notice-table table tbody {
 			color: #666; 
 		}
@@ -58,6 +118,33 @@
 				padding-left: 35px;
 			}
 			
+	#main .notice-table .notice-reg {
+		border: 1px solid #e5e5e5;
+		margin: 10px 0 10px auto;
+		width: 100px;
+		height: 35px;
+		background: #0081e0;
+		float: right;
+	}
+	
+		#main .notice-table .notice-reg a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			color: #fff;
+			line-height: 35px;
+			font-size: 14px;
+		}
+		
+		#main .notice-table .notice-reg:after {
+			clear: both;
+		}
 			
 			
-			
+/* ------------------------------ 2. notice reg css ------------------------------ */
+
+
+
+
+
