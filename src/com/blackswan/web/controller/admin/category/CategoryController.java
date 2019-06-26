@@ -45,7 +45,7 @@ public class CategoryController extends HttpServlet {
 
 				result = cDao.insert(category);
 				if (result == -1) {
-					resp.sendRedirect("/error.jsp");
+					resp.sendRedirect("/blackswan2/error.jsp");
 					return;
 				}
 			
@@ -53,14 +53,13 @@ public class CategoryController extends HttpServlet {
 			 sum = cDao.sum();
 			list = cDao.countlist();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	
 		req.setAttribute("sum", sum);
 		req.setAttribute("countlist", list);
-		req.getRequestDispatcher("/WEB-INF/view/admin/category/category.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/admin/category.jsp").forward(req, resp);
 		return;
 
 	}

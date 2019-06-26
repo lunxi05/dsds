@@ -12,7 +12,7 @@
 </head>
 <body>
 	<h1 class="hidden">BLACKSWAN</h1>
-	<jsp:include page="../../inc/header.jsp" />
+	<jsp:include page=".././inc/header.jsp" />
 
 	<main>
 	<section id="admin-title">
@@ -85,6 +85,6 @@
 	</section>
 	</main>
 
-	<jsp:include page="../../inc/footer.jsp" />ter.jsp" />
+	<jsp:include page=".././inc/footer.jsp" />ter.jsp" />
 </body>
 </html>

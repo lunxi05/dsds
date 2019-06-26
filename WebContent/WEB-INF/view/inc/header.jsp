@@ -6,7 +6,7 @@
 <header>
 	<section id="header">
 		<div class="center">
-			<h1><a href="/blackswan2/index">로고</a></h1>
+			<h1><a href="/blackswan2/index" alt="blackswan logo">블랙스완</a></h1>
 			<section id="gnb">
 				<h1 class="hidden">메인메뉴</h1>
 				<ul class="main-menu">
@@ -47,8 +47,6 @@
 			</nav>
 		</div>
 	</section>
-</header>
-
 <script>
 $(document).ready(function(){
 	$("#mp-link").hide();
@@ -57,3 +55,4 @@ $(document).ready(function(){
 	});
 });
 </script>
+</header>

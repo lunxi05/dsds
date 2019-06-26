@@ -1,0 +1,250 @@
+/* 1. 모든 페이지 공통
+ * 1-1. reset css
+ * 1-2. header css +inc
+ * 1-3. footer css +inc
+ * 1-4. class css
+ * 
+ * 2. 일부 페이지 공통
+ * 2-1. breadcrumb css +inc
+ * 2-2. nav css +inc
+ * 2-3. title css
+ * 2-4. list-table css
+ * 2-5. paging css +inc
+ */
+
+/* ------------------------------ 1-1. reset ------------------------------ */
+*, html, body, div, span, h1, h2, h3, h4, h5, h6, p, img, dl, dt, dd, ol,
+	ul, li, fidleset, form, label, button, input, textarea, select, option,
+	table, thead, tbody, tr, td, th, caption, article, aside, nav, header,
+	main, footer, section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	font-size: 100%;
+	font-family: 'Malgun Gothic', san-serif;
+	letter-spacing: -1px;
+	box-sizing: border-box;
+	color: inherit;
+	line-height: 1;
+	box-shadow: none;
+}
+
+article, header, footer, nav, aside, section, main {
+	display: block;
+}
+
+template {
+	display: none;
+}
+
+a:link, a:focus, a:visited, a:active, a:hover {
+	text-decoration: none;
+	border: 0;
+	color: inherit;
+}
+
+ol, ul, li, dl, dt, dd {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*:before, *:after {
+	content: "";
+}
+
+/* ------------------------------ 1-2. header ------------------------------ */
+#header {
+	background: #fff; 
+	height: 70px;
+}
+
+	#header .center {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+	}
+	
+		#header .center>h1 {
+			display: inline-block;
+			width: 152px;
+			height: 29px;
+		}
+		
+			#header .center>h1 a {
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: url("../images/logo.png") no-repeat center;
+				color: transparent;
+				text-indent: -999%;
+			}
+
+		#header .center #gnb {
+			display: inline-block;
+			font-size: 18px;
+			font-weight: bold;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		
+			#header .center #gnb .main-menu {
+				width: 250px;
+				display: flex;
+				justify-content: space-between; 			
+			}
+			
+		#header .center #user-menu {
+			display: inline-block;
+		}
+		
+			#header .center #user-menu .user-direct {
+				display: flex; 
+				align-items: center; 
+			}
+			
+				#header .center #user-menu .user-direct .log,
+				#header .center #user-menu .user-direct .signup {
+					width: 90px; 
+					height: 34px;
+					font-size: 16px;
+					margin-left: 5px; 
+					line-height: 30px; 
+					text-align: center; 
+					border: 1px solid #E3E3E3;
+				}
+				
+				#header .center #user-menu .user-direct .log:hover,
+				#header .center #user-menu .user-direct .signup:hover {
+					background: #ebebeb;
+				}
+				
+				#header .center #user-menu .user-direct .user {
+					display: flex;
+					align-items: center; 
+				}
+		
+					#header .center #user-menu .user-direct .user img {
+						width: 42px;
+						height: 42px;
+						border: 1px solid #d3d3d3;
+						border-radius: 50%;
+						overflow: hidden;
+					}
+					
+					#header .center #user-menu .user-direct .user span {
+						font-size: 16px; 
+						margin-left: 15px; 
+					}
+					
+					#header .center #user-menu .user-direct .user .user-button {
+						width: 10px;
+						height: 10px;
+						border: 1px solid;
+						border-color: transparent transparent #000 #000;
+						transform: rotate(-45deg) translateY(-5px);
+					}
+		
+				#header .center #user-menu .user-direct .search {
+					width: 70px;
+					height: 70px;
+					line-height: 70px;
+					background: #0081DF;
+					margin: 0 0 0 30px;
+				}
+				
+					#header .center #user-menu .user-direct .search a {
+						display: block;
+						position: relative;
+						width: 100%;
+						height: 100%;
+					}
+					
+						#header .center #user-menu .user-direct .search a span {
+							width: 20px;
+							height: 20px;
+							border-radius: 50%;
+							border: 3px solid #fff;
+							display: inline-block; 
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -55%); 
+							color: transparent;
+						}
+						
+							#header .center #user-menu .user-direct .search a span:after {
+								content: "";
+								position: absolute; 
+								bottom: -5px;
+								right: -5px;
+								width: 0px;
+								height: 8px;
+								border: solid #fff; 
+								border-width: 1px 0 1px 3px;
+								transform: rotate(-50deg);
+							}
+							
+		#header .center #mp-link {
+			width: 179px;
+			position: absolute;
+			top: 69px; 
+			right: 70px;
+			z-index: 800;
+			background: #fff; 
+		}
+		
+			#header .center #mp-link ul {
+				border: 1px solid #d8d8d8; 
+			}
+			
+				#header .center #mp-link ul li {
+					font-size: 16px;
+					line-height: 40px;
+					text-align: center;
+					transition: all 0.5s ease;
+				}
+				
+				#header .center #mp-link ul li+li {
+					border-top: 1px solid #d8d8d8; 
+				}
+				
+				#header .center #mp-link ul li:hover {
+					background: #434343;
+					color: #fff;
+					font-weight: bold;
+				}
+		
+		
+
+/* ------------------------------ 1-3. footer ------------------------------ */
+
+/* ------------------------------ 1-4. class ------------------------------ */
+.hidden {
+	display: none;
+}
+
+.center {
+	width: 1200px;
+	height: inherit;
+	margin: 0 auto;
+}
+
+
+/* ------------------------------ 2-1. breadcrumb ------------------------------ */
+
+/* ------------------------------ 2-2. nav ------------------------------ */
+
+/* ------------------------------ 2-3. title ------------------------------ */
+
+/* ------------------------------ 2-4. list-table ------------------------------ */
+
+/* ------------------------------ 2-5. paging ------------------------------ */
