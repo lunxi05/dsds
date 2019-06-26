@@ -85,7 +85,7 @@
 					<dl>
 						<dt>우편번호</dt>
 						<dd>
-							<input type="text" name="addnum">현재나의우편번호${member.addressNum}
+							<input type="text" name="addnum" style="border: 1px solid">현재나의우편번호${member.addressNum}
 						</dd>
 					</dl>
 					<dl>

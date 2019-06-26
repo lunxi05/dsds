@@ -29,7 +29,7 @@ public class OracleBuyingDao implements BuyingDao {
 
 		while (rs.next()) {
 			Buying buying = new Buying(rs.getInt("id"), rs.getInt("fundingId"), rs.getInt("memberId"),
-					rs.getInt("quantity"), rs.getDate("paydate"), rs.getInt("payPr"), rs.getDate("shippingdate"),
+					rs.getDate("paydate"), rs.getInt("payPr"), 
 					rs.getString("req"), rs.getInt("state"));
 			list.add(buying);
 		}

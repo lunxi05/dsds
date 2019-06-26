@@ -12,8 +12,14 @@
 
 
 </head>
-
 <body>
+<!--  탭-->
+<div>
+	<ul>
+		<li><a href=""></a></li>
+	</ul>
+</div>
+
 	<h1 class="hidden">BLACKSWAN</h1>
 	<jsp:include page="../inc/header.jsp" />
 
@@ -54,24 +60,23 @@
 
 		<section id="funding-tab">
 			<h1 class="hidden">펀딩 탭</h1>
+			<!--  탭-->
 			<div class="center">
 				<ul>
-					<li>스토리 소개</li>
-					<li>펀딩후기</li>
-					<li>Q&A</li>
-					<li>환불 및 교환</li>
-					<li>창작자 소개</li>
+					<li><a href="#funding-content">스토리 소개</a></li>
+					<li><a href="#funding-review">펀딩후기</a></li>
+					<li><a href="#funding-qna">Q&A</a></li>
+					<li><a href="#funding-refund">환불 및 교환</a></li>
+					<li><a href="#funding-into">창작자 소개</a></li>
 				</ul>
 			</div>
+		<!--  탭-->
 		</section>
 
 		<section id="funding-content">
 			<h1 class="hidden">펀딩 내용</h1>
 			<div class="center">
-				<%-- 				<div>					
-					<br> <br>
-					${funding.sdate}<br> ${funding.edate}<br> ${funding.hit}<br>
-				</div> --%>
+		
 				<section class="funding-detail">
 					<h1 class="hidden">펀딩 소개</h1>
 					<section class="funding-visual">
@@ -145,11 +150,21 @@
 							</div> -->
 					</section>
 					</c:forEach>
-					
 				</section>
-
 			</div>
 		</section>
+	</section>
+	<section id="funding-review">
+		여긴 펀딩리뷰
+	</section>
+	<section id="funding-qna">
+		여긴 펀딩 붐
+	</section>
+	<section id="funding-refund">
+		여긴 펀딩 환불
+	</section>
+	<section id="funding-into">
+		여긴 펀딩 인트로
 	</section>
 	</main>
 	
