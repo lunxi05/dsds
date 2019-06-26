@@ -72,11 +72,6 @@ public class OracleBuyingDao implements BuyingDao {
 		return 0;
 	}
 
-	@Override
-	public java.util.List<Buying> getList() throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public int getCount(int id) throws ClassNotFoundException, SQLException {
