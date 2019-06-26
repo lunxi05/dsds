@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href=".././css/style.css">
-<link rel="stylesheet" type="text/css" href=".././css/index.css">
 <link rel="stylesheet" type="text/css" href=".././css/funding.css">
 
 
@@ -141,9 +140,9 @@
 								<br>
 								<span>발송 예상일 몇년 몇월 받기</span>
 							</div>
-							<div class="fcount">
+<!-- 							<div class="fcount">
 								<img src=".././images/check.png"><span>00명 참여</span> <span>00개 남음</span>
-							</div>
+							</div> -->
 					</section>
 					</c:forEach>
 					
