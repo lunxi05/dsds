@@ -72,6 +72,7 @@ public class OracleFundingDao implements FundingDao{
 					 rs.getString("content"),
 					 rs.getString("company_name"),
 					 rs.getString("name"),
+					 rs.getInt("payc"),
 					 rs.getInt("pay"),
 					 rs.getInt("part_rate")
 					);
@@ -90,7 +91,7 @@ public class OracleFundingDao implements FundingDao{
 		
 		FundingView funding = null;
 		
-		String sql = "SELECT * FROM FUNDING WHERE ID="+id;
+		String sql = "SELECT * FROM FUNDING_VIEW WHERE ID="+id;
 		
 		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -98,7 +99,7 @@ public class OracleFundingDao implements FundingDao{
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 		
-		if(rs.next()) {
+		while(rs.next()) {
 			funding = new FundingView(
 					 rs.getInt("num"),
 					 rs.getInt("id"),
@@ -116,6 +117,7 @@ public class OracleFundingDao implements FundingDao{
 					 rs.getString("content"),
 					 rs.getString("company_name"),
 					 rs.getString("name"),
+					 rs.getInt("payc"),
 					 rs.getInt("pay"),
 					 rs.getInt("part_rate")
 					);
