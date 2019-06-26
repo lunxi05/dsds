@@ -3,7 +3,7 @@ package com.blackswan.web.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.blackswan.web.dao.oracle.Admin_Qna_View;
+import com.blackswan.web.entity.Admin_Qna_View;
 import com.blackswan.web.entity.Qna;
 
 public interface QnaDao {

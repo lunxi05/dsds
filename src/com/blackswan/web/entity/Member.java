@@ -20,6 +20,14 @@ public class Member {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Member(String email, String name, String pw, int phone, String eventAgree) {
+		this.email = email;
+		this.name = name;
+		this.pw = pw;
+		this.phone = phone;
+		this.eventAgree = eventAgree;
+	}
+	
 	public Member(int id, String email, String name, String pw, int phone, String profile, String eventAgree,
 			int adminId, String address, int addressNum, Date regdate) {
 		

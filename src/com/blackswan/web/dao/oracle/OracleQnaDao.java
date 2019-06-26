@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.blackswan.web.dao.QnaDao;
+import com.blackswan.web.entity.Admin_Qna_View;
 import com.blackswan.web.entity.Notice;
 import com.blackswan.web.entity.Qna;
 import com.sun.xml.internal.bind.annotation.OverrideAnnotationOf;

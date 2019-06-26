@@ -1,9 +1,6 @@
-package com.blackswan.web.dao.oracle;
+package com.blackswan.web.entity;
 
 import java.util.Date;
-
-import com.blackswan.web.entity.Funding;
-import com.blackswan.web.entity.Member;
 
 public class FundingView extends Funding {
 

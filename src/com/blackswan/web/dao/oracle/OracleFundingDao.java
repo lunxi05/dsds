@@ -13,6 +13,7 @@ import java.util.List;
 
 import com.blackswan.web.dao.FundingDao;
 import com.blackswan.web.entity.Funding;
+import com.blackswan.web.entity.FundingView;
 import com.blackswan.web.entity.Seller;
 
 public class OracleFundingDao implements FundingDao{
@@ -256,5 +257,7 @@ public class OracleFundingDao implements FundingDao{
 
 		return count;
 	}
+
+	
 
 }

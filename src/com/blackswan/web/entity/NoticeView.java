@@ -1,8 +1,6 @@
-package com.blackswan.web.dao.oracle;
+package com.blackswan.web.entity;
 
 import java.util.Date;
-
-import com.blackswan.web.entity.Notice;
 
 public class NoticeView extends Notice {
 
