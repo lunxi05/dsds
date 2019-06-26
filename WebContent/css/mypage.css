@@ -1,0 +1,42 @@
+/*
+ * 1. admin °øÅë css
+ * 2-1. admin member list css
+ * 2-2. admin member detail css
+ * 3. admin funding list css
+ * 4. admin event list css
+ * 5. admin category list css
+ */
+
+/* ------------------------------ 1. admin css ------------------------------ */
+ 
+#section .h-click ul,
+#section .h-click li{
+	padding: 0;
+	margin: 0;
+} 
+#section .h-click li {
+	border: 1px solid gray;
+	width: 100px;
+	height: 30px;
+}
+
+#section .d-none{
+	display:none;
+}
+#section .d-none.current{
+	display:block;
+}
+	.h-click ul{
+		display:flex;
+	}
+
+	.pro-img{
+		width: 100px;
+	}
+#profile .pro-img{
+	width: 150px;
+}
+
+
+
+
