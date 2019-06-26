@@ -50,7 +50,7 @@
 
 		<section id="funding-title">
 			<h1>${funding.title}</h1>
-			<div class="category">${funding.categoryId}</div>
+			<div class="category">${funding.cateName}</div>
 		</section>
 
 		<section id="funding-tab">
@@ -98,7 +98,7 @@
 					<section class="funding-intro">
 						<h1>스토리 소개</h1>
 						<div>
-							내용내용내용내용내용
+							${funding.content}
 						</div>
 					</section>
 				</section>
@@ -109,15 +109,15 @@
 						<div class="funding-goal">
 							<div>
 								<span>모인금액</span>
-								<span>11,111,999원</span>
+								<span>${funding.pay}원</span>
 								<span>${funding.tAmount}원 목표</span>
 							</div>
-							<div class="circle">50%</div>
+							<div class="circle">${funding.partRate}</div>
 						</div>
 						<table>
 							<tr>
 								<td>참여인원</td>
-								<td>nnn명</td>
+								<td>${funding.payc}명</td>
 							</tr>
 							<tr>
 								<td>마감일</td>
@@ -132,12 +132,12 @@
 						</div>
 					</section>
 
-					<!-- 반복문 써서 돌리기 -->
+					<c:forEach var="p" items="${price}">
 					<section class="funding-item">
 						<h1 class="hidden">펀딩 아이템</h1>
-							<div class="price"><span>nnn</span>원</div>
+							<div class="price"><span>${p.rPrice}</span>원</div>
 							<div class="foption">
-								<span>펀딩옵션 내용</span>
+								<span>${p.rContent}</span>
 								<br>
 								<span>발송 예상일 몇년 몇월 받기</span>
 							</div>
@@ -145,6 +145,8 @@
 								<img src=".././images/check.png"><span>00명 참여</span> <span>00개 남음</span>
 							</div>
 					</section>
+					</c:forEach>
+					
 				</section>
 
 			</div>

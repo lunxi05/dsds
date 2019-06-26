@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.blackswan.web.dao.FundingDao;
+import com.blackswan.web.dao.FundingPriceDao;
 import com.blackswan.web.dao.oracle.OracleFundingDao;
+import com.blackswan.web.dao.oracle.OracleFundingPriceDao;
 
 @WebServlet("/funding/detail")
 public class DetailController extends HttpServlet {
@@ -19,11 +21,13 @@ public class DetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		FundingDao fundingDao = new OracleFundingDao();
+		FundingPriceDao fundingPrice = new OracleFundingPriceDao();
 		
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		
 		try {
 			req.setAttribute("funding", fundingDao.get(id));
+			req.setAttribute("price", fundingPrice.getList(id));
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
