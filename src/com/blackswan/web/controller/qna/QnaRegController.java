@@ -10,42 +10,59 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.blackswan.web.dao.QnaDao;
+import com.blackswan.web.dao.QnaDao;
 import com.blackswan.web.dao.oracle.OracleQnaDao;
+import com.blackswan.web.dao.oracle.OracleQnaDao;
+import com.blackswan.web.entity.Qna;
 import com.blackswan.web.entity.Qna;
 
 @WebServlet("/qna/replyreg")
-public class QnaRegController extends HttpServlet {
-
+public class QnaRegController extends HttpServlet{
 	
-@Override
-protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-req.getRequestDispatcher("/WEB-INF/view/qna/replyreg.jsp");
-}
-
-@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
-	QnaDao qnaDao = new OracleQnaDao();
-	
-	
-	Integer id = 53;
-	
-	if(req.getParameter("id") !=null && !req.getParameter("id").equals(""))
-	id = Integer.parseInt(req.getParameter("id"));
-	
-	try {
-		req.setAttribute("qna", qnaDao.get(id));
-	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
+		request.getRequestDispatcher("/WEB-INF/view/qna/replyreg.jsp").forward(request, response);
+		
+		
 	}
-	catch (SQLException e) {
-		e.printStackTrace();
 	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		
+		Qna qna = new Qna();
+		
+		qna.setTitle(title);
+		qna.setContent(content);
+		
+		QnaDao qnaDao = new OracleQnaDao();
 	
-	}
-	req.getRequestDispatcher("/WEB-INF/view/qna/replyreg.jsp").forward(req,resp);
+		int result = 0;
+		
+		try {
+			result = qnaDao.insert(qna);
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		if(result != 1)
+			response.sendRedirect("error");
+		else
+			response.sendRedirect("list");
+		
+	
+
+
+	request.getRequestDispatcher("/WEB-INF/view/qna/replyreg.jsp").forward(request,response);
 }
 }
 
