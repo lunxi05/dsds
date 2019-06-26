@@ -22,7 +22,6 @@ public class IndexController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		HttpSession session = req.getSession();
 		FundingDao fundingDao = new OracleFundingDao();
 		
 		try {
@@ -31,22 +30,6 @@ public class IndexController extends HttpServlet {
 			e1.printStackTrace();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
-		}
-
-		if (session.getAttribute("ssid") != null) {
-			int sId = (int) session.getAttribute("ssid");
-
-			MemberDao memberDao = new OracleMemberDao();
-
-			try {
-				if (sId != 0)
-					req.setAttribute("hmember", memberDao.get(sId));
-
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 		}
 
 		req.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(req, resp);

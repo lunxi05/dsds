@@ -37,7 +37,7 @@ public class OracleNoticeDao implements NoticeDao {
 
 		String sql = "SELECT * FROM NOTICE_VIEW WHERE " + field + " LIKE ? AND NUM BETWEEN ? AND ? ";
 
-		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 		PreparedStatement st = con.prepareStatement(sql);
@@ -78,7 +78,7 @@ public class OracleNoticeDao implements NoticeDao {
 
 		String sql = "select * from notice where id =" + id;
 
-		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 		Statement st = con.createStatement();
@@ -114,7 +114,7 @@ public class OracleNoticeDao implements NoticeDao {
 		String sql = "SELECT * FROM (SELECT * FROM NOTICE_VIEW ORDER BY REGDATE) WHERE REGDATE > "+
 				"(SELECT REGDATE FROM NOTICE WHERE ID = '"+id+"')" + "AND ROWNUM = 1";
 		
-		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url,"\"PRJ\"","1234");
 		Statement st = con.createStatement();
@@ -152,7 +152,7 @@ public class OracleNoticeDao implements NoticeDao {
 		String sql = "SELECT * FROM NOTICE_VIEW WHERE REGDATE < "+
 				"(SELECT REGDATE FROM NOTICE WHERE ID = '"+id+"')" + "AND ROWNUM = 1";
 
-		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 		Statement st = con.createStatement();
@@ -189,7 +189,7 @@ public class OracleNoticeDao implements NoticeDao {
 		String sql = "insert into notice(id, division, title, content) "
 				+ "values(noti_seq.nextval,?,?,?)";
 
-		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 
@@ -212,7 +212,7 @@ public class OracleNoticeDao implements NoticeDao {
 
 		String sql = "update notice set division=?, title=?, content=? where id=?";
 
-		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 
@@ -236,7 +236,7 @@ public class OracleNoticeDao implements NoticeDao {
 
 		String sql = "delete from notice where id=?";
 
-		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
 
@@ -249,6 +249,38 @@ public class OracleNoticeDao implements NoticeDao {
 		con.close();
 
 		return result;
+	}
+
+
+	@Override
+	public int getCount() throws ClassNotFoundException, SQLException {
+		return getCount("title", "");
+	}
+
+	@Override
+	public int getCount(String field, String query) throws ClassNotFoundException, SQLException {
+
+		int count = 0;
+		
+		String sql = "SELECT COUNT(ID) COUNT FROM NOTICE WHERE " + field + " LIKE ?";
+		
+		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+		PreparedStatement st = con.prepareStatement(sql);
+
+		st.setString(1, "%" + query + "%");		
+		
+		ResultSet rs = st.executeQuery();
+		
+		while (rs.next())
+			count = rs.getInt("count");
+		
+		rs.close();
+		st.close();
+		con.close();
+
+		return count;
 	}
 
 }

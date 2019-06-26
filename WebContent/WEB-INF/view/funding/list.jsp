@@ -29,7 +29,7 @@
 				<div class="list-count">
 					<span>전체</span><span>410</span>
 				</div>
-				<div class="list-option">
+				<div class="hidden"><!-- class="list-option" -->
 					<input type="checkbox" id="check"><label for="check">성공한
 						펀딩 보기</label> <select>
 						<option>종료임박순</option>
@@ -81,21 +81,19 @@
 			<section class="paging">
 				<h1 class="hidden">페이저</h1>
 				<div class="first-page">
-					<a href="list?p=1">처음</a>
+					<a href="list?page=1">처음</a>
 				</div>
 				<div class="prev-page">
-					<a
-						href="list?page=${(p < 6)? p : p -5}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">이전</a>
+					<a href="list?page=${start==1? 1:start-1}">이전</a>
 				</div>
 				<ul>
 					<c:forEach var="n" begin="${start}" end="${start+4}" varStatus="s">
-						<li><a
-							href="list?page=${n}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">${n}</a></li>
+						<li><a href="list?page=${n}">${n}</a></li>
 					</c:forEach>
 				</ul>
 				<div class="next-page">
 					<a
-						href="list?page=${start+5}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">다음</a>
+						href="list?page=${start+5}">다음</a>
 				</div>
 				<div class="end-page">
 					<a href="">끝</a>

@@ -20,8 +20,23 @@ public class NoticeListController extends HttpServlet {
 		
 		NoticeDao noticeDao = new OracleNoticeDao();
 		
+		int page = 1;
+		if(request.getParameter("p") != null && request.getParameter("p").equals(""))
+			page = Integer.parseInt(request.getParameter("p"));
+		
+		
+		String field = "title";
+		if(request.getParameter("field") != null && request.getParameter("field").equals(""))
+			field = request.getParameter("field");
+		
+		String query = "";
+		if(request.getParameter("query") != null && request.getParameter("query").equals(""))
+			query = request.getParameter("query");
+		
+		
 		try {
-			request.setAttribute("nlist", noticeDao.getList());
+			request.setAttribute("ncount", noticeDao.getCount(field, query));
+			request.setAttribute("nlist", noticeDao.getList(page, field, query));
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

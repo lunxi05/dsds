@@ -13,17 +13,18 @@ public class Funding {
 	private String title;
 	private int tAmount;
 	private String introImg;
-	private Date sdate;
-	private Date edate;
+	private String sdate;
+	private String edate;
 	private int hit;
 	private int state;
+	private String content;
 	
-	public Funding() {
+	 public Funding() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Funding(int id, int adminId, int memberId, int categoryId, Date regdate, String title, int tAmount,
-			String introImg, Date sdate, Date edate, int hit, int state) {
+			String introImg, String sdate, String edate, int hit, int state, String content) {
 		this.id = id;
 		this.adminId = adminId;
 		this.memberId = memberId;
@@ -36,6 +37,7 @@ public class Funding {
 		this.edate = edate;
 		this.hit = hit;
 		this.state = state;
+		this.content = content;
 	}
 
 	public int getId() {
@@ -102,19 +104,19 @@ public class Funding {
 		this.introImg = introImg;
 	}
 
-	public Date getSdate() {
+	public String getSdate() {
 		return sdate;
 	}
 
-	public void setSdate(Date sdate) {
+	public void setSdate(String sdate) {
 		this.sdate = sdate;
 	}
 
-	public Date getEdate() {
+	public String getEdate() {
 		return edate;
 	}
 
-	public void setEdate(Date edate) {
+	public void setEdate(String edate) {
 		this.edate = edate;
 	}
 
@@ -132,6 +134,14 @@ public class Funding {
 
 	public void setState(int state) {
 		this.state = state;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 	
 	
