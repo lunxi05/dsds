@@ -28,9 +28,16 @@ public class OracleBuyingDao implements BuyingDao {
 		ResultSet rs = st.executeQuery(sql);
 
 		while (rs.next()) {
-			Buying buying = new Buying(rs.getInt("id"), rs.getInt("fundingId"), rs.getInt("memberId"),
-					rs.getInt("quantity"), rs.getDate("paydate"), rs.getInt("payPr"), rs.getDate("shippingdate"),
-					rs.getString("req"), rs.getInt("state"));
+			Buying buying = new Buying(
+					rs.getInt("id"),
+					rs.getInt("fundingId"),
+					rs.getInt("memberId"),
+					rs.getInt("quantity"),
+					rs.getDate("paydate"),
+					rs.getInt("payPr"),
+					rs.getDate("shippingdate"),
+					rs.getString("req"),
+					rs.getInt("state"));
 			list.add(buying);
 		}
 
