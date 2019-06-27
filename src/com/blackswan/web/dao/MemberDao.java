@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
-import com.blackswan.web.dao.oracle.MemberView;
 import com.blackswan.web.entity.Member;
+import com.blackswan.web.entity.view.MemberView;
 
 public interface MemberDao {
 	

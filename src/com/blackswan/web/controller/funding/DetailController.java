@@ -1,3 +1,4 @@
+
 package com.blackswan.web.controller.funding;
 
 import java.io.IOException;
@@ -26,6 +27,7 @@ public class DetailController extends HttpServlet {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		
 		try {
+//			req.setAttribute(name, o);
 			req.setAttribute("funding", fundingDao.get(id));
 			req.setAttribute("price", fundingPrice.getList(id));
 		} catch (ClassNotFoundException e) {

@@ -3,8 +3,8 @@ package com.blackswan.web.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.blackswan.web.dao.oracle.NoticeView;
 import com.blackswan.web.entity.Notice;
+import com.blackswan.web.entity.view.NoticeView;
 
 public interface NoticeDao {
 	List<NoticeView> getList() throws ClassNotFoundException, SQLException;

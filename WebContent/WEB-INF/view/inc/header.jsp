@@ -6,12 +6,17 @@
 <header>
 	<section id="header">
 		<div class="center">
-			<h1><a href="/blackswan2/index">로고</a></h1>
+			<h1><a href="/blackswan2/index" alt="blackswan logo">블랙스완</a></h1>
 			<section id="gnb">
 				<h1 class="hidden">메인메뉴</h1>
 				<ul class="main-menu">
 					<li><a href="/blackswan2/funding/list">펀딩</a></li>
-					<li><a href="/blackswan2/funding/leg">등록신청</a></li>
+					<c:if test="${ssid != null }">
+					<li><a href="/blackswan2/funding/reg2">등록신청</a></li>
+					</c:if>
+					<c:if test="${ssid == null}">
+					<li><a href="/blackswan2/member/login">등록신청</a></li>
+					</c:if>
 					<li><a href="/blackswan2/notice/list">고객센터</a></li>
 					<c:if test="${ssid == 1}">
 					<li><a href="/blackswan2/admin/member/list">관리자</a></li>
@@ -40,15 +45,13 @@
 				<h1 class="hidden">마이페이지 링크</h1>
 				<ul>
 					<li><a href="">최근 본 목록</a></li>
-					<li><a href="">마이페이지</a></li>
+					<li><a href="/blackswan2/member/mypage">마이페이지</a></li>
 					<li><a href="">회원정보수정</a></li>
 					<li><a href="/blackswan2/member/logout">로그아웃</a></li>
 				</ul>
 			</nav>
 		</div>
 	</section>
-</header>
-
 <script>
 $(document).ready(function(){
 	$("#mp-link").hide();
@@ -57,3 +60,4 @@ $(document).ready(function(){
 	});
 });
 </script>
+</header>

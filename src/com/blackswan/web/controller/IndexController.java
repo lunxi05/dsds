@@ -8,13 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.blackswan.web.dao.FundingDao;
-import com.blackswan.web.dao.MemberDao;
 import com.blackswan.web.dao.oracle.OracleFundingDao;
-import com.blackswan.web.dao.oracle.OracleMemberDao;
-import com.blackswan.web.entity.Member;
 
 @WebServlet("/index")
 public class IndexController extends HttpServlet {

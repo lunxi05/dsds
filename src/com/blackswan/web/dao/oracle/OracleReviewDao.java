@@ -11,7 +11,6 @@ import java.util.List;
 
 import com.blackswan.web.dao.ReviewDao;
 import com.blackswan.web.entity.Review;
-import com.newlecture.web.entity.Notice;
 
 
 public class OracleReviewDao implements ReviewDao {

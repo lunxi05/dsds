@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.blackswan.web.dao.CategoryDao;
 import com.blackswan.web.entity.Category;
-import com.blackswan.web.entity.CategoryView;
+import com.blackswan.web.entity.view.CategoryView;
 
 public class OracleCategoryDao implements CategoryDao {
 
