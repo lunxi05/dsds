@@ -75,26 +75,7 @@
 			<c:set var="p" value="${(empty param.page) ? 1 : param.page}" />
 			<c:set var="start" value="${p - (p-1)%5}" />
 
-			<section class="paging">
-				<h1 class="hidden">페이저</h1>
-				<div class="first-page">
-					<a href="list?page=1">처음</a>
-				</div>
-				<div class="prev-page">
-					<a href="list?page=${(p < 6)? p : p -5}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">이전</a>
-				</div>
-				<ul>
-					<c:forEach var="n" begin="${start}" end="${start+4}" varStatus="s">
-						<li><a href="list?page=${n}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">${n}</a></li>
-					</c:forEach>
-				</ul>
-				<div class="next-page">
-					<a href="list?page=${start+5}&state=${param.state}&sdate=${param.sdate}&edate=${param.edate}&title=${param.title}">다음</a>
-				</div>
-				<div class="end-page">
-					<a href="">끝</a>
-				</div>
-			</section>
+			<jsp:include page="../inc/paging.jsp" />
 		</div>
 	</section>
 	</main>
