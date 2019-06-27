@@ -75,10 +75,6 @@
 									<td><input type="date" name="edate"></td>
 								</tr>
 								<tr>
-									<th>상태</th>
-									<td><input type="text" name="state"></td>
-								</tr>
-								<tr>
 									<th>프로젝트 소개</th>
 									<td><textarea name="content"></textarea></td>
 								</tr>
