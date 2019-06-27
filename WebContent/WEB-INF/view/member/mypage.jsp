@@ -12,16 +12,17 @@
 <script src="../js/member/mypage.js"></script>
 </head>
 <body>
-<!-- header--------------------- -->
+	<!-- header--------------------- -->
 	<jsp:include page=".././inc/header.jsp" />
-<!-- main------------------ -->
+	<!-- main------------------ -->
 	<section id="profile">
 		<ul>
 			<li>개인회원</li>
 			<li>${member.name}</li>
 			<li>참여펀딩</li>
 			<li>개설펀딩</li>
-			<li><img class="pro-img" src="/blackswan2/upload/${member.profile}"></li>
+			<li><img class="pro-img"
+				src="/blackswan2/upload/${member.profile}"></li>
 		</ul>
 	</section>
 	<section id="section">
@@ -31,19 +32,17 @@
 				<li><a href="#tap2">개설펀딩</a></li>
 				<li><a href="#tap3">설정</a></li>
 			</ul>
-		</div>	
+		</div>
 		<div class="content-list">
 			<div id="tap1" class="d-none current">
 				<h2>참여펀팅</h2>
 				<div>
 					<form method="get">
-						<input type="date">~ <input type="date"> 
-						<input type="submit" value="검색">
+						<input type="date">~ <input type="date"> <input
+							type="submit" value="검색">
 					</form>
 				</div>
-				<div>
-					2019.05
-				</div>
+				<div>2019.05</div>
 				<div>
 					<ul>
 						<li>날짜</li>
@@ -55,14 +54,33 @@
 				</div>
 			</div>
 			<div id="tap2" class="d-none">
-				<h2>펀딩개설</h2>
-				
+				<h2>개설펀딩</h2>
+				<div>
+					<form method="get">
+						<input type="date">~ <input type="date"> <input
+							type="submit" value="검색">
+					</form>
+				</div>
+				<div>2019.05</div>
+				<div>심사대기 중 입니다.</div>
+				<c:forEach var="f" items="${flist}">
+				<%-- <div class="circle">${funding.partRate}</div> --%>
+				<div class="tAmount">${f.tAmount}원목표</div>
+				<div class="sdate">${f.sdate} ~ ${f.edate}</div>
+				<div class="title">${f.title}</div>
+				<div class="company_name">${f.companyName}</div>
+				</c:forEach>
+				<input name="event_apply" type="button" value="이벤트신청"><a href=""></a>
+				<input name="funding_edit" type="submit" value="펀딩 수정">
+				<input name="funding_del" type="submit" value="펀딩 삭제">
 			</div>
 			<div id="tap3" class="d-none">
 				<h2>설정</h2>
 				<form action="profile" method="post" enctype="multipart/form-data">
 					<dl>
-						<dt><img class="pro-img" src="/blackswan2/upload/${member.profile}"></dt>
+						<dt>
+							<img class="pro-img" src="/blackswan2/upload/${member.profile}">
+						</dt>
 						<dd>
 							<input type="file" name="file">
 						</dd>
@@ -100,9 +118,9 @@
 					<input type="submit" value="설정저장">
 				</form>
 				<form action="edit" method="post">
-					<label>현재 비밀번호</label><input type="password" name="pw">
-					<label>새비밀번호</label><input type="password" name="npw">
-					<label>비밀번호 확인</label><input type="password" name="npw1">
+					<label>현재 비밀번호</label><input type="password" name="pw"> <label>새비밀번호</label><input
+						type="password" name="npw"> <label>비밀번호 확인</label><input
+						type="password" name="npw1">
 					<c:if test="${param.error==2}">
 						<div>새로운 비밀번호가 일치하지 않습니다.</div>
 					</c:if>
@@ -116,7 +134,7 @@
 				</form>
 			</div>
 		</div>
-	</section>	
+	</section>
 
 	<!-- footer------------------------------ -->
 	<jsp:include page=".././inc/footer.jsp" />
