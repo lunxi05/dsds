@@ -80,7 +80,6 @@
 								</div>
 							</div>
 						</a>
-						</li>
 					</c:forEach>
 
 				</ul>

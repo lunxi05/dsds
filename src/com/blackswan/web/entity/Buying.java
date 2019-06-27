@@ -2,9 +2,8 @@ package com.blackswan.web.entity;
 
 import java.util.Date;
 
-
 public class Buying {
-	
+
 	private int id;
 	private int fundingId;
 	private int memberId;
@@ -12,13 +11,18 @@ public class Buying {
 	private int payPr;
 	private String req;
 	private int state;
-	
+	private String address;
+	private int addressNum;
+	private String name;
+	private int phone;
+
 	public Buying() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Buying(int id, int fundingId, int memberId, Date paydate, int payPr, String req, int state) {
-		super();
+	public Buying(int id, int fundingId, int memberId, Date paydate, int payPr, String req, int state, String address,
+			int addressNum, String name, int phone) {
+
 		this.id = id;
 		this.fundingId = fundingId;
 		this.memberId = memberId;
@@ -26,7 +30,12 @@ public class Buying {
 		this.payPr = payPr;
 		this.req = req;
 		this.state = state;
+		this.address = address;
+		this.addressNum = addressNum;
+		this.name = name;
+		this.phone = phone;
 	}
+
 
 	public int getId() {
 		return id;
@@ -68,7 +77,6 @@ public class Buying {
 		this.payPr = payPr;
 	}
 
-
 	public String getReq() {
 		return req;
 	}
@@ -84,11 +92,36 @@ public class Buying {
 	public void setState(int state) {
 		this.state = state;
 	}
-	
-	
-	
-	
-	
-	
-	
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public int getAddressNum() {
+		return addressNum;
+	}
+
+	public void setAddressNum(int addressNum) {
+		this.addressNum = addressNum;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPhone() {
+		return phone;
+	}
+
+	public void setPhone(int phone) {
+		this.phone = phone;
+	}
 }
