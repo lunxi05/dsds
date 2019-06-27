@@ -7,7 +7,6 @@ import java.util.List;
 import com.blackswan.web.entity.Funding;
 import com.blackswan.web.entity.Notice;
 import com.blackswan.web.entity.Seller;
-import com.blackswan.web.entity.view.FDetailView;
 import com.blackswan.web.entity.view.FundingView;
 import com.blackswan.web.entity.view.NoticeView;
 
@@ -26,5 +25,4 @@ public interface FundingDao {
 
 	int getCount() throws ClassNotFoundException, SQLException;
 	int getCount(String field, String query) throws ClassNotFoundException, SQLException;
-	FDetailView getView(int id) throws ClassNotFoundException, SQLException;
 }

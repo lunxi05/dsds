@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.blackswan.web.dao.ReviewDao;
 import com.blackswan.web.dao.oracle.OracleReviewDao;
-import com.blackswan.web.entity.Review;
+import com.blackswan.web.entity.view.ReviewView;
 
 @WebServlet("/review/edit")
 public class EditController extends HttpServlet {
@@ -25,7 +25,7 @@ public class EditController extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 
 		ReviewDao reviewDao = new OracleReviewDao();
-		Review r;
+		ReviewView r;
 		int result =0;
 		
 		try {
@@ -53,7 +53,7 @@ public class EditController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		ReviewDao reviewDao = new OracleReviewDao();
-		Review r;
+		ReviewView r;
 		int result =0;
 		
 		try {

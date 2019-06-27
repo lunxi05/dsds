@@ -12,7 +12,6 @@ import java.util.List;
 import com.blackswan.web.dao.FundingDao;
 import com.blackswan.web.entity.Funding;
 import com.blackswan.web.entity.Seller;
-import com.blackswan.web.entity.view.FDetailView;
 import com.blackswan.web.entity.view.FundingView;
 
 public class OracleFundingDao implements FundingDao{
@@ -258,50 +257,6 @@ public class OracleFundingDao implements FundingDao{
 		return count;
 	}
 
-	@Override
-	public FDetailView getView(int id) throws ClassNotFoundException, SQLException {
-		FDetailView funding = null;
-		
-		String sql = "SELECT * FROM FUNDING_VIEW WHERE ID="+id;
-		
-		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
-		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery(sql);
-		
-		while(rs.next()) {
-			funding = new FDetailView(
-					 rs.getString("id"),
-					 rs.getString("sel_id"),
-					 rs.getString("f_reg"),
-					 rs.getString("f_title"),
-					 rs.getString("t_amount"),
-					 rs.getString("intro_img"),
-					 rs.getString("s_date"),
-					 rs.getString("e_date"),
-					 rs.getString("content"),
-					 rs.getString("cate"),
-					 rs.getString("r_price"),
-					 rs.getString("r_content"),
-					 rs.getString("buy_mid"),
-					 rs.getString("name"),
-					 rs.getString("bid"),
-					 rs.getString("re_date"),
-					 rs.getString("re_cont"),
-					 rs.getString("re_title"),
-					 rs.getString("rimg"),
-					 rs.getString("re_id")
-					);
-		}
-		
-		
-		rs.close();
-		st.close();
-		con.close();		
-		
-		return funding;
-	}
 
 	
 
