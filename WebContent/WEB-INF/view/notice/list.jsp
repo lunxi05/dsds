@@ -11,7 +11,7 @@
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/notice.css">
-<!-- <script src="../js/notice/list.js"></script> -->
+<script src="../js/notice/list.js"></script>
 </head>
 
 
@@ -21,30 +21,7 @@
 
 
 	<main>
-	<section id="breadcrumb">
-		<h1 class="hidden">경로</h1>
-		<div class="center">
-			<ul>
-				<li><a href="/blackswan2/index">홈</a></li>
-				<li><script>
-					var url = window.location.pathname;
-					var bread = url.split("/")[2];
-					switch (bread) {
-					case "funding":
-						document.write("펀딩");
-						break;
-					case "reg":
-						document.write("등록신청");
-						break;
-					case "notice":
-						document.write("고객센터");
-						break;
-					}
-				</script></li>
-				<li>공지사항</li>
-			</ul>
-		</div>
-	</section>
+	<jsp:include page="../inc/breadcrumb.jsp" />
 	
 	<section id="notice-title">
 		<h1>공지사항</h1>
