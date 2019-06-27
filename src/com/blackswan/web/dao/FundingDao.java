@@ -26,9 +26,5 @@ public interface FundingDao {
 
 	int getCount() throws ClassNotFoundException, SQLException;
 	int getCount(String field, String query) throws ClassNotFoundException, SQLException;
-<<<<<<< HEAD
-=======
-	FDetailView getView(int id) throws ClassNotFoundException, SQLException;
-	
->>>>>>> refs/remotes/origin/master
+
 }
