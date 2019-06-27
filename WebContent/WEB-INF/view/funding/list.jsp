@@ -10,16 +10,27 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+
+
 <link rel="stylesheet" type="text/css" href="../css/funding.css">
 <script src="../js/funding/list.js"></script>
+
+
+
+
+
 </head>
 
 
 <body>
 	<h1 class="hidden">BLACKSWAN</h1>
+	<div class="class b-fundinglist">
 	<jsp:include page="../inc/header.jsp" />
 
-	<main> <jsp:include page="../inc/nav.jsp" />
+	<main>
+
+	<jsp:include page="../inc/nav.jsp" />
 
 	<section id="main">
 		<h1 class="hidden">메인컨텐츠</h1>
@@ -69,42 +80,21 @@
 								</div>
 							</div>
 						</a>
-						</li>
 					</c:forEach>
 
 				</ul>
 			</section>
 			
-			<c:set var="p" value="${(empty param.page) ? 1 : param.page}" />
-			<c:set var="start" value="${p - (p-1)%5}" />
+			
+			<jsp:include page="../inc/paging.jsp" />
 
-			<section class="paging">
-				<h1 class="hidden">페이저</h1>
-				<div class="first-page">
-					<a href="list?page=1">처음</a>
-				</div>
-				<div class="prev-page">
-					<a href="list?page=${start==1? 1:start-1}">이전</a>
-				</div>
-				<ul>
-					<c:forEach var="n" begin="${start}" end="${start+4}" varStatus="s">
-						<li><a href="list?page=${n}">${n}</a></li>
-					</c:forEach>
-				</ul>
-				<div class="next-page">
-					<a
-						href="list?page=${start+5}">다음</a>
-				</div>
-				<div class="end-page">
-					<a href="">끝</a>
-				</div>
-			</section>
 		</div>
 	</section>
 	</main>
 
 	<jsp:include page="../inc/footer.jsp" />
 
+	</div>
 </body>
 </html>
 

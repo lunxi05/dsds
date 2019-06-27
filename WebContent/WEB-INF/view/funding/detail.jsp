@@ -13,12 +13,7 @@
 
 </head>
 <body>
-	<!--  탭-->
-	<div>
-		<ul>
-			<li><a href=""></a></li>
-		</ul>
-	</div>
+
 
 	<h1 class="hidden">BLACKSWAN</h1>
 	<jsp:include page="../inc/header.jsp" />

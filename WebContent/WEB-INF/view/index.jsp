@@ -10,29 +10,35 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Black Swan Funding</title>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/index.css">
+
+
+ <link rel="stylesheet" type="text/css" href="./css/index.css">
 <script src="./js/index.js"></script>
+
+
+
 </head>
 
 
 <body>
 	<h1 class="hidden">BLACKSWAN</h1>
+	<div class="class b-index">
 	<jsp:include page="./inc/header.jsp" />
 
-	<main> <jsp:include page="./inc/nav.jsp" />
-
+	<main>
+	<jsp:include page="./inc/nav.jsp" />
 
 	<section id="banner">
 		<h1 class="hidden">배너</h1>
 		<div class="center">
 			<ul>
-				<li class="main"><a href=""><img src="images/banner.jpg"></a></li>
-				<li><a href=""><img src="https://cdn.pixabay.com/photo/2017/03/25/17/55/color-2174045__340.png"></a></li>
-				<li><a href=""><img src="https://cdn.pixabay.com/photo/2015/09/26/11/21/banner-958962_960_720.jpg"></a></li>
+				<li class="main"><a href="/blackswan2"><img src="images/banner.jpg"></a></li>
+				<li><a href="/blackswan2"><img src="https://happybean-phinf.pstatic.net/20190621_199/1561108953977zW45e_JPEG/PC_%D7%BC%B8%EB%A1%A4%D7%BA%EB%B0%B0%EB_%EA%B0%D7%D9_%281%29.jpg"></a></li>
+				<li><a href="/blackswan2"><img src="https://happybean-phinf.pstatic.net/20190625_2/1561426010401WjsbF_JPEG/PC__.jpg"></a></li>
 			</ul>
 			<div class="prev-banner"></div>
 			<div class="next-banner"></div>
-			<div class="banner-page">1&nbsp;/&nbsp;3</div>
+			<!-- <div class="banner-page">1&nbsp;/&nbsp;3</div> -->
 		</div>
 	</section>
 
@@ -47,11 +53,11 @@
 					<li>종료임박</li>
 				</ul>
 			</section>
-			<section class="page-select">
+<!-- 			<section class="page-select">
 				<h1 class="hidden">메인펀딩 페이징</h1>
 				<div class="prev-select"></div>
 				<div class="next-select"></div>
-			</section>
+			</section> -->
 			<section class="funding-select">
 				<h1 class="hidden">메인펀딩</h1>
 				<div class="info-select">
@@ -111,10 +117,13 @@
 			</section>
 		</div>
 	</section>
+	
+	
 	</main>
 
-	<jsp:include page="inc/footer.jsp" />
+	<jsp:include page="./inc/footer.jsp" />
 
+	</div>
 </body>
 </html>
 

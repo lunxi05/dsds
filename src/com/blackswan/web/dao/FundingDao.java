@@ -17,6 +17,7 @@ public interface FundingDao {
 	List<FundingView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
 	
 	FundingView get(int id) throws ClassNotFoundException, SQLException;
+	FundingView getViewMypage(int id) throws ClassNotFoundException, SQLException;
 	
 	int insert(Funding funding) throws ClassNotFoundException, SQLException;
 	int insert1(Seller seller) throws ClassNotFoundException, SQLException;
@@ -25,4 +26,9 @@ public interface FundingDao {
 
 	int getCount() throws ClassNotFoundException, SQLException;
 	int getCount(String field, String query) throws ClassNotFoundException, SQLException;
+<<<<<<< HEAD
+=======
+	FDetailView getView(int id) throws ClassNotFoundException, SQLException;
+	
+>>>>>>> refs/remotes/origin/master
 }

@@ -19,7 +19,7 @@
 						style="background: url('img/table_mid.gif') repeat-x; text-align: center;">
 						<td width="5"><img src="img/table_left.gif" width="5"
 							height="30" /></td>
-						<td>답글</td>
+						<td>질문하기</td>
 						<td width="5"><img src="img/table_right.gif" width="5"
 							height="30" /></td>
 					</tr>

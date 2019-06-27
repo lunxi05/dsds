@@ -74,10 +74,10 @@
 				<tr>
 					<td>이벤트 수신 동의</td>
 					<td>
-					<c:if test="${md.eventCheck == 1}">
+					<c:if test="${md.eventAgree == 'Y'}">
 						동의
 					</c:if>
-					<c:if test="${md.eventCheck == 0}">
+					<c:if test="${md.eventAgree == 'N'}">
 						거부
 					</c:if>
 					</td>
