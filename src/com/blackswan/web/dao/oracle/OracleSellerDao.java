@@ -14,6 +14,7 @@ import java.util.List;
 import com.blackswan.web.dao.FundingDao;
 import com.blackswan.web.dao.SellerDao;
 import com.blackswan.web.entity.Funding;
+import com.blackswan.web.entity.SelEvent;
 import com.blackswan.web.entity.Seller;
 import com.blackswan.web.entity.view.FundingView;
 
@@ -90,14 +91,66 @@ public List<Seller> getList(int page, String field, String query) throws ClassNo
 	return null;
 }
 
+
+
+
+
+
 @Override
-public FundingView get(int id) throws ClassNotFoundException, SQLException {
+public int getLastId() throws ClassNotFoundException, SQLException {
+	return 0;
 	// TODO Auto-generated method stub
-	return null;
+	
 }
 
 @Override
-public int update(Funding seller) throws ClassNotFoundException, SQLException {
+public Seller get(int id) throws ClassNotFoundException, SQLException {
+	// TODO Auto-generated method stub
+	Seller seller =null;
+	String sql ="select * from seller where id = ?";
+	
+	String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+	PreparedStatement st = con.prepareStatement(sql);
+	  
+	st.setInt(1, id);
+	
+	
+	ResultSet rs = st.executeQuery();
+	
+	while (rs.next()) {
+		seller = new Seller(
+					rs.getInt("id"),
+					rs.getInt("company_tel"),
+					rs.getString("company_email"),
+					rs.getString("company_name"),
+					rs.getString("company_img"),
+					rs.getString("company_web"), 
+					rs.getInt("company_comi"), 
+					rs.getInt("company_reg_num"),
+					rs.getString("company_reg"),
+					rs.getString("company_pass"), 
+					rs.getString("company_boss"),
+					rs.getString("company_bossemail")
+				);
+
+	}
+
+	rs.close();
+	st.close();
+	con.close();
+	
+	return seller;
+	
+//	select id, company_tel, company_email, company_name, "  
+//			+ " company_img, company_web, company_comi, company_reg_num, company_reg, "  
+//			+ " company_pass, company_boss, company_bossemail "
+	
+}
+
+@Override
+public int update(Seller seller) throws ClassNotFoundException, SQLException {
 	// TODO Auto-generated method stub
 	return 0;
 }
@@ -108,14 +161,8 @@ public int delete(int id) throws ClassNotFoundException, SQLException {
 	return 0;
 }
 
-@Override
-public int getLastId() throws ClassNotFoundException, SQLException {
-	return 0;
-	// TODO Auto-generated method stub
-	
-}
-	
 
+	
 
 
 }

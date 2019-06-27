@@ -36,14 +36,7 @@
 						
 						<table>
 							<tbody>
-	<!-- 							<tr>
-									<th>id</th>
-									<td><input type="text" name="fid"></td>
-								</tr> -->
-								<tr>
-									<th>mid</th>
-									<td><input type="text" name="memberId"></td>
-								</tr>
+	
 								<tr>
 									<th>카테고리</th>
 									<td>

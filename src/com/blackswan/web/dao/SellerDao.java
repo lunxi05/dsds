@@ -18,12 +18,12 @@ public interface SellerDao {
 	List<Seller> getList(int page) throws ClassNotFoundException, SQLException;
 	List<Seller> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
 	
-	FundingView get(int id) throws ClassNotFoundException, SQLException;
+	Seller get(int id) throws ClassNotFoundException, SQLException;
 	
 	
 	
 	int insert(Seller seller) throws ClassNotFoundException, SQLException;
-	int update(Funding seller) throws ClassNotFoundException, SQLException;
+	int update(Seller seller) throws ClassNotFoundException, SQLException;
 	int delete(int id) throws ClassNotFoundException, SQLException;
 	int getLastId() throws ClassNotFoundException, SQLException;
 }
