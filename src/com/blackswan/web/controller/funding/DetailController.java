@@ -27,9 +27,7 @@ public class DetailController extends HttpServlet {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		
 		try {
-//			req.setAttribute(name, o);
-			req.setAttribute("funding", fundingDao.get(id));
-			req.setAttribute("price", fundingPrice.getList(id));
+			req.setAttribute("funding", fundingDao.getView(id));
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

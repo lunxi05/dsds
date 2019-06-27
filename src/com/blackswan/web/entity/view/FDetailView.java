@@ -22,8 +22,6 @@ public class FDetailView {
 	private String rimg;
 	private String re_id;
 	
-	
-	
 	public FDetailView() {
 		// TODO Auto-generated constructor stub
 	}

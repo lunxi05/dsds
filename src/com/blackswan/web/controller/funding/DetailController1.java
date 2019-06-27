@@ -14,7 +14,7 @@ import com.blackswan.web.dao.FundingPriceDao;
 import com.blackswan.web.dao.oracle.OracleFundingDao;
 import com.blackswan.web.dao.oracle.OracleFundingPriceDao;
 
-@WebServlet("/funding/detail")
+@WebServlet("/funding/detail/1")
 public class DetailController1 extends HttpServlet {
 
 	@Override
