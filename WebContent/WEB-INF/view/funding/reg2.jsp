@@ -5,21 +5,24 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Black Swan Funding</title>
 
 </head>
 
 <body>
+
+<h1 class="hidden">BLACKSWAN</h1>
+	<jsp:include page="../inc/header.jsp" />
+
 	<div id="body">
 		<div class="content-box">
 
@@ -28,11 +31,11 @@
 
 
 			<section>
-				<h1>펀딩등록</h1>
+				<h1>판매자등록</h1>
 
 				<section>
-					<h2>펀딩등록 상세</h2>
-					<form action="reg" method="post" enctype="multipart/form-data">
+					<h2>판매자등록 상세</h2>
+					<form action="reg2" method="post" enctype="multipart/form-data">
 						
 						<table>
 							<tbody>

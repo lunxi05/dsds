@@ -217,7 +217,32 @@ public class OracleFundingDao implements FundingDao{
 	@Override
 	public int update(Funding funding) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+
+		String sql =  "UPDATE funding "
+				+ "SET categoryId=?, title=?, tAmount=?, introImg=?, sdate=?, edate=?, content=? "
+				+ "WHERE id= ?";
+
+		String url = "jdbc:oracle:thin:@192.168.0.16:1521/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection(url, "\"PRJ\"", "1234");
+
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, funding.getCategoryId());
+		st.setString(2, funding.getTitle());
+		st.setInt(3, funding.gettAmount());
+		st.setString(4, funding.getIntroImg());
+		st.setNString(5, funding.getSdate());
+		st.setString(6, funding.getEdate());
+		st.setString(7, funding.getContent());
+	
+
+		result = st.executeUpdate();
+
+		st.close();
+		con.close();
+
+		return result;
 	}
 
 	@Override

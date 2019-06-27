@@ -11,10 +11,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.blackswan.web.dao.FundingDao;
@@ -28,6 +30,12 @@ import com.blackswan.web.entity.FundingPrice;
 import com.blackswan.web.entity.Seller;
 
 @WebServlet("/funding/reg")
+@MultipartConfig(
+		 location="d:\\temp",   
+		 fileSizeThreshold = 1024*1024,
+		 maxFileSize = 1024*1024*5, //5메가
+		 maxRequestSize = 1024*1024*5*5 // 5메가 5개까지
+		)
 public class RegController extends HttpServlet {
 	
 	
@@ -35,52 +43,22 @@ public class RegController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		SimpleDateFormat sdate_ = new SimpleDateFormat("yyyy-mm-dd");
-		SimpleDateFormat edate_ = new SimpleDateFormat("yyyy-mm-dd");
-		
-		//int fid = Integer.parseInt(request.getParameter("fid"));
-		String introImg = request.getParameter("introImg");
-		/*
-		 * int memberId = Integer.parseInt(request.getParameter("memberId")); int
-		 * categoryId = Integer.parseInt(request.getParameter("categoryId")); String
-		 * title = request.getParameter("title"); int tAmount =
-		 * Integer.parseInt(request.getParameter("tAmount"));
-		 * 
-		 * String sdate = request.getParameter("sdate"); String edate =
-		 * request.getParameter("edate"); int state =
-		 * Integer.parseInt(request.getParameter("state")); String content =
-		 * request.getParameter("content");
-		 */
-		
-		Funding funding = new Funding();
-		//funding.setId(fid);
-		funding.setIntroImg(introImg);
-		/*
-		 * funding.setMemberId(memberId); funding.setCategoryId(categoryId);
-		 * funding.setTitle(title); funding.settAmount(tAmount);
-		 * funding.setSdate(sdate); funding.setEdate(edate); funding.setState(state);
-		 * funding.setContent(content);
-		 */
-		
-		int result =0;
-		
-		FundingDao fundingDao = new OracleFundingDao();
+	
+		HttpSession session = request.getSession();
+		int id = (int) session.getAttribute("ssid");
 		
 		
+		int memberId = id; 
+		int categoryId = Integer.parseInt(request.getParameter("categoryId")); 
+		String title = request.getParameter("title"); 
+		int tAmount = Integer.parseInt(request.getParameter("tAmount"));
+		String sdate = request.getParameter("sdate"); 
+		String edate = request.getParameter("edate"); 
+		int state = Integer.parseInt(request.getParameter("state")); 
+		String content = request.getParameter("content");
+		 
 		
-		try {
-			result = fundingDao.insert(funding);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-			
-			
-		
-		Part filePart = request.getPart("file");
+		Part filePart = request.getPart("introImg");
 		String urlPath = "/upload";
 		String path = request.getServletContext().getRealPath(urlPath);
 		String fileName = filePart.getSubmittedFileName();
@@ -124,16 +102,41 @@ public class RegController extends HttpServlet {
 			fos.write(arr,0,i);
 		}
 		
+		Funding funding = new Funding();
+
+		funding.setMemberId(memberId); 
+		funding.setCategoryId(categoryId);
+		funding.setTitle(title); 
+		funding.settAmount(tAmount);
+		funding.setIntroImg(fileName);
+		funding.setSdate(sdate); 
+		funding.setEdate(edate); 
+		funding.setState(state);
+		funding.setContent(content);
+		
+		
+		int result =0;
+		
+		FundingDao fundingDao = new OracleFundingDao();
+		
+		try {
+			result = fundingDao.insert(funding);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		FundingPrice fundingprice = new FundingPrice();
 		FundingPriceDao fundingPriceDao = new OracleFundingPriceDao();
-
+		
 		int fid;
 		try {
 			fid = fundingPriceDao.getLastId();
 			int rPrice = Integer.parseInt(request.getParameter("rPrice"));
 			String rContent = request.getParameter("rContent");
-			
-			
 			
 			fundingprice.setId(fid);
 			fundingprice.setrPrice(rPrice);
@@ -163,9 +166,6 @@ public class RegController extends HttpServlet {
 			response.sendRedirect("list");
 		 
 		
-		
-		
-		
 	}
 
 	
@@ -173,6 +173,8 @@ public class RegController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/view/funding/reg.jsp").forward(request, response);
+		
+
+			request.getRequestDispatcher("/WEB-INF/view/funding/reg.jsp").forward(request, response);
 	}
 }

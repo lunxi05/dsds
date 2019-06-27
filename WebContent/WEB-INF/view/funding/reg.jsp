@@ -29,14 +29,6 @@
 		<div class="center">
 			<form action="reg" method="post" enctype="multipart/form-data">
 				<table class="list-table column">
-					<!-- <tr>
-						<td>id</td>
-						<td><input type="text" name="fid"></td>
-					</tr> -->
-					<tr>
-						<td>mid</td>
-						<td><input type="text" name="memberId"></td>
-					</tr>
 					<tr>
 						<td>카테고리</td>
 						<td>
@@ -82,10 +74,6 @@
 						<td>프로젝트 소개</td>
 						<td><textarea name="content"></textarea></td>
 					</tr>
-					<!-- <tr>
-						<th>펀딩 id</th>
-						<td>내용<input type="text" name="fid"></td>
-					</tr> -->
 					<tr>
 						<td>리워드 내용</td>
 						<td>금액<input type="text" name="rPrice"></td>
@@ -94,24 +82,15 @@
 					<tr>
 					  <td><input type="button" name="p-add" value="추가"></td>
 					  <td><input type="button" name="p-del" value="삭제"></td>
-					</tr> 
-					<!-- <tr>
-						<th>발송시작 시기</th>
-						<td><input type="date" name="send-date"></td>
-						<td><input type="date" name="send-date"></td>
-					</tr> -->
+					</tr>
 						
+
 				</table>
 				<div>
 					<input type="submit" value="저장"> <a href="list">취소</a>
 				</div>
 			</form>
-			
-			
-			
-			
-			
-			
+
 		</div>
 	</section>
 
