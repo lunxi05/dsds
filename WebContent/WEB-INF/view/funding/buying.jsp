@@ -43,8 +43,12 @@
 							<input name="adress_num" type="text" placeholder="예)123456"><br>
 							<label>주소</label><br>
 							<input name="adress" type="text" placeholder="예)서울시 ㅇㅇ구 ㅇㅇ동 ㅇㅇ호"><br>
-							<!-- <label>배송시 요청사항</label><br>
-							<input name="req" type="text" placeholder="예)부재시 문앞에 놓아주세요"><br>	 -->
+							<label>배송시 요청사항</label><br>
+							<input name="req" type="text" placeholder="예)부재시 문앞에 놓아주세요"><br>
+							<div class="hidden" id="aa">
+								<input type="text" name="pay_pr">
+								<input type="text" name="funding_id" value="${param.id}">
+							</div>
 						</div>
 						<div>
 						<input class="buying" type="submit" value="결제하기"><a href="/blackswan2/index"></a><br>

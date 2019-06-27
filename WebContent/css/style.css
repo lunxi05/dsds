@@ -570,9 +570,9 @@ table {
 				padding-left: 35px; 
 			}
 
-	.list-table.column tr {
-		height: auto;
-	}
+		.list-table.column .table-full {
+			height: 200px;
+		}
 	
 		.list-table.column tr td:first-child {
 			border-color: #fff #e5e5e5e5;

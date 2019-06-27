@@ -45,7 +45,7 @@
 				<h1 class="hidden">마이페이지 링크</h1>
 				<ul>
 					<li><a href="">최근 본 목록</a></li>
-					<li><a href="/blackswan2/member/mypage">마이페이지</a></li>
+					<li><a href="/blackswan2/member/mypage2">마이페이지</a></li>
 					<li><a href="">회원정보수정</a></li>
 					<li><a href="/blackswan2/member/logout">로그아웃</a></li>
 				</ul>

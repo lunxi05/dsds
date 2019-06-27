@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.blackswan.web.dao.ReviewDao;
 import com.blackswan.web.dao.oracle.OracleReviewDao;
-import com.blackswan.web.entity.Review;
+import com.blackswan.web.entity.view.ReviewView;
 
 @WebServlet("/review/reg")
 public class RegController extends HttpServlet {
@@ -24,7 +24,7 @@ public class RegController extends HttpServlet {
 	
 
 		ReviewDao reviewDao = new OracleReviewDao();
-		Review r = new Review();
+		ReviewView r = new ReviewView();
 		int result =0;
 		
 		r.setTitle(title);
