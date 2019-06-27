@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.blackswan.web.dao.FundingDao;
 import com.blackswan.web.dao.FundingPriceDao;
+import com.blackswan.web.dao.ReviewDao;
+import com.blackswan.web.dao.SelQnaDao;
 import com.blackswan.web.dao.oracle.OracleFundingDao;
 import com.blackswan.web.dao.oracle.OracleFundingPriceDao;
+import com.blackswan.web.dao.oracle.OracleReviewDao;
+import com.blackswan.web.dao.oracle.OracleSelQNADao;
 
 @WebServlet("/funding/detail")
 public class DetailController extends HttpServlet {
@@ -23,11 +27,13 @@ public class DetailController extends HttpServlet {
 		
 		FundingDao fundingDao = new OracleFundingDao();
 		FundingPriceDao fundingPrice = new OracleFundingPriceDao();
-		
+		ReviewDao rDao = new OracleReviewDao();
+		SelQnaDao sDao = new OracleSelQNADao();
 		Integer id = Integer.parseInt(req.getParameter("id"));
-		
+		System.out.println(id);
 		try {
-//			req.setAttribute(name, o);
+			req.setAttribute("qna", sDao.getList(id));
+			req.setAttribute("review", rDao.getList(1, id));
 			req.setAttribute("funding", fundingDao.get(id));
 			req.setAttribute("price", fundingPrice.getList(id));
 		} catch (ClassNotFoundException e) {
@@ -35,7 +41,6 @@ public class DetailController extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		req.getRequestDispatcher("/WEB-INF/view/funding/detail.jsp").forward(req, resp);
 	}
 

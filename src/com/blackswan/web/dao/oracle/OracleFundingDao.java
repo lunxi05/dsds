@@ -13,7 +13,6 @@ import java.util.List;
 import com.blackswan.web.dao.FundingDao;
 import com.blackswan.web.entity.Funding;
 import com.blackswan.web.entity.Seller;
-import com.blackswan.web.entity.view.FDetailView;
 import com.blackswan.web.entity.view.FundingView;
 
 public class OracleFundingDao implements FundingDao {
@@ -250,6 +249,8 @@ public class OracleFundingDao implements FundingDao {
 		return count;
 	}
 
+<<<<<<< HEAD
+=======
 	@Override
 	public FDetailView getView(int id) throws ClassNotFoundException, SQLException {
 		FDetailView funding = null;
@@ -277,6 +278,7 @@ public class OracleFundingDao implements FundingDao {
 
 		return funding;
 	}
+>>>>>>> refs/remotes/origin/master
 
 	@Override
 	public FundingView getViewMypage(int id) throws ClassNotFoundException, SQLException {
