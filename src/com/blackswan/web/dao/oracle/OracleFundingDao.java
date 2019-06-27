@@ -107,8 +107,8 @@ public class OracleFundingDao implements FundingDao {
 //		SimpleDateFormat edate_ = new SimpleDateFormat("yyyy-mm-dd");
 
 		String sql = "insert into funding(id, member_id, category_id, title, "
-				+ " t_amount, intro_img, s_date, e_date, state, CONTENT)"
-				+ "values(fun_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " t_amount, intro_img, s_date, e_date, CONTENT)"
+				+ "values(fun_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		String url = "jdbc:oracle:thin:@222.111.247.47:1522/xepdb1";
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -124,10 +124,17 @@ public class OracleFundingDao implements FundingDao {
 		st.setInt(4, funding.gettAmount());
 		st.setString(5, funding.getIntroImg());
 		st.setString(6, funding.getSdate());
+<<<<<<< HEAD
+		st.setString(7,funding.getEdate());
+		st.setString(8, funding.getContent());
+		
+	
+=======
 		st.setString(7, funding.getEdate());
 		st.setInt(8, funding.getState());
 		st.setString(9, funding.getContent());
 
+>>>>>>> refs/remotes/origin/master
 		result = st.executeUpdate();
 
 		st.close();
