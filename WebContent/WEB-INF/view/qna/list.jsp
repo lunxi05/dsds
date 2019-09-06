@@ -15,8 +15,8 @@
 
 		<main>
 		<section id="main">
-			<h1>공지사항</h1>
-
+			<h1>Q&A</h1>
+	<div class="center">
 			<section id="notice-search">
 				<h1 class="d-none">qna 검색</h1>
 				<form>
@@ -30,7 +30,7 @@
 			<section id="notice">
 				<h1 class="d-none">qna 목록</h1>
 				<form method="post">
-					<table border="1">
+					<table border="1" class="list-table">
 						<thead class="notice-header">
 							<tr>
 								<td class="id">qna 넘버</td>
@@ -63,30 +63,10 @@
 				</form>
 			</section>
 
-			<c:set var="page" value="${(empty param.p)? 1: param.p}" />
-			<c:set var="start" value="${page-(page-1)%5}" />
-			<c:set var="end" value="" />
-			<section id="pager">
-				<h1 class="d-none">페이지</h1>
-				<div>
-					<div>
-						<a href="${(page<6)?page:page-5}"></a>이전
-					</div>
-
-					<ul>
-						<c:forEach var="q" begin="${start}" end="${start+4}" varStatus="s">
-							<li><a href="list?p=${q}"> ${q}</a></li>
-
-						</c:forEach>
-
-
-					</ul>
-					<div>
-						<a href="list?p=${start+5}"> 다음</a>
-					</div>
-
-				</div>
-			</section>
+			
+			<jsp:include page="../inc/paging.jsp" />
+			
+			</div>
 		</section>
 		</main>
 	</div>
